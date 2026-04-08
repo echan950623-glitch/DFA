@@ -28,13 +28,12 @@ export default function Navbar() {
         {/* Navbar 使用自己獨立的寬容器，不受 container-max 影響 */}
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between h-[69px] px-5">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className={`font-black text-xl tracking-wider ${showSolid ? 'text-dfa-blue' : 'text-white'}`}>
-              DFA
-            </div>
-            <span className={`hidden xl:block text-xs ${showSolid ? 'text-gray-400' : 'text-white/60'}`}>
-              Dream Future Academy
-            </span>
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src={showSolid ? '/logos/logo-color-transparent.png' : '/logos/logo-white.png'}
+              alt="Dream Future Academy"
+              className="h-9 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Nav + CTA — 靠右對齊 */}

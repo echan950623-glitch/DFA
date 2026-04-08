@@ -4,23 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand core colors
-        'dfa-cyan': '#4DD9EC',
-        'dfa-blue': '#0066CC',
-        'dfa-dark': '#003366',
-        'dfa-light': '#F0FAFF',
+        // Brand core colors — matching DFA logo (cyan → blue gradient)
+        'dfa-cyan': '#22D4EC',
+        'dfa-blue': '#1A75F5',
+        'dfa-dark': '#0A2A6E',   // deep blue for dark sections
+        'dfa-navy': '#0C2057',
+        'dfa-light': '#E8F8FF',
         // UI utility tokens
-        'dfa-navy': '#003366',
         'dfa-surface': '#F8FAFC',
         'dfa-border': '#E2E8F0',
         'dfa-text': '#0F172A',
         'dfa-muted': '#64748B',
       },
       backgroundImage: {
-        // Brand gradient — only for large section backgrounds, NOT buttons
-        'dfa-gradient': 'linear-gradient(135deg, #4DD9EC 0%, #0066CC 100%)',
-        'dfa-gradient-r': 'linear-gradient(135deg, #0066CC 0%, #4DD9EC 100%)',
-        'dfa-gradient-dark': 'linear-gradient(135deg, #003366 0%, #0055AA 100%)',
+        // Hero gradient — cyan (left) → deep blue (right), matching DFA brand
+        'dfa-gradient': 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)',
+        'dfa-gradient-r': 'linear-gradient(to right, #1040CC 0%, #2DD8EE 100%)',
+        'dfa-gradient-dark': 'linear-gradient(to right, #0A2A6E 0%, #0C3A9A 100%)',
       },
       fontFamily: {
         sans: ['"Noto Sans TC"', '"Inter"', 'system-ui', 'sans-serif'],

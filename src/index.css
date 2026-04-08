@@ -17,7 +17,7 @@
 .dfa-entry-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, #4DD9EC 0%, #0066CC 60%, #003366 100%);
+  background: linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%);
   z-index: 9999;
   display: flex;
   align-items: center;
