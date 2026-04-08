@@ -8,6 +8,7 @@ import UkAusNzPage from './pages/programs/UkAusNzPage'
 import UclaTransferPage from './pages/success/UclaTransferPage'
 import UcbTransferPage from './pages/success/UcbTransferPage'
 import TagAdmissionPage from './pages/success/TagAdmissionPage'
+import ApplyAnalysisPage from './pages/ApplyAnalysisPage'
 import SchoolsPage from './pages/SchoolsPage'
 import TeamPage from './pages/TeamPage'
 import TuitionPage from './pages/TuitionPage'
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/success/ucla" element={<UclaTransferPage />} />
           <Route path="/success/ucb" element={<UcbTransferPage />} />
           <Route path="/success/tag" element={<TagAdmissionPage />} />
+          <Route path="/apply-analysis" element={<ApplyAnalysisPage />} />
           <Route path="/schools" element={<SchoolsPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/tuition" element={<TuitionPage />} />

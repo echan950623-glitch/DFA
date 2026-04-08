@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaBookmark, FaQuestionCircle, FaGraduationCap, FaLightbulb } from 'react-icons/fa'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
+import SectionHeading from '../../components/ui/SectionHeading'
 
 const myths = [
   {
@@ -24,12 +25,18 @@ const myths = [
   },
 ]
 
+const TRANSFER_REQS = [
+  { num: '60', unit: '可轉學分', desc: '完成 60 學分可轉移課程，直接銜接目標院校大三' },
+  { num: 'IGETC', unit: '通識框架', desc: '完成 IGETC 通識課程框架，滿足 UC/CSU 系統轉學要求' },
+  { num: '3.5+', unit: 'GPA 門檻', desc: '達到目標院校所需 GPA，搭配顧問規劃確保穩定維持' },
+]
+
 export default function CommunityCollegePage() {
   return (
     <>
       <ProgramHero
         title="社區大學轉學名校"
-        subtitle="透過 2+2 轉學路徑，以更低門檻、更省學費的方式，成功轉入 UC 系統名校"
+        subtitle="不是備案，是更聰明的策略 — 2+2 路徑讓你以更低門檻進入美國頂尖名校"
       />
 
       {/* Section 1: 2+2 圖解 + 什麼是社區大學 + 特點 */}
@@ -87,6 +94,46 @@ export default function CommunityCollegePage() {
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── 專家引言 ── */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-max">
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="text-6xl text-dfa-blue opacity-20 font-serif leading-none mb-2">"</div>
+              <blockquote className="text-xl md:text-2xl font-bold text-gray-800 leading-relaxed mb-6">
+                那些被淘汰的學生並不是成績能力差，而是沒有一份讓你展翅飛翔的申請資料
+              </blockquote>
+              <p className="text-sm text-gray-500 font-medium">— 前哈佛專業申請人 Emerald Macreen</p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── 轉學三大要件 ── */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading title="轉學三大要件" subtitle="達成這三個條件，名校錄取機率大幅提升" />
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {TRANSFER_REQS.map((r, i) => (
+              <ScrollReveal key={r.unit} delay={i * 0.1}>
+                <div className="bg-white rounded-2xl border-2 border-dfa-cyan/30 p-6 text-center hover:border-dfa-blue hover:shadow-lg transition-all duration-300">
+                  <div
+                    className="text-3xl font-black mb-1"
+                    style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                  >
+                    {r.num}
+                  </div>
+                  <p className="font-bold text-gray-900 mb-3">{r.unit}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

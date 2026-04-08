@@ -22,6 +22,16 @@ const plans = [
   },
 ]
 
+/* ─── 美國 vs 加拿大比較 ─────────────────────────────────── */
+const COMPARE_ROWS = [
+  { label: '頂尖大學', us: 'MIT、史丹佛、UCLA、UCB', ca: '多倫多大學、UBC、麥基爾' },
+  { label: '畢業工作簽', us: 'OPT 1 年（STEM 延長 3 年）', ca: 'PGWP 最長 3 年' },
+  { label: '移民路徑', us: 'H-1B 工作簽→綠卡（競爭激烈）', ca: '聯邦快速移民 Express Entry' },
+  { label: '學費水準', us: '私立 $5–8 萬美元/年', ca: '$2.5–4 萬加幣/年（較低）' },
+  { label: '語言環境', us: '純英語，競爭激烈', ca: '英語為主（魁北克法語）' },
+  { label: '申請難度', us: '整體申請複雜，重視課外活動', ca: '以學術成績為主，相對直接' },
+]
+
 /* ─── 5 步申請流程 ─────────────────────────────────────────── */
 const steps = [
   {
@@ -303,6 +313,48 @@ export default function IvyLeaguePage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── 美國 vs 加拿大比較 ── */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" />
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-md border border-gray-100">
+              {/* Header row */}
+              <div className="grid grid-cols-3 text-center">
+                <div className="bg-gray-50 py-3 px-4 border-b border-gray-100">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">比較項目</span>
+                </div>
+                <div className="py-3 px-4 border-b border-blue-100" style={{ background: 'linear-gradient(135deg, #2DD8EE22, #1040CC22)' }}>
+                  <span className="text-sm font-black text-dfa-blue">🇺🇸 美國</span>
+                </div>
+                <div className="bg-red-50 py-3 px-4 border-b border-red-100">
+                  <span className="text-sm font-black text-red-700">🇨🇦 加拿大</span>
+                </div>
+              </div>
+              {/* Data rows */}
+              {COMPARE_ROWS.map((row, i) => (
+                <div
+                  key={row.label}
+                  className={`grid grid-cols-3 border-b border-gray-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/40'}`}
+                >
+                  <div className="px-4 py-3 flex items-center">
+                    <span className="text-xs font-semibold text-gray-600">{row.label}</span>
+                  </div>
+                  <div className="px-4 py-3 border-l border-blue-100">
+                    <span className="text-xs text-gray-700 leading-relaxed">{row.us}</span>
+                  </div>
+                  <div className="px-4 py-3 border-l border-red-100">
+                    <span className="text-xs text-gray-700 leading-relaxed">{row.ca}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
