@@ -65,8 +65,10 @@ export default function ApplyAnalysisPage() {
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading
+              label="Strategy"
               title="三層次申請策略"
               subtitle="聰明布局，確保最佳錄取結果"
+              split
             />
           </ScrollReveal>
 
@@ -76,12 +78,12 @@ export default function ApplyAnalysisPage() {
                 <div className={`rounded-lg border-2 p-6 ${tier.color} hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg`}>
                   <div className="flex items-center gap-3 mb-4">
                     <span className={`text-2xl font-black ${tier.badge}`}>{tier.en}</span>
-                    <span className="text-lg font-bold text-gray-900">{tier.label}</span>
+                    <span className="text-lg font-bold text-txt-primary">{tier.label}</span>
                   </div>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4">{tier.desc}</p>
+                  <p className="text-body text-txt-secondary leading-relaxed mb-4">{tier.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {tier.examples.map((ex) => (
-                      <span key={ex} className={`text-xs px-2 py-1 rounded-full font-medium ${tier.pill}`}>{ex}</span>
+                      <span key={ex} className={`text-caption px-2 py-1 rounded-md font-medium ${tier.pill}`}>{ex}</span>
                     ))}
                   </div>
                 </div>
@@ -90,7 +92,7 @@ export default function ApplyAnalysisPage() {
           </div>
 
           <ScrollReveal delay={0.3}>
-            <p className="text-center text-gray-500 text-sm mt-8 max-w-xl mx-auto leading-relaxed">
+            <p className="text-center text-txt-muted text-body mt-8 max-w-xl mx-auto leading-relaxed">
               DFA 顧問會依據每位學生的 GPA、修課紀錄、課外活動與目標，制定最優化的申請學校組合
             </p>
           </ScrollReveal>
@@ -101,7 +103,7 @@ export default function ApplyAnalysisPage() {
       <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="美國名校榜單" subtitle="DFA 學員成功錄取院校一覽" />
+            <SectionHeading label="Universities" title="美國名校榜單" subtitle="DFA 學員成功錄取院校一覽" split />
           </ScrollReveal>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-4xl mx-auto mb-16">
@@ -109,8 +111,8 @@ export default function ApplyAnalysisPage() {
               <ScrollReveal key={u.tag} delay={i * 0.05}>
                 <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                   <div className="text-xl font-black text-dfa-blue mb-1">{u.tag}</div>
-                  <p className="text-xs text-gray-700 font-medium leading-tight">{u.name}</p>
-                  <p className="text-[10px] text-gray-400 mt-1">{u.rank}</p>
+                  <p className="text-caption text-txt-secondary font-medium leading-tight">{u.name}</p>
+                  <p className="text-[10px] text-txt-faint mt-1">{u.rank}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -118,7 +120,7 @@ export default function ApplyAnalysisPage() {
 
           {/* Success stories */}
           <ScrollReveal>
-            <SectionHeading title="學員案例" subtitle="真實的錄取故事" />
+            <SectionHeading label="Success Stories" title="學員案例" subtitle="真實的錄取故事" split />
           </ScrollReveal>
 
           <div className="space-y-6 max-w-4xl mx-auto">
@@ -137,14 +139,14 @@ export default function ApplyAnalysisPage() {
                         {story.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-bold text-gray-900">{story.name}</p>
-                        <p className="text-xs text-gray-500">{story.college} → <span className="text-dfa-blue font-semibold">{story.university}</span></p>
-                        <p className="text-xs text-gray-500">{story.major} ｜ GPA <span className="font-bold text-dfa-blue">{story.gpa}</span></p>
+                        <p className="font-bold text-txt-primary">{story.name}</p>
+                        <p className="text-caption text-txt-muted">{story.college} → <span className="text-dfa-blue font-semibold">{story.university}</span></p>
+                        <p className="text-caption text-txt-muted">{story.major} ｜ GPA <span className="font-bold text-dfa-blue">{story.gpa}</span></p>
                       </div>
                     </div>
                     {/* Story preview / expand */}
                     <div className="flex-1">
-                      <p className={`text-sm text-gray-600 leading-relaxed ${activeStory?.name === story.name ? '' : 'line-clamp-2'}`}>
+                      <p className={`text-body text-txt-secondary leading-relaxed ${activeStory?.name === story.name ? '' : 'line-clamp-2'}`}>
                         {story.story}
                       </p>
                     </div>
@@ -163,7 +165,7 @@ export default function ApplyAnalysisPage() {
       <section className="section-padding" style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}>
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black text-white mb-3">讓顧問幫你分析最佳落點</h2>
+            <h2 className="text-h2 text-white mb-3">讓顧問幫你分析最佳落點</h2>
             <p className="text-white/80 mb-8">依據你的背景量身制定衝刺校・目標校・保底校清單</p>
             <a href="#contact" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               預約免費落點分析

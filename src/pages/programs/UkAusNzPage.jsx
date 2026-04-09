@@ -103,7 +103,7 @@ export default function UkAusNzPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="選擇你的目標國" subtitle="三個體制、三種優勢，找到最適合你的路徑" />
+            <SectionHeading label="Destinations" title="選擇你的目標國" subtitle="三個體制、三種優勢，找到最適合你的路徑" split />
           </ScrollReveal>
 
           {/* Tab buttons */}
@@ -113,10 +113,10 @@ export default function UkAusNzPage() {
                 <button
                   key={c.id}
                   onClick={() => setActiveTab(c.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 border-2 ${
+                  className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold text-sm transition-all duration-200 border-2 ${
                     activeTab === c.id
                       ? 'text-white shadow-lg scale-105'
-                      : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400'
+                      : 'bg-white text-txt-secondary border-gray-200 hover:border-gray-400'
                   }`}
                   style={activeTab === c.id ? { background: active.accent, borderColor: active.accent } : {}}
                 >
@@ -135,12 +135,12 @@ export default function UkAusNzPage() {
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-5xl">{active.flag}</span>
                   <div>
-                    <h3 className="text-2xl font-black text-gray-900">{active.name}</h3>
+                    <h3 className="text-h3 text-txt-primary">{active.name}</h3>
                     <p className="text-sm font-semibold" style={{ color: active.accent }}>{active.tagline}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed mb-8 text-base">{active.desc}</p>
+                <p className="text-body text-txt-secondary leading-relaxed mb-8">{active.desc}</p>
 
                 {/* Highlight pills */}
                 <div className="flex flex-wrap gap-4 mb-8">
@@ -154,10 +154,10 @@ export default function UkAusNzPage() {
 
                 {/* Schools */}
                 <div>
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">代表院校</p>
+                  <p className="text-eyebrow text-txt-muted uppercase mb-3">代表院校</p>
                   <div className="flex flex-wrap gap-2">
                     {active.schools.map((s) => (
-                      <span key={s} className="text-xs font-medium px-3 py-1.5 rounded-full bg-gray-100 text-gray-700">{s}</span>
+                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-gray-100 text-txt-secondary">{s}</span>
                     ))}
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function UkAusNzPage() {
       <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" />
+            <SectionHeading label="Why This Path" title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {WHY_REASONS.map((r, i) => (
@@ -179,8 +179,8 @@ export default function UkAusNzPage() {
                 <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4">
                   <span className="text-3xl shrink-0">{r.icon}</span>
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-1">{r.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
+                    <h4 className="text-h3 text-txt-primary mb-1">{r.title}</h4>
+                    <p className="text-body text-txt-secondary leading-relaxed">{r.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -193,7 +193,7 @@ export default function UkAusNzPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="誰適合這個計畫？" subtitle="以下族群尤其推薦" />
+            <SectionHeading label="Who It's For" title="誰適合這個計畫？" subtitle="以下族群尤其推薦" split />
           </ScrollReveal>
           <div className="max-w-3xl mx-auto space-y-4">
             {TARGET_PROFILES.map((p, i) => (
@@ -205,7 +205,7 @@ export default function UkAusNzPage() {
                   >
                     {i + 1}
                   </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">{p}</p>
+                  <p className="text-body text-txt-secondary leading-relaxed">{p}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -220,7 +220,7 @@ export default function UkAusNzPage() {
       >
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black text-white mb-3">找到屬於你的築夢路徑</h2>
+            <h2 className="text-h2 text-white mb-3">找到屬於你的築夢路徑</h2>
             <p className="text-white/80 mb-8">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
             <a
               href="#contact"

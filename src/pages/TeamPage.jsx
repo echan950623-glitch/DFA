@@ -28,12 +28,12 @@ export default function TeamPage() {
                         {member.name.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="text-lg font-black text-gray-900">{member.name}</h3>
-                        <p className="text-sm font-semibold text-dfa-blue">{member.school}</p>
-                        <p className="text-xs text-gray-500">{member.degree}</p>
+                        <h3 className="text-h3 text-txt-primary">{member.name}</h3>
+                        <p className="text-caption font-semibold text-dfa-blue">{member.school}</p>
+                        <p className="text-caption text-txt-muted">{member.degree}</p>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-500 leading-relaxed">{member.bio}</p>
+                    <p className="text-body text-txt-secondary leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -46,7 +46,7 @@ export default function TeamPage() {
       <section className="bg-dfa-gradient section-padding">
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black text-white mb-6">與我們的專業導師對話</h2>
+            <h2 className="text-h2 text-white mb-6">與我們的專業導師對話</h2>
             <a href="#contact" className="inline-block bg-white text-dfa-blue font-bold rounded-md px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               立即預約免費諮詢
             </a>

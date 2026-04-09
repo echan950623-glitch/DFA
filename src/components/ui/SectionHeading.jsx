@@ -1,12 +1,10 @@
 /**
- * SectionHeading
+ * SectionHeading — Crimson-style typography hierarchy
  *
- * Props:
- *  label     – small eyebrow text above title (optional)
- *  title     – main heading (big, bold)
- *  subtitle  – description; if `split` is true, shown beside title on desktop
- *  light     – white variant (dark bg sections)
- *  split     – title left + subtitle right on md+ screens
+ * 3 modes:
+ *  default  → eyebrow + H2 + subtitle below
+ *  split    → eyebrow + H2 left  |  subtitle right (desktop)
+ *  center   → everything centered (for CTA sections)
  */
 export default function SectionHeading({
   label,
@@ -14,46 +12,46 @@ export default function SectionHeading({
   subtitle,
   light = false,
   split = false,
+  center = false,
 }) {
-  const headingColor = light ? 'text-white' : 'text-gray-900'
-  const labelColor   = light ? 'text-dfa-cyan' : 'text-dfa-blue'
-  const subColor     = light ? 'text-white/50' : 'text-gray-400'
+  const h2Color   = light ? 'text-white' : 'text-txt-primary'
+  const eyeColor  = light ? 'text-dfa-cyan' : 'text-dfa-blue'
+  const subColor  = light ? 'text-white/50' : 'text-txt-muted'
 
+  const eyebrow = label && (
+    <p className={`text-eyebrow uppercase mb-3 ${eyeColor}`}>{label}</p>
+  )
+
+  /* ── Split: title left, subtitle right ── */
   if (split && subtitle) {
     return (
-      <div className="mb-10">
-        {label && (
-          <p className={`text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${labelColor}`}>
-            {label}
-          </p>
-        )}
-        <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-10">
-          <h2 className={`text-4xl md:text-5xl font-black leading-tight shrink-0 ${headingColor}`}>
-            {title}
-          </h2>
-          <p className={`text-base leading-relaxed ${subColor}`}>
-            {subtitle}
-          </p>
+      <div className="mb-heading-gap">
+        {eyebrow}
+        <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10">
+          <h2 className={`text-h2 shrink-0 ${h2Color}`}>{title}</h2>
+          <p className={`text-body leading-relaxed ${subColor}`}>{subtitle}</p>
         </div>
       </div>
     )
   }
 
+  /* ── Center ── */
+  if (center) {
+    return (
+      <div className="mb-heading-gap text-center">
+        {eyebrow}
+        <h2 className={`text-h2 mb-3 ${h2Color}`}>{title}</h2>
+        {subtitle && <p className={`text-body max-w-xl mx-auto ${subColor}`}>{subtitle}</p>}
+      </div>
+    )
+  }
+
+  /* ── Default: left-aligned, vertical stack ── */
   return (
-    <div className="mb-10">
-      {label && (
-        <p className={`text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${labelColor}`}>
-          {label}
-        </p>
-      )}
-      <h2 className={`text-4xl md:text-5xl font-black leading-tight mb-3 ${headingColor}`}>
-        {title}
-      </h2>
-      {subtitle && (
-        <p className={`text-base max-w-xl ${subColor}`}>
-          {subtitle}
-        </p>
-      )}
+    <div className="mb-heading-gap">
+      {eyebrow}
+      <h2 className={`text-h2 mb-3 ${h2Color}`}>{title}</h2>
+      {subtitle && <p className={`text-body max-w-xl ${subColor}`}>{subtitle}</p>}
     </div>
   )
 }

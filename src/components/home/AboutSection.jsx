@@ -12,36 +12,32 @@ export default function AboutSection() {
     <>
       {/* ── 關於我們 ── */}
       <section className="section-padding bg-white">
-        <div className="container-max w-full">
+        <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-            {/* Left: text */}
+            {/* Left */}
             <ScrollReveal>
-              <p className="text-xs font-semibold text-dfa-blue uppercase tracking-[0.2em] mb-4">
-                Who We Are
-              </p>
-              <h2 className="text-4xl md:text-5xl font-black text-dfa-dark mb-6 leading-tight">
-                關於我們
-              </h2>
-              <p className="text-gray-600 text-base leading-relaxed">
-                <span className="font-bold text-dfa-dark">夢想家留學 Dream Future Academy</span>{' '}
+              <p className="text-eyebrow text-dfa-blue uppercase mb-4">Who We Are</p>
+              <h2 className="text-h2 text-txt-primary mb-6">關於我們</h2>
+              <p className="text-body text-txt-secondary leading-relaxed">
+                <span className="font-bold text-txt-primary">夢想家留學 Dream Future Academy</span>{' '}
                 成立於高雄市，擁有多年國外升學輔導經驗，並於台北、台中及美國加州設有辦公室據點，
                 是一所專注於美國加州大學系統（University of California System）轉學申請規畫
                 的留學教育機構。
               </p>
             </ScrollReveal>
 
-            {/* Right: proof-point rows (no card boxes) */}
+            {/* Right: proof-point rows */}
             <ScrollReveal delay={0.15}>
               <div className="divide-y divide-gray-100">
                 {PROOF_POINTS.map((p) => (
                   <div key={p.label} className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
-                    <div className="w-0.5 h-full self-stretch min-h-[2.5rem] shrink-0"
+                    <div className="w-0.5 self-stretch min-h-[2.5rem] shrink-0"
                       style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)' }}
                     />
                     <div>
-                      <div className="font-bold text-dfa-dark text-sm mb-0.5">{p.label}</div>
-                      <div className="text-sm text-dfa-muted leading-relaxed">{p.sub}</div>
+                      <div className="text-h3 text-txt-primary mb-0.5" style={{ fontSize: '1.125rem' }}>{p.label}</div>
+                      <div className="text-caption text-txt-muted">{p.sub}</div>
                     </div>
                   </div>
                 ))}
@@ -54,34 +50,26 @@ export default function AboutSection() {
 
       {/* ── 願景 ── */}
       <section className="section-padding bg-dfa-dark">
-        <div className="container-max w-full">
+        <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* Left: heading */}
             <ScrollReveal>
-              <p className="text-xs font-semibold text-dfa-cyan uppercase tracking-[0.2em] mb-4">
-                Our Vision
-              </p>
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              <p className="text-eyebrow text-dfa-cyan uppercase mb-4">Our Vision</p>
+              <h2 className="text-h1 text-white leading-tight">
                 每一個背景，<br />
                 都值得一條<br />
                 <span className="text-dfa-cyan">通往頂尖大學的路。</span>
               </h2>
             </ScrollReveal>
 
-            {/* Right: body text */}
             <ScrollReveal delay={0.15}>
-              <div className="space-y-5 text-white/70 text-base leading-relaxed">
+              <div className="space-y-5 text-body text-white/60 leading-relaxed">
                 <p>
                   我們的核心理念是讓學生{' '}
                   <strong className="text-white font-semibold">
                     不因背景或資源限制而錯失進入世界頂尖大學的機會
                   </strong>
                   ，透過系統化的升學規畫與申請輔導，協助學生進入加州大學系統及美國頂尖大學。
-                </p>
-                <p>
-                  Dream Future Academy 長期關注美國高等教育體系與轉學政策發展，
-                  持續與國外教育資源保持交流合作，為學生提供最新且專業的申請資訊與策略建議。
                 </p>
                 <p>
                   我們提供完整的社區大學轉學規畫輔導，包含{' '}

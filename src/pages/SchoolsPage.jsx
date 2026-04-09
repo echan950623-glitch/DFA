@@ -48,7 +48,7 @@ export default function SchoolsPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="為何選擇美國大學？" subtitle="留學美國的核心優勢" />
+            <SectionHeading label="Why USA" title="為何選擇美國大學？" subtitle="留學美國的核心優勢" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {WHY_USA.map((w, i) => (
@@ -60,8 +60,8 @@ export default function SchoolsPage() {
                   >
                     {w.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-sm">{w.title}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{w.desc}</p>
+                  <h3 className="font-bold text-txt-primary mb-2 text-sm">{w.title}</h3>
+                  <p className="text-caption text-txt-secondary leading-relaxed">{w.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -73,7 +73,7 @@ export default function SchoolsPage() {
       <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="UC 系統目標名校" subtitle="DFA 學員成功錄取院校" />
+            <SectionHeading label="Target Schools" title="UC 系統目標名校" subtitle="DFA 學員成功錄取院校" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {UC_SCHOOLS.map((u, i) => (
@@ -87,11 +87,11 @@ export default function SchoolsPage() {
                       {u.tag}
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-sm leading-tight">{u.name}</p>
+                      <p className="font-bold text-txt-primary text-sm leading-tight">{u.name}</p>
                       <p className="text-xs text-dfa-blue font-medium">{u.rank}</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{u.note}</p>
+                  <p className="text-caption text-txt-muted leading-relaxed">{u.note}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -103,7 +103,7 @@ export default function SchoolsPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="合作社大院校" subtitle="Partner Community Colleges" />
+            <SectionHeading label="Partner Colleges" title="合作社大院校" subtitle="Partner Community Colleges" split />
           </ScrollReveal>
           <div className="space-y-8 max-w-4xl mx-auto">
             {partnerSchools.map((school, i) => (
@@ -119,15 +119,15 @@ export default function SchoolsPage() {
                         {school.nameEn.match(/\(([^)]+)\)/)?.[1] || school.name.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900">{school.name}</h3>
+                        <h3 className="text-h3 text-txt-primary">{school.name}</h3>
                         <p className="text-sm text-dfa-blue">{school.nameEn}</p>
-                        <p className="text-sm text-gray-600">成立於 {school.founded} 年</p>
+                        <p className="text-caption text-txt-secondary">成立於 {school.founded} 年</p>
                       </div>
                     </div>
                     <span className="inline-block text-xs font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue mb-3">
                       {school.highlight}
                     </span>
-                    <p className="text-gray-700 text-base leading-relaxed">{school.description}</p>
+                    <p className="text-body text-txt-secondary leading-relaxed">{school.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -140,7 +140,7 @@ export default function SchoolsPage() {
       <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="社大課表示例" subtitle="Sample Course Schedule" />
+            <SectionHeading label="Curriculum" title="社大課表示例" subtitle="Sample Course Schedule" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {sampleCourses.map((sem, i) => (
@@ -149,7 +149,7 @@ export default function SchoolsPage() {
                   <h3 className="font-bold text-dfa-blue mb-4">{sem.semester}</h3>
                   <ol className="space-y-2">
                     {sem.courses.map((course, j) => (
-                      <li key={j} className="flex items-start gap-3 text-base text-gray-700">
+                      <li key={j} className="flex items-start gap-3 text-body text-txt-secondary">
                         <span className="w-6 h-6 rounded-full bg-dfa-light text-dfa-blue text-xs flex items-center justify-center font-bold shrink-0">
                           {j + 1}
                         </span>
@@ -171,7 +171,7 @@ export default function SchoolsPage() {
       >
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black text-white mb-3">找到你的夢校</h2>
+            <h2 className="text-h2 text-white mb-3">找到你的夢校</h2>
             <p className="text-white/80 mb-8">讓 DFA 顧問為你量身規劃最佳申請策略</p>
             <a
               href="#contact"

@@ -161,10 +161,10 @@ function StepModal({ step, onClose }) {
             {step.icon}
           </div>
           <div>
-            <p className="text-xs font-semibold text-dfa-blue uppercase tracking-widest mb-0.5">
+            <p className="text-eyebrow text-dfa-blue uppercase mb-0.5">
               STEP {step.num}
             </p>
-            <h3 className="text-xl font-black text-dfa-dark leading-tight">
+            <h3 className="text-h3 text-txt-primary leading-tight">
               {step.detail.heading}
             </h3>
           </div>
@@ -180,7 +180,7 @@ function StepModal({ step, onClose }) {
               >
                 {i + 1}
               </span>
-              <span className="text-gray-700 text-sm leading-relaxed">{pt}</span>
+              <span className="text-body text-txt-secondary leading-relaxed">{pt}</span>
             </li>
           ))}
         </ul>
@@ -296,8 +296,8 @@ export default function IvyLeaguePage() {
               <ScrollReveal key={plan.title} delay={i * 0.1}>
                 <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all hover:-translate-y-1 duration-300">
                   <div className="h-1.5 bg-dfa-blue mb-6 w-16" />
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{plan.title}</h3>
-                  <p className="text-gray-700 text-base leading-relaxed mb-4">{plan.desc}</p>
+                  <h3 className="text-h3 text-txt-primary mb-3">{plan.title}</h3>
+                  <p className="text-body text-txt-secondary leading-relaxed mb-4">{plan.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {plan.highlights.map((h) => (
                       <span key={h} className="text-xs font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue">{h}</span>
@@ -321,7 +321,7 @@ export default function IvyLeaguePage() {
               {/* Header row */}
               <div className="grid grid-cols-3 text-center">
                 <div className="bg-gray-50 py-3 px-4 border-b border-gray-100">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">比較項目</span>
+                  <span className="text-eyebrow text-txt-muted uppercase">比較項目</span>
                 </div>
                 <div className="py-3 px-4 border-b border-blue-100" style={{ background: 'linear-gradient(135deg, #2DD8EE22, #1040CC22)' }}>
                   <span className="text-sm font-black text-dfa-blue">🇺🇸 美國</span>
@@ -337,13 +337,13 @@ export default function IvyLeaguePage() {
                   className={`grid grid-cols-3 border-b border-gray-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/40'}`}
                 >
                   <div className="px-4 py-3 flex items-center">
-                    <span className="text-xs font-semibold text-gray-600">{row.label}</span>
+                    <span className="text-caption text-txt-secondary">{row.label}</span>
                   </div>
                   <div className="px-4 py-3 border-l border-blue-100">
-                    <span className="text-xs text-gray-700 leading-relaxed">{row.us}</span>
+                    <span className="text-caption text-txt-secondary leading-relaxed">{row.us}</span>
                   </div>
                   <div className="px-4 py-3 border-l border-red-100">
-                    <span className="text-xs text-gray-700 leading-relaxed">{row.ca}</span>
+                    <span className="text-caption text-txt-secondary leading-relaxed">{row.ca}</span>
                   </div>
                 </div>
               ))}
@@ -424,7 +424,7 @@ export default function IvyLeaguePage() {
       <section className="bg-dfa-gradient section-padding">
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+            <h2 className="text-h2 text-white mb-6">
               準備好踏入世界頂尖學府了嗎？
             </h2>
             <a
