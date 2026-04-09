@@ -42,7 +42,8 @@
       "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/rounded-2xl/rounded-lg/g; s/rounded-xl/rounded-lg/g' {} +)",
       "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/section-padding bg-gray-50/section-padding bg-white/g' {} +)",
       "Bash(python3)",
-      "Bash(python3 -c \"print\\('hello'\\)\")"
+      "Bash(python3 -c \"print\\('hello'\\)\")",
+      "Bash(find src/ -name \"*.jsx\" -exec sed -i \"s/className=\\\\\"section-padding\\\\\">/className=\\\\\"section-padding bg-\\\\[#F0F7FF\\\\]\\\\\">/g\" {} +)"
     ]
   }
 }

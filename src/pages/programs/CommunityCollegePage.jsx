@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
+import DecoBlob from '../../components/ui/DecoBlob'
+import DecoDots from '../../components/ui/DecoDots'
 
 /* ── Data ── */
 const TRANSFER_REQS = [
@@ -79,23 +81,34 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 引言 ── body bg */}
-      <section className="section-padding">
-        <div className="container-max">
+      {/* ── 引言 ── DFA 漸層背景 */}
+      <section className="section-padding relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #1040CC 100%)' }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div className="container-max relative z-10">
           <ScrollReveal>
             <div className="max-w-3xl">
-              <blockquote className="text-h2 text-txt-primary leading-snug mb-6">
+              <blockquote className="text-h2 text-white leading-snug mb-6">
                 那些被淘汰的學生並不是成績能力差，而是沒有一份讓你展翅飛翔的申請資料
               </blockquote>
-              <p className="text-caption text-txt-muted">— 前哈佛專業申請人 Emerald Macreen</p>
+              <p className="text-caption text-white/50">— 前哈佛專業申請人 Emerald Macreen</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── 轉學三大要件 ── bg-white */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
+      <section className="section-padding bg-white relative overflow-hidden">
+        <DecoBlob position="top-right" size="md" opacity={0.04} />
+        <DecoDots position="bottom-8 left-8" cols={5} rows={5} opacity={0.08} />
+        <div className="container-max relative z-10">
           <ScrollReveal>
             <SectionHeading
               label="Transfer Requirements"
@@ -125,8 +138,8 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 項目介紹 ── body bg */}
-      <section className="section-padding">
+      {/* ── 項目介紹 ── 淡藍底 */}
+      <section className="section-padding bg-[#F0F7FF]">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading
@@ -145,8 +158,9 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* ── 破除迷思 ── bg-white */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
+      <section className="section-padding bg-white relative overflow-hidden">
+        <DecoBlob position="bottom-left" size="lg" opacity={0.05} />
+        <div className="container-max relative z-10">
           <ScrollReveal>
             <SectionHeading
               label="Myth Busting"

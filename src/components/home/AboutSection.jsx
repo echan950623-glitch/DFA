@@ -1,4 +1,6 @@
 import ScrollReveal from '../ui/ScrollReveal'
+import DecoBlob from '../ui/DecoBlob'
+import DecoDots from '../ui/DecoDots'
 
 const PROOF_POINTS = [
   { label: '客製化轉學規劃', sub: '依每位學生背景量身制定升學路徑' },
@@ -11,8 +13,12 @@ export default function AboutSection() {
   return (
     <>
       {/* ── 關於我們 ── */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
+      <section className="section-padding bg-white relative overflow-hidden">
+        {/* DFA 裝飾 blob */}
+        <DecoBlob position="bottom-right" size="lg" opacity={0.06} />
+        <DecoDots position="top-8 right-12" cols={6} rows={6} opacity={0.1} />
+
+        <div className="container-max relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* Left */}
@@ -27,17 +33,17 @@ export default function AboutSection() {
               </p>
             </ScrollReveal>
 
-            {/* Right: proof-point rows */}
+            {/* Right: proof-point rows with cyan accent */}
             <ScrollReveal delay={0.15}>
-              <div className="divide-y divide-gray-100">
+              <div className="space-y-0">
                 {PROOF_POINTS.map((p) => (
-                  <div key={p.label} className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
-                    <div className="w-0.5 self-stretch min-h-[2.5rem] shrink-0"
-                      style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)' }}
+                  <div key={p.label} className="flex items-start gap-5 py-6 border-b border-gray-100 last:border-0">
+                    <div className="w-1 self-stretch min-h-[3rem] shrink-0 rounded-full"
+                      style={{ background: 'linear-gradient(to bottom, #22D4EC, #1A75F5)' }}
                     />
                     <div>
-                      <div className="text-h3 text-txt-primary mb-0.5" style={{ fontSize: '1.125rem' }}>{p.label}</div>
-                      <div className="text-caption text-txt-muted">{p.sub}</div>
+                      <div className="text-h3 text-txt-primary mb-1">{p.label}</div>
+                      <div className="text-body text-txt-muted">{p.sub}</div>
                     </div>
                   </div>
                 ))}
@@ -48,13 +54,24 @@ export default function AboutSection() {
         </div>
       </section>
 
-      {/* ── 願景 ── */}
-      <section className="section-padding bg-dfa-dark">
-        <div className="container-max">
+      {/* ── 願景 ── 用 DFA 漸層背景，跟 PDF page 1-2 一致 */}
+      <section className="section-padding relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #1040CC 100%)' }}
+      >
+        {/* Dot grid overlay like Hero */}
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+
+        <div className="container-max relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <ScrollReveal>
-              <p className="text-eyebrow text-dfa-cyan uppercase mb-4">Our Vision</p>
+              <p className="text-eyebrow text-white/60 uppercase mb-4">Our Vision</p>
               <h2 className="text-h1 text-white leading-tight">
                 每一個背景，<br />
                 都值得一條<br />
@@ -63,7 +80,7 @@ export default function AboutSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="space-y-5 text-body text-white/60 leading-relaxed">
+              <div className="space-y-5 text-body text-white/70 leading-relaxed">
                 <p>
                   我們的核心理念是讓學生{' '}
                   <strong className="text-white font-semibold">
