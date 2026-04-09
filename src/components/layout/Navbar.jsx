@@ -25,20 +25,19 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        {/* Navbar 使用自己獨立的寬容器，不受 container-max 影響 */}
-        <div className="max-w-screen-2xl mx-auto flex items-center justify-between h-[69px] px-5">
+        <div className="max-w-screen-2xl mx-auto flex items-center justify-between h-[76px] px-6 xl:px-[75px]">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img
               src={showSolid ? '/logos/logo-color-transparent.png' : '/logos/logo-white.png'}
               alt="Dream Future Academy"
-              className="h-9 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </Link>
 
-          {/* Desktop Nav + CTA — 靠右對齊 */}
-          <div className="hidden lg:flex items-center gap-0">
-            <nav className="flex items-center gap-0">
+          {/* Desktop Nav + CTA */}
+          <div className="hidden lg:flex items-center gap-1">
+            <nav className="flex items-center gap-1">
               {navItems.map((item) =>
                 item.children ? (
                   <NavDropdown key={item.label} item={item} solid={showSolid} />
@@ -46,10 +45,10 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className={`px-2.5 py-2 text-[13px] font-medium whitespace-nowrap transition-colors ${
+                    className={`px-3 py-2 text-[15px] font-medium whitespace-nowrap transition-colors rounded-md ${
                       showSolid
-                        ? 'text-gray-600 hover:text-dfa-blue'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
+                        : 'text-white/85 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.label}
@@ -59,7 +58,7 @@ export default function Navbar() {
             </nav>
             <Link
               to="#contact"
-              className={`ml-3 text-sm font-medium px-4 py-2 rounded-md transition-all whitespace-nowrap ${
+              className={`ml-4 text-[15px] font-semibold px-6 py-2.5 rounded-md transition-all whitespace-nowrap ${
                 showSolid
                   ? 'bg-dfa-blue text-white hover:bg-dfa-dark'
                   : 'bg-white/10 text-white border border-white/30 hover:bg-white/20'
@@ -74,7 +73,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`lg:hidden p-2 ${showSolid ? 'text-gray-700' : 'text-white'}`}
           >
-            {mobileOpen ? <HiX size={22} /> : <HiMenu size={22} />}
+            {mobileOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
         </div>
       </header>

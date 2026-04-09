@@ -13,9 +13,9 @@ export default function MobileMenu({ onClose }) {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: '100%' }}
       transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-0 top-16 z-40 bg-white overflow-y-auto"
+      className="fixed inset-0 top-[76px] z-40 bg-white overflow-y-auto"
     >
-      <nav className="p-4 space-y-1">
+      <nav className="p-5 space-y-1">
         {navItems.map((item) =>
           item.children ? (
             <div key={item.label}>
@@ -23,7 +23,7 @@ export default function MobileMenu({ onClose }) {
                 onClick={() =>
                   setExpandedItem(expandedItem === item.label ? null : item.label)
                 }
-                className="flex items-center justify-between w-full px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-dfa-light"
+                className="flex items-center justify-between w-full px-4 py-3.5 text-[17px] text-gray-700 font-medium rounded-md hover:bg-dfa-light"
               >
                 {item.label}
                 <HiChevronDown
@@ -43,7 +43,7 @@ export default function MobileMenu({ onClose }) {
                       key={child.path}
                       to={child.path}
                       onClick={onClose}
-                      className="block px-4 py-3 text-base text-gray-700 rounded-lg hover:bg-dfa-light hover:text-dfa-blue"
+                      className="block px-4 py-3.5 text-[16px] text-gray-600 rounded-md hover:bg-dfa-light hover:text-dfa-blue"
                     >
                       {child.label}
                     </Link>
@@ -56,7 +56,7 @@ export default function MobileMenu({ onClose }) {
               key={item.label}
               to={item.path}
               onClick={onClose}
-              className="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-dfa-light"
+              className="block px-4 py-3.5 text-[17px] text-gray-700 font-medium rounded-md hover:bg-dfa-light"
             >
               {item.label}
             </Link>
@@ -66,7 +66,7 @@ export default function MobileMenu({ onClose }) {
           <Link
             to="#contact"
             onClick={onClose}
-            className="block text-center btn-gradient w-full"
+            className="block text-center text-[16px] font-semibold bg-dfa-blue text-white py-3.5 rounded-md hover:bg-dfa-dark transition-colors w-full"
           >
             免費諮詢
           </Link>
