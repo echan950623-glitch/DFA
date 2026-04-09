@@ -98,7 +98,7 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* ── 專家引言 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
@@ -138,7 +138,7 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* Section 2: 項目介紹 */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto border border-gray-200 rounded-lg overflow-hidden shadow-sm">
@@ -170,7 +170,7 @@ export default function CommunityCollegePage() {
               <ScrollReveal key={i} delay={i * 0.12}>
                 <div className="relative pt-10">
                   {/* Floating icon above card */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-50 px-3">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-white px-3">
                     <m.Icon className="text-5xl text-dfa-blue" />
                   </div>
                   <div className="bg-white rounded-lg border-2 border-dfa-cyan p-6 pt-10 shadow-sm min-h-[160px]">
@@ -186,7 +186,7 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* Section 4: CTA 彈出動畫 */}
-      <section className="section-padding bg-white overflow-hidden">
+      <section className="section-padding overflow-hidden">
         <div className="container-max text-center">
           <motion.div
             initial={{ scale: 0.2, opacity: 0 }}

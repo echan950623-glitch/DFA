@@ -70,7 +70,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── UC 系統目標名校 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="UC 系統目標名校" subtitle="DFA 學員成功錄取院校" />
@@ -137,7 +137,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── 課表示例 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="社大課表示例" subtitle="Sample Course Schedule" />

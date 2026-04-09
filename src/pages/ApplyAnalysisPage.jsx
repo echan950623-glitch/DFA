@@ -98,7 +98,7 @@ export default function ApplyAnalysisPage() {
       </section>
 
       {/* ── 美國名校榜單 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="美國名校榜單" subtitle="DFA 學員成功錄取院校一覽" />

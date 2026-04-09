@@ -311,7 +311,7 @@ export default function IvyLeaguePage() {
       </section>
 
       {/* ── 美國 vs 加拿大比較 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" />

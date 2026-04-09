@@ -168,7 +168,7 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── 為什麼選擇這條路 ── */}
-      <section className="section-padding bg-white">
+      <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" />

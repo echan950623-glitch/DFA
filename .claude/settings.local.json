@@ -40,7 +40,9 @@
       "Bash(python -m markitdown \"C:/Users/echan/OneDrive/桌面/接案/Asc_lab/DFA 網站架構表 01.pptx\")",
       "WebFetch(domain:www.crimsoneducation.org)",
       "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/rounded-2xl/rounded-lg/g; s/rounded-xl/rounded-lg/g' {} +)",
-      "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/section-padding bg-gray-50/section-padding bg-white/g' {} +)"
+      "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/section-padding bg-gray-50/section-padding bg-white/g' {} +)",
+      "Bash(python3)",
+      "Bash(python3 -c \"print\\('hello'\\)\")"
     ]
   }
 }

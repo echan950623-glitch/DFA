@@ -13,17 +13,17 @@ export default function AboutSection() {
       {/* ── 關於我們 ── */}
       <section className="section-padding bg-white">
         <div className="container-max w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
             {/* Left: text */}
             <ScrollReveal>
-              <p className="text-xs font-semibold text-dfa-blue uppercase tracking-[0.18em] mb-3">
+              <p className="text-xs font-semibold text-dfa-blue uppercase tracking-[0.2em] mb-4">
                 Who We Are
               </p>
               <h2 className="text-4xl md:text-5xl font-black text-dfa-dark mb-6 leading-tight">
                 關於我們
               </h2>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed">
                 <span className="font-bold text-dfa-dark">夢想家留學 Dream Future Academy</span>{' '}
                 成立於高雄市，擁有多年國外升學輔導經驗，並於台北、台中及美國加州設有辦公室據點，
                 是一所專注於美國加州大學系統（University of California System）轉學申請規畫
@@ -31,16 +31,18 @@ export default function AboutSection() {
               </p>
             </ScrollReveal>
 
-            {/* Right: proof-point grid */}
+            {/* Right: proof-point rows (no card boxes) */}
             <ScrollReveal delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="divide-y divide-gray-100">
                 {PROOF_POINTS.map((p) => (
-                  <div
-                    key={p.label}
-                    className="rounded-lg border border-dfa-border bg-dfa-surface p-5 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
-                  >
-                    <div className="text-sm font-bold text-dfa-dark mb-1">{p.label}</div>
-                    <div className="text-xs text-dfa-muted leading-relaxed">{p.sub}</div>
+                  <div key={p.label} className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
+                    <div className="w-0.5 h-full self-stretch min-h-[2.5rem] shrink-0"
+                      style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)' }}
+                    />
+                    <div>
+                      <div className="font-bold text-dfa-dark text-sm mb-0.5">{p.label}</div>
+                      <div className="text-sm text-dfa-muted leading-relaxed">{p.sub}</div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -53,39 +55,30 @@ export default function AboutSection() {
       {/* ── 願景 ── */}
       <section className="section-padding bg-dfa-dark">
         <div className="container-max w-full">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
+            {/* Left: heading */}
             <ScrollReveal>
-              <p className="text-xs font-semibold text-dfa-cyan uppercase tracking-[0.18em] mb-4">
+              <p className="text-xs font-semibold text-dfa-cyan uppercase tracking-[0.2em] mb-4">
                 Our Vision
               </p>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
-                願景
+              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                每一個背景，<br />
+                都值得一條<br />
+                <span className="text-dfa-cyan">通往頂尖大學的路。</span>
               </h2>
             </ScrollReveal>
 
+            {/* Right: body text */}
             <ScrollReveal delay={0.15}>
-              <p className="text-white/80 text-lg leading-relaxed mb-8">
-                我們的核心理念是讓學生{' '}
-                <strong className="text-white font-bold">
-                  不因背景或資源限制而錯失進入世界頂尖大學的機會
-                </strong>
-                ，透過系統化的升學規畫與申請輔導，協助學生進入加州大學系統及美國頂尖大學。
-              </p>
-            </ScrollReveal>
-
-            {/* 核心引言 */}
-            <ScrollReveal delay={0.25}>
-              <blockquote className="my-8 py-6 px-8 rounded-lg bg-white/5 border border-dfa-cyan/30">
-                <p className="text-white text-2xl md:text-3xl font-black leading-snug">
-                  每一個背景，都值得一條<br className="hidden sm:block" />
-                  <span className="text-dfa-cyan">通往頂尖大學的路。</span>
+              <div className="space-y-5 text-white/70 text-base leading-relaxed">
+                <p>
+                  我們的核心理念是讓學生{' '}
+                  <strong className="text-white font-semibold">
+                    不因背景或資源限制而錯失進入世界頂尖大學的機會
+                  </strong>
+                  ，透過系統化的升學規畫與申請輔導，協助學生進入加州大學系統及美國頂尖大學。
                 </p>
-              </blockquote>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.35}>
-              <div className="space-y-4 text-white/70 text-base leading-relaxed text-left">
                 <p>
                   Dream Future Academy 長期關注美國高等教育體系與轉學政策發展，
                   持續與國外教育資源保持交流合作，為學生提供最新且專業的申請資訊與策略建議。
