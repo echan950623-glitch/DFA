@@ -22,16 +22,16 @@ export default {
         'bg-tint': '#EEF3FA',
       },
 
-      /* ── Typography Scale (from Crimson analysis) ── */
+      /* ── Typography Scale — bold & confident ── */
       fontSize: {
-        'display': ['3.5rem', { lineHeight: '1.1', fontWeight: '900' }],
-        'h1':      ['3rem',   { lineHeight: '1.15', fontWeight: '900' }],
-        'h2':      ['2.5rem', { lineHeight: '1.2', fontWeight: '900' }],
-        'h3':      ['1.5rem', { lineHeight: '1.3', fontWeight: '700' }],
-        'body-lg': ['1.125rem', { lineHeight: '1.7', fontWeight: '400' }],
-        'body':    ['1.0625rem', { lineHeight: '1.7', fontWeight: '400' }],
-        'caption': ['0.875rem', { lineHeight: '1.5', fontWeight: '500' }],
-        'eyebrow': ['0.75rem', { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }],
+        'display': ['4.5rem', { lineHeight: '1.05', fontWeight: '900' }],   // 72px — hero stats
+        'h1':      ['3.75rem', { lineHeight: '1.1', fontWeight: '900' }],   // 60px — page title
+        'h2':      ['3rem',    { lineHeight: '1.15', fontWeight: '900' }],  // 48px — section title
+        'h3':      ['1.75rem', { lineHeight: '1.25', fontWeight: '700' }],  // 28px — card title
+        'body-lg': ['1.25rem', { lineHeight: '1.7', fontWeight: '400' }],   // 20px — emphasis body
+        'body':    ['1.125rem', { lineHeight: '1.7', fontWeight: '400' }],  // 18px — regular body
+        'caption': ['0.9375rem', { lineHeight: '1.5', fontWeight: '500' }], // 15px — labels
+        'eyebrow': ['0.8125rem', { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }], // 13px
       },
 
       /* ── Gradients ── */
