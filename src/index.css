@@ -9,10 +9,8 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply text-gray-800 font-sans;
+    @apply text-gray-800 font-sans text-body;
     background-color: #FFFFFF;
-    font-size: 17px;
-    line-height: 1.7;
   }
 }
 
