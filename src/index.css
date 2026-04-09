@@ -11,6 +11,8 @@
   body {
     @apply text-gray-800 font-sans;
     background-color: #EEF3FA;
+    font-size: 17px;
+    line-height: 1.7;
   }
 }
 

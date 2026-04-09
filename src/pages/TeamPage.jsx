@@ -14,7 +14,7 @@ export default function TeamPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="團隊介紹" subtitle="Dream Future Academy Education" />
+            <SectionHeading label="Our Team" title="築夢導師" subtitle="來自世界頂尖學府，陪你走每一步" split />
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -28,12 +28,12 @@ export default function TeamPage() {
                         {member.name.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900">{member.name}</h3>
-                        <p className="text-sm text-dfa-blue font-medium">{member.school}</p>
-                        <p className="text-sm text-gray-600">{member.degree}</p>
+                        <h3 className="text-lg font-black text-gray-900">{member.name}</h3>
+                        <p className="text-sm font-semibold text-dfa-blue">{member.school}</p>
+                        <p className="text-xs text-gray-500">{member.degree}</p>
                       </div>
                     </div>
-                    <p className="text-base text-gray-700 leading-relaxed">{member.bio}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </ScrollReveal>

@@ -116,20 +116,31 @@ export default function CommunityCollegePage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="轉學三大要件" subtitle="達成這三個條件，名校錄取機率大幅提升" />
+            <SectionHeading
+              label="Transfer Requirements"
+              title="轉學三大要件"
+              subtitle="達成這三個條件，名校錄取機率大幅提升"
+              split
+            />
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="divide-y divide-gray-100 max-w-3xl">
             {TRANSFER_REQS.map((r, i) => (
               <ScrollReveal key={r.unit} delay={i * 0.1}>
-                <div className="bg-white rounded-lg border-2 border-dfa-cyan/30 p-6 text-center hover:border-dfa-blue hover:shadow-lg transition-all duration-300">
-                  <div
-                    className="text-3xl font-black mb-1"
-                    style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                  >
-                    {r.num}
+                <div className="flex items-start gap-8 py-8 first:pt-0">
+                  {/* 大數字 */}
+                  <div className="shrink-0 w-28 text-right">
+                    <span
+                      className="text-5xl md:text-6xl font-black leading-none"
+                      style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                    >
+                      {r.num}
+                    </span>
                   </div>
-                  <p className="font-bold text-gray-900 mb-3">{r.unit}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
+                  {/* 說明 */}
+                  <div className="pt-1">
+                    <p className="text-xl font-bold text-gray-900 mb-1">{r.unit}</p>
+                    <p className="text-base text-gray-500 leading-relaxed">{r.desc}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}

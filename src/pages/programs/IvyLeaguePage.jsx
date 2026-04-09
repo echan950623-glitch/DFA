@@ -289,7 +289,7 @@ export default function IvyLeaguePage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="服務計畫" subtitle="確保您成功的多元化選擇" />
+            <SectionHeading label="Our Programs" title="服務計畫" subtitle="確保您成功的多元化選擇" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan, i) => (
@@ -314,7 +314,7 @@ export default function IvyLeaguePage() {
       <section className="section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" />
+            <SectionHeading label="Comparison" title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" split />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-md border border-gray-100">
@@ -357,8 +357,10 @@ export default function IvyLeaguePage() {
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading
+              label="Application Process"
               title="申請流程"
               subtitle="五個關鍵步驟，帶你從起點直達夢校"
+              split
             />
           </ScrollReveal>
 
