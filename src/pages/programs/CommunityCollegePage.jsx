@@ -126,20 +126,18 @@ export default function CommunityCollegePage() {
           <div className="divide-y divide-gray-100 max-w-3xl">
             {TRANSFER_REQS.map((r, i) => (
               <ScrollReveal key={r.unit} delay={i * 0.1}>
-                <div className="flex items-start gap-8 py-8 first:pt-0">
+                <div className="flex items-baseline gap-6 py-8 first:pt-0">
                   {/* 大數字 */}
-                  <div className="shrink-0 w-28 text-right">
-                    <span
-                      className="text-5xl md:text-6xl font-black leading-none"
-                      style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                    >
-                      {r.num}
-                    </span>
-                  </div>
+                  <span
+                    className="text-4xl md:text-5xl font-black leading-none shrink-0"
+                    style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                  >
+                    {r.num}
+                  </span>
                   {/* 說明 */}
-                  <div className="pt-1">
-                    <p className="text-xl font-bold text-gray-900 mb-1">{r.unit}</p>
-                    <p className="text-base text-gray-500 leading-relaxed">{r.desc}</p>
+                  <div>
+                    <p className="text-lg font-bold text-gray-900 mb-1">{r.unit}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>

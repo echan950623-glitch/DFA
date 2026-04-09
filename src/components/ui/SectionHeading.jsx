@@ -21,20 +21,20 @@ export default function SectionHeading({
 
   if (split && subtitle) {
     return (
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-        <div>
-          {label && (
-            <p className={`text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${labelColor}`}>
-              {label}
-            </p>
-          )}
-          <h2 className={`text-4xl md:text-5xl font-black leading-tight ${headingColor}`}>
+      <div className="mb-10">
+        {label && (
+          <p className={`text-xs font-semibold uppercase tracking-[0.2em] mb-2 ${labelColor}`}>
+            {label}
+          </p>
+        )}
+        <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-10">
+          <h2 className={`text-4xl md:text-5xl font-black leading-tight shrink-0 ${headingColor}`}>
             {title}
           </h2>
+          <p className={`text-base leading-relaxed ${subColor}`}>
+            {subtitle}
+          </p>
         </div>
-        <p className={`text-base max-w-sm leading-relaxed ${subColor}`}>
-          {subtitle}
-        </p>
       </div>
     )
   }
