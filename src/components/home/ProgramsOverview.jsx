@@ -40,7 +40,7 @@ export default function ProgramsOverview() {
 
               return (
                 <ScrollReveal key={program.id} delay={i * 0.12}>
-                  <div className="group rounded-2xl border border-dfa-border bg-white overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                  <div className="group rounded-lg border border-dfa-border bg-white overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
 
                     {/* Image / colour band */}
                     <div className={`relative h-44 bg-gradient-to-br ${style.gradient} flex flex-col items-center justify-center overflow-hidden gap-2`}>

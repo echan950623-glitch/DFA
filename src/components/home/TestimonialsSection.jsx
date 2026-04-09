@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t, i) => (
             <ScrollReveal key={t.name} delay={i * 0.12}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-white/20 transition-all duration-300 flex flex-col h-full">
+              <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/8 hover:border-white/20 transition-all duration-300 flex flex-col h-full">
 
                 {/* Quote mark */}
                 <div className="text-4xl font-serif leading-none mb-4" style={{ color: t.color }}>"</div>

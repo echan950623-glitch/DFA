@@ -98,7 +98,7 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* ── 專家引言 ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
@@ -121,7 +121,7 @@ export default function CommunityCollegePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {TRANSFER_REQS.map((r, i) => (
               <ScrollReveal key={r.unit} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl border-2 border-dfa-cyan/30 p-6 text-center hover:border-dfa-blue hover:shadow-lg transition-all duration-300">
+                <div className="bg-white rounded-lg border-2 border-dfa-cyan/30 p-6 text-center hover:border-dfa-blue hover:shadow-lg transition-all duration-300">
                   <div
                     className="text-3xl font-black mb-1"
                     style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
@@ -158,7 +158,7 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* Section 3: 破除迷思 */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-black text-dfa-blue text-center mb-16">

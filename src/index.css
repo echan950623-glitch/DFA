@@ -10,6 +10,7 @@
   }
   body {
     @apply text-gray-800 font-sans;
+    background-color: #F4F6F9;
   }
 }
 
@@ -87,7 +88,7 @@
            hover:bg-dfa-dark transition-all duration-300;
   }
   .section-padding {
-    @apply py-24 md:py-32 px-4;
+    @apply py-16 md:py-24 px-4;
   }
   .container-max {
     @apply max-w-6xl mx-auto;

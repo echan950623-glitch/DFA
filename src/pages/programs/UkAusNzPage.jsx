@@ -129,7 +129,7 @@ export default function UkAusNzPage() {
 
           {/* Tab content */}
           <ScrollReveal key={activeTab} delay={0.05}>
-            <div className={`max-w-4xl mx-auto rounded-2xl border-2 ${active.color} overflow-hidden shadow-md`}>
+            <div className={`max-w-4xl mx-auto rounded-lg border-2 ${active.color} overflow-hidden shadow-md`}>
               <div className="h-2" style={{ background: `linear-gradient(to right, ${active.accent}88, ${active.accent})` }} />
               <div className="p-8 md:p-10">
                 <div className="flex items-center gap-4 mb-6">
@@ -145,7 +145,7 @@ export default function UkAusNzPage() {
                 {/* Highlight pills */}
                 <div className="flex flex-wrap gap-4 mb-8">
                   {active.highlights.map((h) => (
-                    <div key={h.label} className={`rounded-xl px-4 py-2.5 ${active.badge}`}>
+                    <div key={h.label} className={`rounded-lg px-4 py-2.5 ${active.badge}`}>
                       <p className="text-xs font-medium opacity-70">{h.label}</p>
                       <p className="text-sm font-black">{h.value}</p>
                     </div>
@@ -168,7 +168,7 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── 為什麼選擇這條路 ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" />
@@ -176,7 +176,7 @@ export default function UkAusNzPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {WHY_REASONS.map((r, i) => (
               <ScrollReveal key={r.title} delay={i * 0.1}>
-                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4">
+                <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4">
                   <span className="text-3xl shrink-0">{r.icon}</span>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">{r.title}</h4>
@@ -198,7 +198,7 @@ export default function UkAusNzPage() {
           <div className="max-w-3xl mx-auto space-y-4">
             {TARGET_PROFILES.map((p, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <div className="flex items-start gap-4 bg-gray-50 rounded-lg p-5 border border-gray-100">
                   <div
                     className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5"
                     style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}

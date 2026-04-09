@@ -57,7 +57,7 @@ export default function TagAdmissionPage() {
       </section>
 
       {/* 參與 TAG 的 UC 學校 */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="參與 TAG 的 UC 校區" />

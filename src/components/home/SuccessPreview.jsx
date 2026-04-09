@@ -23,7 +23,7 @@ export default function SuccessPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featured.map((story, i) => (
             <ScrollReveal key={`${story.name}-${story.university}`} delay={i * 0.12}>
-              <div className="bg-white rounded-2xl border border-dfa-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+              <div className="bg-white rounded-lg border border-dfa-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
 
                 {/* Large background quote — purely decorative, gradient */}
                 <div

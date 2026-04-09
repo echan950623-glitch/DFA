@@ -29,7 +29,18 @@
       "Bash(echo \"ok: $TEMP/dfa-dist\")",
       "Bash(VITE_OUTDIR=\"$TEMP/dfa-dist\" npx vite build --outDir \"$TEMP/dfa-dist\" --emptyOutDir)",
       "Bash(DIST=\"C:/Users/echan/OneDrive/桌面/接案/Asc_lab/dist\")",
-      "Bash(cp -rf \"$TEMP/dfa-dist/.\" \"$DIST/\")"
+      "Bash(cp -rf \"$TEMP/dfa-dist/.\" \"$DIST/\")",
+      "Bash(gh pr:*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \":*)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 31868)",
+      "Bash(python -c ':*)",
+      "Bash(python -m markitdown \"C:/Users/echan/OneDrive/桌面/接案/Asc_lab/DFA 網站架構表 01.pptx\")",
+      "WebFetch(domain:www.crimsoneducation.org)",
+      "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/rounded-2xl/rounded-lg/g; s/rounded-xl/rounded-lg/g' {} +)",
+      "Bash(find src/ -name \"*.jsx\" -exec sed -i 's/section-padding bg-gray-50/section-padding bg-white/g' {} +)"
     ]
   }
 }

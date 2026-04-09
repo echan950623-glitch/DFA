@@ -208,8 +208,8 @@ export default function TuitionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((adv, i) => (
               <ScrollReveal key={adv.title} delay={i * 0.1}>
-                <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 duration-300">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center text-white"
+                <div className="bg-white rounded-lg shadow-md border border-gray-100 p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 duration-300">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-lg flex items-center justify-center text-white"
                     style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
                     <adv.icon className="text-2xl" />
                   </div>
@@ -223,7 +223,7 @@ export default function TuitionPage() {
       </section>
 
       {/* ── TAG ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="TAG 轉學優勢" />

@@ -53,9 +53,9 @@ export default function SchoolsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {WHY_USA.map((w, i) => (
               <ScrollReveal key={w.title} delay={i * 0.1}>
-                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                   <div
-                    className="w-14 h-14 mx-auto mb-4 rounded-xl flex items-center justify-center text-2xl"
+                    className="w-14 h-14 mx-auto mb-4 rounded-lg flex items-center justify-center text-2xl"
                     style={{ background: 'linear-gradient(135deg, #2DD8EE22, #1040CC22)' }}
                   >
                     {w.icon}
@@ -70,7 +70,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── UC 系統目標名校 ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="UC 系統目標名校" subtitle="DFA 學員成功錄取院校" />
@@ -78,7 +78,7 @@ export default function SchoolsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {UC_SCHOOLS.map((u, i) => (
               <ScrollReveal key={u.tag} delay={i * 0.08}>
-                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                   <div className="flex items-center gap-3 mb-3">
                     <div
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-black text-sm shrink-0"
@@ -137,7 +137,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── 課表示例 ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="社大課表示例" subtitle="Sample Course Schedule" />

@@ -13,7 +13,7 @@ const SCHOOLS = [
 
 export default function SchoolsStrip() {
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-white">
       <div className="container-max">
         <ScrollReveal>
           <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-[0.25em] mb-10">
@@ -26,7 +26,7 @@ export default function SchoolsStrip() {
             {SCHOOLS.map((s, i) => (
               <div
                 key={s.tag}
-                className="group flex flex-col items-center gap-1 px-5 py-3 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                className="group flex flex-col items-center gap-1 px-5 py-3 rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-default"
               >
                 <span
                   className="font-black text-lg leading-none"

@@ -145,7 +145,7 @@ function StepModal({ step, onClose }) {
     >
       {/* Panel — slide up on mobile, scale in on desktop */}
       <div
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden"
+        className="relative w-full max-w-lg bg-white rounded-lg shadow-2xl overflow-hidden"
         style={{ animation: 'modalIn 0.32s cubic-bezier(0.34,1.56,0.64,1) both' }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -155,7 +155,7 @@ function StepModal({ step, onClose }) {
         {/* Header */}
         <div className="px-8 pt-7 pb-4 flex items-start gap-4">
           <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl flex-shrink-0 shadow-md"
+            className="w-14 h-14 rounded-lg flex items-center justify-center text-3xl flex-shrink-0 shadow-md"
             style={{ background: 'linear-gradient(135deg,#4DD9EC,#0066CC)' }}
           >
             {step.icon}
@@ -250,7 +250,7 @@ function DiamondStep({ step, index, onClick }) {
 
         {/* Inner filled diamond */}
         <div
-          className="w-28 h-28 md:w-32 md:h-32 rounded-xl flex items-center justify-center
+          className="w-28 h-28 md:w-32 md:h-32 rounded-lg flex items-center justify-center
                      bg-dfa-blue hover:bg-dfa-dark
                      transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl shadow-lg"
           style={{ transform: 'rotate(45deg)' }}
@@ -263,12 +263,6 @@ function DiamondStep({ step, index, onClick }) {
           </div>
         </div>
 
-        {/* Click hint */}
-        <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap
-                        text-[10px] text-dfa-blue font-medium opacity-0 group-hover:opacity-100
-                        transition-opacity duration-200">
-          點擊查看詳情
-        </div>
       </button>
 
       {/* Bottom spacer for top-row diamonds */}
@@ -317,13 +311,13 @@ export default function IvyLeaguePage() {
       </section>
 
       {/* ── 美國 vs 加拿大比較 ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-md border border-gray-100">
               {/* Header row */}
               <div className="grid grid-cols-3 text-center">
                 <div className="bg-gray-50 py-3 px-4 border-b border-gray-100">
@@ -390,7 +384,7 @@ export default function IvyLeaguePage() {
                 <button
                   key={step.id}
                   onClick={() => setActiveStep(step)}
-                  className="w-full max-w-xs rounded-xl p-4 text-left shadow-md hover:shadow-lg bg-dfa-blue hover:bg-dfa-dark transition-all"
+                  className="w-full max-w-xs rounded-lg p-4 text-left shadow-md hover:shadow-lg bg-dfa-blue hover:bg-dfa-dark transition-all"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{step.icon}</span>

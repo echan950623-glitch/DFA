@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
 function FAQItem({ item, isOpen, onToggle }) {
   return (
     <div
-      className={`rounded-xl border transition-all duration-200 ${
+      className={`rounded-lg border transition-all duration-200 ${
         isOpen ? 'border-dfa-blue shadow-sm' : 'border-dfa-border'
       }`}
     >

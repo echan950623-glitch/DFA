@@ -60,12 +60,12 @@ export default function AdvantagesSection() {
           {advantages.map((adv, i) => (
             <ScrollReveal key={adv.title} delay={i * 0.1}>
               <div
-                className="rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border border-transparent"
+                className="rounded-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border border-transparent"
                 style={{ background: adv.bg }}
               >
                 {/* Gradient circle icon */}
                 <div
-                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${adv.gradient} flex items-center justify-center text-white mb-5 shadow-md`}
+                  className={`w-14 h-14 rounded-lg bg-gradient-to-br ${adv.gradient} flex items-center justify-center text-white mb-5 shadow-md`}
                 >
                   <adv.Icon className="text-2xl" />
                 </div>

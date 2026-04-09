@@ -59,7 +59,7 @@ export default function CTASection() {
 
           {/* Right: form — solid white card */}
           <ScrollReveal delay={0.2}>
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <div className="bg-white rounded-lg shadow-2xl p-8">
               {status === 'success' ? (
                 <div className="text-center py-8">
                   <div className="text-4xl mb-3">🎉</div>

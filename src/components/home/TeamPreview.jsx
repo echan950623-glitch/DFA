@@ -32,7 +32,7 @@ export default function TeamPreview() {
             return (
               <ScrollReveal key={member.name} delay={i * 0.1}>
                 <div
-                  className="bg-white rounded-2xl border border-dfa-border overflow-hidden
+                  className="bg-white rounded-lg border border-dfa-border overflow-hidden
                              hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
                   style={{ borderLeftColor: accent, borderLeftWidth: '4px' }}
                 >

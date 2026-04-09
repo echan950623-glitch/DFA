@@ -37,7 +37,7 @@ export default function AboutSection() {
                 {PROOF_POINTS.map((p) => (
                   <div
                     key={p.label}
-                    className="rounded-2xl border border-dfa-border bg-dfa-surface p-5 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+                    className="rounded-lg border border-dfa-border bg-dfa-surface p-5 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
                   >
                     <div className="text-sm font-bold text-dfa-dark mb-1">{p.label}</div>
                     <div className="text-xs text-dfa-muted leading-relaxed">{p.sub}</div>
@@ -76,7 +76,7 @@ export default function AboutSection() {
 
             {/* 核心引言 */}
             <ScrollReveal delay={0.25}>
-              <blockquote className="my-8 py-6 px-8 rounded-2xl bg-white/5 border border-dfa-cyan/30">
+              <blockquote className="my-8 py-6 px-8 rounded-lg bg-white/5 border border-dfa-cyan/30">
                 <p className="text-white text-2xl md:text-3xl font-black leading-snug">
                   每一個背景，都值得一條<br className="hidden sm:block" />
                   <span className="text-dfa-cyan">通往頂尖大學的路。</span>

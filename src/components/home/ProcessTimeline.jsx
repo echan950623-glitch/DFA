@@ -40,13 +40,13 @@ export default function ProcessTimeline() {
             return (
               <ScrollReveal key={step.num} delay={i * 0.06}>
                 <div
-                  className="relative rounded-2xl bg-white border border-dfa-border p-5 pt-6
+                  className="relative rounded-lg bg-white border border-dfa-border p-5 pt-6
                              hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group h-full"
                   style={{ borderTopColor: color, borderTopWidth: '3px' }}
                 >
                   {/* Step circle */}
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-xs font-black mb-4 shadow-sm"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-xs font-black mb-4 shadow-sm"
                     style={{ background: `linear-gradient(135deg, ${color}, ${STEP_COLORS[Math.min(i + 2, 7)]})` }}
                   >
                     {step.num}

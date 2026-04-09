@@ -116,7 +116,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
           >
             <div
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl pointer-events-auto"
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl pointer-events-auto"
               style={{
                 background: 'linear-gradient(135deg, #003366 0%, #0066CC 60%, #4DD9EC 100%)',
               }}
@@ -152,7 +152,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
-                    className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 flex flex-col items-center text-center hover:bg-white/15 transition-colors duration-200"
+                    className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-5 flex flex-col items-center text-center hover:bg-white/15 transition-colors duration-200"
                   >
                     {/* Connector arrow (hidden on mobile, last card) */}
                     {i < STEPS.length - 1 && (
