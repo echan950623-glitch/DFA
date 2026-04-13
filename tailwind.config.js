@@ -22,16 +22,16 @@ export default {
         'bg-tint': '#EEF3FA',
       },
 
-      /* ── Typography Scale — big headings, compact body ── */
+      /* ── Typography Scale ── */
       fontSize: {
-        'display': ['4.5rem', { lineHeight: '1.05', fontWeight: '900' }],   // 72px — hero stats
-        'h1':      ['3.75rem', { lineHeight: '1.1', fontWeight: '900' }],   // 60px — page title
-        'h2':      ['3rem',    { lineHeight: '1.15', fontWeight: '900' }],  // 48px — section title
-        'h3':      ['1.5rem',  { lineHeight: '1.3', fontWeight: '700' }],   // 24px — card title
-        'body-lg': ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }], // 18px — emphasis body
-        'body':    ['1rem',     { lineHeight: '1.75', fontWeight: '400' }],  // 16px — regular body
-        'caption': ['0.875rem', { lineHeight: '1.5', fontWeight: '500' }],  // 14px — labels
-        'eyebrow': ['0.75rem',  { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }], // 12px
+        'display': ['5.5rem',   { lineHeight: '1.05', fontWeight: '900' }],  // 88px
+        'h1':      ['4.25rem',  { lineHeight: '1.1', fontWeight: '900' }],   // 68px
+        'h2':      ['3.5rem',   { lineHeight: '1.12', fontWeight: '900' }],  // 56px
+        'h3':      ['1.875rem', { lineHeight: '1.3', fontWeight: '700' }],   // 30px
+        'body-lg': ['1.25rem',  { lineHeight: '1.75', fontWeight: '400' }],  // 20px
+        'body':    ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }],  // 18px
+        'caption': ['1rem',     { lineHeight: '1.5', fontWeight: '500' }],   // 16px
+        'eyebrow': ['0.875rem', { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }], // 14px
       },
 
       /* ── Gradients ── */

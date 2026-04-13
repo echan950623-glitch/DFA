@@ -13,7 +13,7 @@ export default function NavDropdown({ item, solid }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className={`flex items-center gap-1 px-3 py-2 text-[15px] font-medium whitespace-nowrap rounded-md transition-colors ${
+        className={`flex items-center gap-1 px-3 py-2 text-[16px] font-medium whitespace-nowrap rounded-md transition-colors ${
           solid
             ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
             : 'text-white/85 hover:text-white hover:bg-white/10'
@@ -39,7 +39,7 @@ export default function NavDropdown({ item, solid }) {
                 <Link
                   key={child.path}
                   to={child.path}
-                  className="block px-5 py-3 text-[15px] text-gray-700 hover:bg-dfa-light hover:text-dfa-blue transition-colors"
+                  className="block px-5 py-3 text-[16px] text-gray-700 hover:bg-dfa-light hover:text-dfa-blue transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   {child.label}

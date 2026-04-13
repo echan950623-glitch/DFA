@@ -45,7 +45,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className={`px-3 py-2 text-[15px] font-medium whitespace-nowrap transition-colors rounded-md ${
+                    className={`px-3 py-2 text-[16px] font-medium whitespace-nowrap transition-colors rounded-md ${
                       showSolid
                         ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
                         : 'text-white/85 hover:text-white hover:bg-white/10'
@@ -58,7 +58,7 @@ export default function Navbar() {
             </nav>
             <Link
               to="#contact"
-              className={`ml-4 text-[15px] font-semibold px-6 py-2.5 rounded-md transition-all whitespace-nowrap ${
+              className={`ml-4 text-[16px] font-semibold px-6 py-2.5 rounded-md transition-all whitespace-nowrap ${
                 showSolid
                   ? 'bg-dfa-blue text-white hover:bg-dfa-dark'
                   : 'bg-white/10 text-white border border-white/30 hover:bg-white/20'
