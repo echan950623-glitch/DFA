@@ -111,8 +111,8 @@ export default function ApplyAnalysisPage() {
               <ScrollReveal key={u.tag} delay={i * 0.05}>
                 <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                   <div className="text-xl font-black text-dfa-blue mb-1">{u.tag}</div>
-                  <p className="text-caption text-txt-secondary font-medium leading-tight">{u.name}</p>
-                  <p className="text-[10px] text-txt-faint mt-1">{u.rank}</p>
+                  <p className="text-xs text-txt-secondary font-medium leading-tight">{u.name}</p>
+                  <p className="text-[11px] text-txt-faint mt-1">{u.rank}</p>
                 </div>
               </ScrollReveal>
             ))}

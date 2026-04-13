@@ -28,9 +28,9 @@ export default function TeamPage() {
                         {member.name.charAt(0)}
                       </div>
                       <div>
-                        <h3 className="text-h3 text-txt-primary">{member.name}</h3>
-                        <p className="text-caption font-semibold text-dfa-blue">{member.school}</p>
-                        <p className="text-caption text-txt-muted">{member.degree}</p>
+                        <h3 className="text-xl font-bold text-txt-primary">{member.name}</h3>
+                        <p className="text-sm font-semibold text-dfa-blue">{member.school}</p>
+                        <p className="text-sm text-txt-muted">{member.degree}</p>
                       </div>
                     </div>
                     <p className="text-body text-txt-secondary leading-relaxed">{member.bio}</p>

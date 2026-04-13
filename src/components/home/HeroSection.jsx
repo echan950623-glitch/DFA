@@ -42,7 +42,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-h1 lg:text-display text-white leading-[1.08] mb-6"
+            className="text-h1 xl:text-display text-white leading-[1.08] mb-6"
           >
             社區大學 2 年<br />
             轉入美國名校
@@ -97,7 +97,7 @@ export default function HeroSection() {
             <div className="space-y-8">
               {STATS.map((s) => (
                 <div key={s.label}>
-                  <div className="text-display text-white leading-none mb-1">{s.num}</div>
+                  <div className="text-h1 text-white leading-none mb-1">{s.num}</div>
                   <div className="text-caption text-white/50">{s.label}</div>
                 </div>
               ))}

@@ -39,7 +39,7 @@ export default function CommunityCollegePage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-16">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-16">
               {[
                 { title: '2年社區大學', sub: '大一大二課程' },
                 { title: '2年綜合大學', sub: '大三大四課程' },
@@ -47,15 +47,15 @@ export default function CommunityCollegePage() {
               ].map((item, i) => (
                 <div key={i} className="contents">
                   {i > 0 && (
-                    <span className="text-display font-black text-dfa-blue leading-none">
+                    <span className="text-5xl md:text-6xl font-black text-dfa-blue leading-none">
                       {i === 1 ? '+' : '='}
                     </span>
                   )}
-                  <div className="w-48 h-48 rounded-full flex items-center justify-center text-white text-center p-6 shrink-0 shadow-lg"
+                  <div className="w-44 h-44 md:w-56 md:h-56 rounded-full flex items-center justify-center text-white text-center p-4 shrink-0 shadow-lg"
                     style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
                     <div>
-                      <p className="text-h3 text-white leading-snug">{item.title}</p>
-                      <p className="text-caption text-white/70 mt-1">{item.sub}</p>
+                      <p className="text-lg md:text-xl font-bold text-white leading-snug">{item.title}</p>
+                      <p className="text-sm text-white/70 mt-1">{item.sub}</p>
                     </div>
                   </div>
                 </div>

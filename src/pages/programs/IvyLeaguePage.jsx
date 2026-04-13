@@ -317,7 +317,7 @@ export default function IvyLeaguePage() {
             <SectionHeading label="Comparison" title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" split />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-md border border-gray-100">
+            <div className="max-w-4xl mx-auto rounded-lg overflow-x-auto shadow-md border border-gray-100">
               {/* Header row */}
               <div className="grid grid-cols-3 text-center">
                 <div className="bg-gray-50 py-3 px-4 border-b border-gray-100">

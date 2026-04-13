@@ -251,7 +251,7 @@ export default function TuitionPage() {
 
           {/* Plan headers */}
           <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-4 gap-3 mb-0 max-w-5xl mx-auto">
+            <div className="grid grid-cols-4 gap-3 mb-0 max-w-5xl mx-auto overflow-x-auto">
               <div /> {/* empty for row label col */}
               {VIP_PLANS.map((plan) => (
                 <div
@@ -273,7 +273,7 @@ export default function TuitionPage() {
 
           {/* Table rows */}
           <ScrollReveal delay={0.2}>
-            <div className="max-w-5xl mx-auto border border-gray-100 rounded-b-2xl overflow-hidden shadow-md">
+            <div className="max-w-5xl mx-auto border border-gray-100 rounded-b-2xl overflow-x-auto shadow-md" style={{ minWidth: 0 }}>
               {VIP_ROWS.map((group, gi) => (
                 <div key={group.category}>
                   {/* Category header */}
