@@ -61,19 +61,39 @@ export default function CommunityCollegePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-h1 xl:text-display text-white leading-[1.08] mb-4"
+            className="text-h1 xl:text-display text-white leading-[1.08] mb-2"
           >
-            社區大學轉學名校
+            夢想家留學
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Sub-title line */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-h3 text-white/90 font-semibold mb-5"
+          >
+            美國社區大學轉學 2+2 服務方案
+          </motion.p>
+
+          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-h3 text-white/80 max-w-2xl mb-16"
+            className="text-body text-white/80 leading-relaxed mb-3 max-w-2xl"
           >
-            不是備案，是更聰明的策略
+            透過完善升學規劃與轉學機制，在確保升學品質的同時有效控制整體留學支出，最高可節省百萬以上學費負擔。
+          </motion.p>
+
+          {/* English */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
+            className="text-caption text-white/40 italic leading-relaxed max-w-xl mb-16"
+          >
+            Through comprehensive academic planning and transfer pathways, students can maintain strong academic outcomes while effectively managing overall study costs, with potential savings of over one million NTD in tuition.
           </motion.p>
 
           {/* ── 2+2 Flow ── */}
