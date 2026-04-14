@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
+import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 import DecoBlob from '../../components/ui/DecoBlob'
-import DecoDots from '../../components/ui/DecoDots'
 
 /* ── Data ── */
 const TRANSFER_REQS = [
@@ -29,8 +29,14 @@ const MYTHS = [
 export default function CommunityCollegePage() {
   return (
     <>
+      {/* ── Hero ── */}
+      <ProgramHero
+        title="社區大學轉學名校"
+        subtitle="不是備案，是更聰明的策略"
+      />
+
       {/* ══════════════════════════════════════════════════════════
-          HERO — 全版藍色漸層背景（模仿 PDF 報價方案風格）
+          2+2 Flow + Transfer Requirements — 藍色漸層背景
           ══════════════════════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
@@ -45,62 +51,13 @@ export default function CommunityCollegePage() {
           }}
         />
 
-        <div className="container-max relative z-10 section-padding pt-32 md:pt-40 pb-20 md:pb-28">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md border border-white/20 bg-white/10 backdrop-blur-sm text-white text-caption mb-6"
-          >
-            Community College Transfer
-          </motion.div>
-
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-h1 xl:text-display text-white leading-[1.08] mb-2"
-          >
-            夢想家留學
-          </motion.h1>
-
-          {/* Sub-title line */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-h3 text-white/90 font-semibold mb-5"
-          >
-            美國社區大學轉學 2+2 服務方案
-          </motion.p>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-body text-white/80 leading-relaxed mb-3 max-w-2xl"
-          >
-            透過完善升學規劃與轉學機制，在確保升學品質的同時有效控制整體留學支出，最高可節省百萬以上學費負擔。
-          </motion.p>
-
-          {/* English */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.28 }}
-            className="text-caption text-white/40 italic leading-relaxed max-w-xl mb-16"
-          >
-            Through comprehensive academic planning and transfer pathways, students can maintain strong academic outcomes while effectively managing overall study costs, with potential savings of over one million NTD in tuition.
-          </motion.p>
-
+        <div className="container-max relative z-10 section-padding">
           {/* ── 2+2 Flow ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-16"
           >
             {[
@@ -127,8 +84,9 @@ export default function CommunityCollegePage() {
           {/* ── 轉學三大要件 — 玻璃卡片 ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
           >
             <h2 className="text-eyebrow text-white/50 uppercase mb-6">Transfer Requirements</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
