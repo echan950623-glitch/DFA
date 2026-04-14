@@ -131,8 +131,8 @@ export default function IvyLeaguePage() {
           <ScrollReveal>
             <div className="max-w-3xl">
               <blockquote className="text-h2 text-white leading-snug mb-6">
-                那些被淘汰的學生並不是成績能力差，<br />
-                而是沒有一份讓你展翅飛翔的申請資料
+                <span className="block whitespace-nowrap">那些被淘汰的學生並不是成績能力差，</span>
+                <span className="block whitespace-nowrap">而是沒有一份讓你展翅飛翔的申請資料</span>
               </blockquote>
               <p className="text-caption text-white/50">— 前哈佛專業申請人 Emerald Macreen</p>
             </div>
