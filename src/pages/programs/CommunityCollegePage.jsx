@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 import DecoBlob from '../../components/ui/DecoBlob'
@@ -30,40 +29,119 @@ const MYTHS = [
 export default function CommunityCollegePage() {
   return (
     <>
-      <ProgramHero
-        title="社區大學轉學名校"
-        subtitle="不是備案，是更聰明的策略 — 2+2 路徑讓你以更低門檻進入美國頂尖名校"
-      />
+      {/* ══════════════════════════════════════════════════════════
+          HERO — 全版藍色漸層背景（模仿 PDF 報價方案風格）
+          ══════════════════════════════════════════════════════════ */}
+      <section
+        className="relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
+      >
+        {/* Dot grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
 
-      {/* ── 2+2 流程圖 ── bg-white */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-16">
-              {[
-                { title: '2年社區大學', sub: '大一大二課程' },
-                { title: '2年綜合大學', sub: '大三大四課程' },
-                { title: '目標院校', sub: '學士學位' },
-              ].map((item, i) => (
-                <div key={i} className="contents">
-                  {i > 0 && (
-                    <span className="text-5xl md:text-6xl font-black text-dfa-blue leading-none">
-                      {i === 1 ? '+' : '='}
-                    </span>
-                  )}
-                  <div className="w-44 h-44 md:w-56 md:h-56 rounded-full flex items-center justify-center text-white text-center p-4 shrink-0 shadow-lg"
-                    style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
-                    <div>
-                      <p className="text-lg md:text-xl font-bold text-white leading-snug">{item.title}</p>
-                      <p className="text-sm text-white/70 mt-1">{item.sub}</p>
-                    </div>
+        <div className="container-max relative z-10 section-padding pt-32 md:pt-40 pb-20 md:pb-28">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md border border-white/20 bg-white/10 backdrop-blur-sm text-white text-caption mb-6"
+          >
+            Community College Transfer
+          </motion.div>
+
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-h1 xl:text-display text-white leading-[1.08] mb-4"
+          >
+            社區大學轉學名校
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-h3 text-white/80 max-w-2xl mb-16"
+          >
+            不是備案，是更聰明的策略
+          </motion.p>
+
+          {/* ── 2+2 Flow ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-16"
+          >
+            {[
+              { title: '2年社區大學', sub: '大一大二課程' },
+              { title: '2年綜合大學', sub: '大三大四課程' },
+              { title: '目標院校', sub: '學士學位' },
+            ].map((item, i) => (
+              <div key={i} className="contents">
+                {i > 0 && (
+                  <span className="text-5xl md:text-6xl font-black text-white/60 leading-none">
+                    {i === 1 ? '+' : '='}
+                  </span>
+                )}
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center text-white text-center p-4 shrink-0 border-2 border-white/20 bg-white/10 backdrop-blur-sm">
+                  <div>
+                    <p className="text-lg md:text-xl font-bold text-white leading-snug">{item.title}</p>
+                    <p className="text-sm text-white/60 mt-1">{item.sub}</p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* ── 轉學三大要件 — 玻璃卡片 ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            <h2 className="text-eyebrow text-white/50 uppercase mb-6">Transfer Requirements</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {TRANSFER_REQS.map((r) => (
+                <div
+                  key={r.unit}
+                  className="rounded-lg border border-white/15 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/15 transition-all duration-300"
+                >
+                  <div
+                    className="text-h1 font-black mb-2 leading-none"
+                    style={{ background: 'linear-gradient(to bottom, #fff, rgba(255,255,255,0.6))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                  >
+                    {r.num}
+                  </div>
+                  <p className="text-h3 text-white mb-1">{r.unit}</p>
+                  <p className="text-body text-white/60">{r.desc}</p>
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          </motion.div>
+        </div>
 
-          {/* 什麼是 + 特點 — 兩欄 */}
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
+          style={{ background: 'linear-gradient(90deg, transparent, #4DD9EC, transparent)' }}
+        />
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+          什麼是社區大學 + 特點
+          ══════════════════════════════════════════════════════════ */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ScrollReveal>
               <h3 className="text-h3 text-txt-primary mb-4">什麼是美國社區大學</h3>
@@ -81,9 +159,11 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 引言 ── DFA 漸層背景 */}
+      {/* ══════════════════════════════════════════════════════════
+          引言
+          ══════════════════════════════════════════════════════════ */}
       <section className="section-padding relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #1040CC 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
       >
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -104,41 +184,9 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 轉學三大要件 ── bg-white */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <DecoBlob position="top-right" size="md" opacity={0.04} />
-        <DecoDots position="bottom-8 left-8" cols={5} rows={5} opacity={0.08} />
-        <div className="container-max relative z-10">
-          <ScrollReveal>
-            <SectionHeading
-              label="Transfer Requirements"
-              title="轉學三大要件"
-              subtitle="達成這三個條件，名校錄取機率大幅提升"
-              split
-            />
-          </ScrollReveal>
-          <div className="divide-y divide-gray-100">
-            {TRANSFER_REQS.map((r, i) => (
-              <ScrollReveal key={r.unit} delay={i * 0.1}>
-                <div className="flex items-baseline gap-6 md:gap-10 py-8 first:pt-0">
-                  <span
-                    className="text-display font-black leading-none shrink-0"
-                    style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1040CC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                  >
-                    {r.num}
-                  </span>
-                  <div>
-                    <p className="text-h3 text-txt-primary mb-1">{r.unit}</p>
-                    <p className="text-body text-txt-muted">{r.desc}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 項目介紹 ── 淡藍底 */}
+      {/* ══════════════════════════════════════════════════════════
+          項目介紹
+          ══════════════════════════════════════════════════════════ */}
       <section className="section-padding bg-[#F0F7FF]">
         <div className="container-max">
           <ScrollReveal>
@@ -157,15 +205,14 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 破除迷思 ── bg-white */}
+      {/* ══════════════════════════════════════════════════════════
+          破除迷思
+          ══════════════════════════════════════════════════════════ */}
       <section className="section-padding bg-white relative overflow-hidden">
         <DecoBlob position="bottom-left" size="lg" opacity={0.05} />
         <div className="container-max relative z-10">
           <ScrollReveal>
-            <SectionHeading
-              label="Myth Busting"
-              title="破除轉學迷思"
-            />
+            <SectionHeading label="Myth Busting" title="破除轉學迷思" />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {MYTHS.map((m, i) => (
@@ -180,7 +227,9 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── CTA ── body bg */}
+      {/* ══════════════════════════════════════════════════════════
+          CTA
+          ══════════════════════════════════════════════════════════ */}
       <section className="section-padding overflow-hidden">
         <div className="container-max text-center">
           <motion.div
@@ -198,7 +247,9 @@ export default function CommunityCollegePage() {
           </motion.div>
           <ScrollReveal delay={0.4}>
             <a
-              href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer"
+              href="https://lin.ee/O1ejJf7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block mt-12 text-white font-bold rounded-md px-12 py-4 text-body-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }}
             >
