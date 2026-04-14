@@ -93,13 +93,19 @@ export default function UkAusNzPage() {
   const active = COUNTRIES.find((c) => c.id === activeTab)
 
   return (
-    <>
+    <div style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}>
+      <div
+        className="fixed inset-0 opacity-[0.04] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
       {/* ══════════════════════════════════════════════════════════
           Hero + 目的地選擇 整合區塊
           ══════════════════════════════════════════════════════════ */}
       <section
         className="relative min-h-[60vh] flex flex-col justify-start overflow-hidden"
-        style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
       >
         {/* Decorative circles */}
         <div className="absolute top-10 right-20 w-72 h-72 rounded-full bg-white/5" />
@@ -202,17 +208,13 @@ export default function UkAusNzPage() {
           </AnimatePresence>
         </div>
 
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
-          style={{ background: 'linear-gradient(90deg, transparent, #4DD9EC, transparent)' }}
-        />
       </section>
 
       {/* ── 為什麼選擇這條路 ── */}
-      <section className="section-padding bg-[#F0F7FF]">
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Why This Path" title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" split />
+            <SectionHeading label="Why This Path" title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" split light />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {WHY_REASONS.map((r, i) => (
@@ -231,22 +233,19 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── 適合族群 ── */}
-      <section className="section-padding bg-white">
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Who It's For" title="誰適合這個計畫？" subtitle="以下族群尤其推薦" split />
+            <SectionHeading label="Who It's For" title="誰適合這個計畫？" subtitle="以下族群尤其推薦" split light />
           </ScrollReveal>
           <div className="max-w-3xl mx-auto space-y-4">
             {TARGET_PROFILES.map((p, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-4 bg-gray-50 rounded-lg p-5 border border-gray-100">
-                  <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5"
-                    style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
-                  >
+                <div className="flex items-start gap-4 bg-white/10 rounded-lg p-5 border border-white/15">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 bg-white/20">
                     {i + 1}
                   </div>
-                  <p className="text-body text-txt-secondary leading-relaxed">{p}</p>
+                  <p className="text-body text-white/80 leading-relaxed">{p}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -255,10 +254,7 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section
-        className="section-padding"
-        style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
-      >
+      <section className="relative z-10 section-padding">
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-h2 text-white mb-3">找到屬於你的築夢路徑</h2>
@@ -266,6 +262,6 @@ export default function UkAusNzPage() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   )
 }

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
-import DecoBlob from '../../components/ui/DecoBlob'
 
 /* ── Data ── */
 const TRANSFER_REQS = [
@@ -28,31 +27,26 @@ const MYTHS = [
 
 export default function CommunityCollegePage() {
   return (
-    <>
+    <div style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}>
+      {/* Dot grid across whole page */}
+      <div
+        className="fixed inset-0 opacity-[0.04] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
+
       {/* ── Hero ── */}
       <ProgramHero
         title="社區大學轉學名校"
         subtitle="不是備案，是更聰明的策略"
+        transparent
       />
 
-      {/* ══════════════════════════════════════════════════════════
-          2+2 Flow + Transfer Requirements — 藍色漸層背景
-          ══════════════════════════════════════════════════════════ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
-      >
-        {/* Dot grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-
-        <div className="container-max relative z-10 section-padding">
-          {/* ── 2+2 Flow ── */}
+      {/* ── 2+2 Flow + Transfer Requirements ── */}
+      <section className="relative z-10 section-padding">
+        <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +75,6 @@ export default function CommunityCollegePage() {
             ))}
           </motion.div>
 
-          {/* ── 轉學三大要件 — 玻璃卡片 ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -108,28 +101,21 @@ export default function CommunityCollegePage() {
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
-          style={{ background: 'linear-gradient(90deg, transparent, #4DD9EC, transparent)' }}
-        />
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          什麼是社區大學 + 特點
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white">
+      {/* ── 什麼是社區大學 + 特點 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ScrollReveal>
-              <h3 className="text-h3 text-txt-primary mb-4">什麼是美國社區大學</h3>
-              <p className="text-body text-txt-secondary leading-relaxed">
+              <h3 className="text-h3 text-white mb-4">什麼是美國社區大學</h3>
+              <p className="text-body text-white/80 leading-relaxed">
                 美國社區大學是美國高等教育體系的重要組成部分，是美國政府為了普及高等教育而設立的正規學校。國際生可以在完成社區大學大一大二的課程學習後，轉學入名校繼續讀大三大四，畢業取得名校的學士學位。
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h3 className="text-h3 text-txt-primary mb-4">美國社區大學的特點</h3>
-              <p className="text-body text-txt-secondary leading-relaxed">
+              <h3 className="text-h3 text-white mb-4">美國社區大學的特點</h3>
+              <p className="text-body text-white/80 leading-relaxed">
                 入學條件簡單、學費較低 CP 值高、小班教學有助於融入美國當地文化。越來越多的社區學院和本州名校簽訂轉學協議或保送協議，名校大三優先錄取社區學院轉學生。
               </p>
             </ScrollReveal>
@@ -137,20 +123,9 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          引言
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div className="container-max relative z-10">
+      {/* ── 引言 ── */}
+      <section className="relative z-10 section-padding">
+        <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl">
               <blockquote className="text-h2 text-white leading-snug mb-6">
@@ -162,10 +137,8 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          項目介紹
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-[#F0F7FF]">
+      {/* ── 項目介紹 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading
@@ -173,31 +146,29 @@ export default function CommunityCollegePage() {
               title="2+2 陪跑項目"
               subtitle="從課程規劃到申請輔導，全程一對一導師制"
               split
+              light
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="text-body text-txt-secondary leading-relaxed max-w-4xl">
+            <p className="text-body text-white/80 leading-relaxed max-w-4xl">
               「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          破除迷思
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <DecoBlob position="bottom-left" size="lg" opacity={0.05} />
-        <div className="container-max relative z-10">
+      {/* ── 破除迷思 ── */}
+      <section className="relative z-10 section-padding">
+        <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Myth Busting" title="破除轉學迷思" />
+            <SectionHeading label="Myth Busting" title="破除轉學迷思" light />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {MYTHS.map((m, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="border-t-2 border-dfa-blue pt-6">
-                  <p className="text-h3 text-txt-primary mb-3">{m.myth}</p>
-                  <p className="text-body text-txt-secondary leading-relaxed">{m.truth}</p>
+                <div className="border-t-2 border-white/30 pt-6">
+                  <p className="text-h3 text-white mb-3">{m.myth}</p>
+                  <p className="text-body text-white/70 leading-relaxed">{m.truth}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -205,10 +176,8 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          CTA
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding overflow-hidden">
+      {/* ── CTA ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max text-center">
           <motion.div
             initial={{ scale: 0.2, opacity: 0 }}
@@ -216,15 +185,15 @@ export default function CommunityCollegePage() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ type: 'spring', stiffness: 180, damping: 16 }}
           >
-            <h2 className="text-h1 md:text-display text-txt-primary leading-tight mb-3">
+            <h2 className="text-h1 md:text-display text-white leading-tight mb-3">
               申請名校，是硬碰硬
             </h2>
-            <h2 className="text-h1 md:text-display text-txt-primary leading-tight">
+            <h2 className="text-h1 md:text-display text-white leading-tight">
               轉學名校，是換一條更聰明的路
             </h2>
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

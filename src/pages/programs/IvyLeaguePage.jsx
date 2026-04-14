@@ -107,27 +107,20 @@ const STEPS = [
 
 export default function IvyLeaguePage() {
   return (
-    <>
-      <ProgramHero
-        title="美加藤校築夢計畫"
-        subtitle="進入世界頂尖學府的最佳途徑"
+    <div style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}>
+      <div
+        className="fixed inset-0 opacity-[0.04] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
       />
 
-      {/* ══════════════════════════════════════════════════════════
-          引言 Quote
-          ══════════════════════════════════════════════════════════ */}
-      <section
-        className="section-padding relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div className="container-max relative z-10">
+      <ProgramHero title="美加藤校築夢計畫" subtitle="進入世界頂尖學府的最佳途徑" transparent />
+
+      {/* ── 引言 ── */}
+      <section className="relative z-10 section-padding">
+        <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl">
               <blockquote className="text-h2 text-white leading-snug mb-6">
@@ -140,13 +133,11 @@ export default function IvyLeaguePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          說明段落
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white">
+      {/* ── 說明段落 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <p className="text-body-lg text-txt-secondary leading-relaxed max-w-3xl">
+            <p className="text-body-lg text-white/80 leading-relaxed max-w-3xl">
               美國與加拿大長期被視為全球高等教育的核心。<br />
               從常春藤聯盟（Ivy League）到頂尖公立大學與研究型學校，<br />
               這兩個國家提供的不只是學歷，<br />
@@ -156,17 +147,13 @@ export default function IvyLeaguePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          圖一 — 美 vs 加 比較
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-[#F0F7FF]">
+      {/* ── 美 vs 加 比較 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Comparison" title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" split />
+            <SectionHeading label="Comparison" title="美國 vs 加拿大" subtitle="找到最適合你的留學目的地" split light />
           </ScrollReveal>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {/* US column */}
             <ScrollReveal delay={0.1}>
               <div className="rounded-xl border-2 border-blue-300 overflow-hidden h-full flex flex-col">
                 <div className="px-6 py-5 flex items-center gap-4 bg-blue-50">
@@ -183,19 +170,13 @@ export default function IvyLeaguePage() {
                       <div>
                         <p className="font-bold text-txt-primary text-base">{p.title}</p>
                         <p className="text-body text-txt-secondary leading-relaxed mt-1">{p.desc}</p>
-                        {p.note && (
-                          <p className="text-body text-dfa-blue mt-1">
-                            <span className="mr-1">👉</span>{p.note}
-                          </p>
-                        )}
+                        {p.note && <p className="text-body text-dfa-blue mt-1"><span className="mr-1">👉</span>{p.note}</p>}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
             </ScrollReveal>
-
-            {/* CA column */}
             <ScrollReveal delay={0.15}>
               <div className="rounded-xl border-2 border-red-300 overflow-hidden h-full flex flex-col">
                 <div className="px-6 py-5 flex items-center gap-4 bg-red-50">
@@ -212,11 +193,7 @@ export default function IvyLeaguePage() {
                       <div>
                         <p className="font-bold text-txt-primary text-base">{p.title}</p>
                         <p className="text-body text-txt-secondary leading-relaxed mt-1">{p.desc}</p>
-                        {p.note && (
-                          <p className="text-body text-red-600 mt-1">
-                            <span className="mr-1">👉</span>{p.note}
-                          </p>
-                        )}
+                        {p.note && <p className="text-body text-red-600 mt-1"><span className="mr-1">👉</span>{p.note}</p>}
                       </div>
                     </div>
                   ))}
@@ -227,62 +204,48 @@ export default function IvyLeaguePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          圖二 — DFA 聲明
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-white">
+      {/* ── DFA 聲明 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
             <div className="text-center mx-auto">
-              <p className="text-h2 text-txt-primary leading-snug">
+              <p className="text-h2 text-white leading-snug">
                 <span className="block whitespace-nowrap">在 DFA，我們不只幫你申請學校，</span>
                 <span className="block whitespace-nowrap">而是幫你選擇最適合的國家與路徑</span>
               </p>
-              <div className="my-6 h-px max-w-xs mx-auto bg-gradient-to-r from-transparent via-dfa-blue to-transparent" />
-              <p className="text-body-lg text-txt-secondary leading-relaxed">
+              <div className="my-6 h-px max-w-xs mx-auto bg-white/30" />
+              <p className="text-body-lg text-white/80 leading-relaxed">
                 因為留學的關鍵<br />
                 從來不是去哪一間<br />
-                <span className="text-dfa-blue font-bold">而是你未來要走哪一條路</span>
+                <span className="text-white font-bold">而是你未來要走哪一條路</span>
               </p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          圖三 — 申請流程
-          ══════════════════════════════════════════════════════════ */}
-      <section className="section-padding bg-[#F0F7FF]">
+      {/* ── 申請流程 ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Application Process" title="申請流程" subtitle="六個關鍵步驟，帶你從起點直達夢校" split />
+            <SectionHeading label="Application Process" title="申請流程" subtitle="六個關鍵步驟，帶你從起點直達夢校" split light />
           </ScrollReveal>
-
           <div className="max-w-3xl mx-auto">
             {STEPS.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 0.07}>
                 <div className="flex gap-0">
-                  {/* Left: connector line + circle */}
                   <div className="flex flex-col items-center w-16 shrink-0">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-sm shrink-0 z-10"
-                      style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
-                    >
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-sm shrink-0 z-10 bg-white/20">
                       {step.num}
                     </div>
-                    {/* Vertical connector line (not on last step) */}
                     {i < STEPS.length - 1 && (
-                      <div className="w-0.5 flex-1 min-h-[2rem] bg-gradient-to-b from-dfa-blue/40 to-dfa-blue/10 my-1" />
+                      <div className="w-0.5 flex-1 min-h-[2rem] bg-white/20 my-1" />
                     )}
                   </div>
-
-                  {/* Right: content card */}
                   <div className="flex-1 pb-8">
                     <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 ml-2">
                       <p className="font-black text-txt-primary text-lg mb-1">{step.title}</p>
-                      {step.note && (
-                        <p className="text-caption text-dfa-blue mb-3">{step.note}</p>
-                      )}
+                      {step.note && <p className="text-caption text-dfa-blue mb-3">{step.note}</p>}
                       <ul className="space-y-2 mt-3">
                         {step.points.map((pt, j) => (
                           <li key={j} className="flex gap-3 items-start">
@@ -300,18 +263,14 @@ export default function IvyLeaguePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          CTA
-          ══════════════════════════════════════════════════════════ */}
-      <section className="bg-dfa-gradient section-padding">
+      {/* ── CTA ── */}
+      <section className="relative z-10 section-padding">
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-h2 text-white mb-6">
-              準備好踏入世界頂尖學府了嗎？
-            </h2>
+            <h2 className="text-h2 text-white">準備好踏入世界頂尖學府了嗎？</h2>
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   )
 }

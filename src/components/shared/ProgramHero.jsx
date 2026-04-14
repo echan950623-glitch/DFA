@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 
-export default function ProgramHero({ title, subtitle }) {
+export default function ProgramHero({ title, subtitle, transparent = false }) {
   return (
-    <section className="relative min-h-[60vh] flex items-start overflow-hidden"
-      style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
+    <section
+      className="relative min-h-[60vh] flex items-start overflow-hidden"
+      style={transparent ? {} : { background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
     >
       {/* Decorative circles */}
       <div className="absolute top-10 right-20 w-72 h-72 rounded-full bg-white/5" />
