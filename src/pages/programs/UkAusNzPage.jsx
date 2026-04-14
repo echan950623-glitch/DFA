@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ProgramHero from '../../components/shared/ProgramHero'
+import { motion, AnimatePresence } from 'framer-motion'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 
@@ -7,7 +7,7 @@ import SectionHeading from '../../components/ui/SectionHeading'
 const COUNTRIES = [
   {
     id: 'uk',
-    flag: '🇬🇧',
+    code: 'GB',
     name: '英國',
     tagline: 'G5 菁英大學 × 3 年學制',
     desc: '英國 G5 大學（牛津、劍橋、帝國理工、UCL、LSE）位居全球頂尖。3 年本科學制縮短就讀時間，學費與生活成本相對美國更具競爭力，且畢業後可申請 2 年 Graduate Route 工作簽證。',
@@ -23,7 +23,7 @@ const COUNTRIES = [
   },
   {
     id: 'aus',
-    flag: '🇦🇺',
+    code: 'AU',
     name: '澳洲',
     tagline: '八大名校 × 彈性申請',
     desc: '澳洲八大（Group of Eight）是國際公認的頂尖研究型大學聯盟。澳洲學制彈性，接受高中直入，申請視窗多。畢業後依學歷可申請 2–4 年 Post-Study Work Visa，留澳發展機會豐富。',
@@ -39,7 +39,7 @@ const COUNTRIES = [
   },
   {
     id: 'sg',
-    flag: '🇸🇬',
+    code: 'SG',
     name: '新加坡',
     tagline: 'NUS / NTU × 亞洲就業核心',
     desc: '新加坡國立大學（NUS）與南洋理工大學（NTU）長期位居亞洲前兩名、全球前 20。以英語授課、華語環境適應快，是進入東南亞與大中華商業圈的最佳跳板，就業競爭力極強。',
@@ -89,82 +89,123 @@ const TARGET_PROFILES = [
 
 /* ─── Main Page ──────────────────────────────────────────────── */
 export default function UkAusNzPage() {
-  const [activeTab, setActiveTab] = useState('uk')
+  const [activeTab, setActiveTab] = useState(null)
   const active = COUNTRIES.find((c) => c.id === activeTab)
 
   return (
     <>
-      <ProgramHero
-        title="英、澳、新築夢計畫"
-        subtitle="穩定進入世界名校的另一條路 — 英國・澳洲・新加坡"
-      />
+      {/* ══════════════════════════════════════════════════════════
+          Hero + 目的地選擇 整合區塊
+          ══════════════════════════════════════════════════════════ */}
+      <section
+        className="relative overflow-hidden"
+        style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
+      >
+        {/* Decorative circles */}
+        <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-white/5" />
+        <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-white/5" />
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
 
-      {/* ── 三國頁籤 ── */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <ScrollReveal>
-            <SectionHeading label="Destinations" title="選擇你的目標國" subtitle="三個體制、三種優勢，找到最適合你的路徑" split />
-          </ScrollReveal>
+        <div className="container-max relative z-10 section-padding">
+          {/* Title block */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-12"
+          >
+            <h1 className="text-h1 text-white mb-3">英、澳、新築夢計畫</h1>
+            <p className="text-h3 text-white/90 whitespace-nowrap">穩定進入世界名校的另一條路 — 英國・澳洲・新加坡</p>
+          </motion.div>
 
           {/* Tab buttons */}
-          <ScrollReveal delay={0.1}>
-            <div className="flex justify-center gap-3 mb-10 flex-wrap">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p className="text-white/60 text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
+            <div className="flex gap-3 flex-wrap">
               {COUNTRIES.map((c) => (
                 <button
                   key={c.id}
-                  onClick={() => setActiveTab(c.id)}
+                  onClick={() => setActiveTab(activeTab === c.id ? null : c.id)}
                   className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold text-sm transition-all duration-200 border-2 ${
                     activeTab === c.id
-                      ? 'text-white shadow-lg scale-105'
-                      : 'bg-white text-txt-secondary border-gray-200 hover:border-gray-400'
+                      ? 'bg-white shadow-lg scale-105'
+                      : 'bg-white/10 text-white border-white/30 hover:bg-white/20'
                   }`}
-                  style={activeTab === c.id ? { background: active.accent, borderColor: active.accent } : {}}
+                  style={activeTab === c.id ? { color: c.accent, borderColor: 'white' } : {}}
                 >
-                  <span className="text-lg">{c.flag}</span>
+                  <span className="text-xs font-black px-1.5 py-0.5 rounded"
+                    style={activeTab === c.id
+                      ? { background: c.accent, color: 'white' }
+                      : { background: 'rgba(255,255,255,0.2)', color: 'white' }
+                    }
+                  >{c.code}</span>
                   {c.name}
                 </button>
               ))}
             </div>
-          </ScrollReveal>
+          </motion.div>
 
-          {/* Tab content */}
-          <ScrollReveal key={activeTab} delay={0.05}>
-            <div className={`max-w-4xl mx-auto rounded-lg border-2 ${active.color} overflow-hidden shadow-md`}>
-              <div className="h-2" style={{ background: `linear-gradient(to right, ${active.accent}88, ${active.accent})` }} />
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-5xl">{active.flag}</span>
+          {/* Inline content panel */}
+          <AnimatePresence mode="wait">
+            {active && (
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{ duration: 0.35 }}
+                className="mt-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 md:p-8 max-w-4xl"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-xs font-black px-2 py-1 rounded text-white"
+                    style={{ background: active.accent }}>{active.code}</span>
                   <div>
-                    <h3 className="text-h3 text-txt-primary">{active.name}</h3>
-                    <p className="text-sm font-semibold" style={{ color: active.accent }}>{active.tagline}</p>
+                    <h3 className="text-h3 text-white">{active.name}</h3>
+                    <p className="text-sm text-white/70">{active.tagline}</p>
                   </div>
                 </div>
 
-                <p className="text-body text-txt-secondary leading-relaxed mb-8">{active.desc}</p>
+                <p className="text-body text-white/80 leading-relaxed mb-6">{active.desc}</p>
 
                 {/* Highlight pills */}
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex flex-wrap gap-3 mb-6">
                   {active.highlights.map((h) => (
-                    <div key={h.label} className={`rounded-lg px-4 py-2.5 ${active.badge}`}>
-                      <p className="text-xs font-medium opacity-70">{h.label}</p>
-                      <p className="text-sm font-black">{h.value}</p>
+                    <div key={h.label} className="rounded-lg px-4 py-2.5 bg-white/15 border border-white/20">
+                      <p className="text-xs text-white/60">{h.label}</p>
+                      <p className="text-sm font-black text-white">{h.value}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Schools */}
                 <div>
-                  <p className="text-eyebrow text-txt-muted uppercase mb-3">代表院校</p>
+                  <p className="text-xs uppercase tracking-widest text-white/50 mb-2">代表院校</p>
                   <div className="flex flex-wrap gap-2">
                     {active.schools.map((s) => (
-                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-gray-100 text-txt-secondary">{s}</span>
+                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-white/10 text-white/80 border border-white/15">{s}</span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          </ScrollReveal>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
+
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
+          style={{ background: 'linear-gradient(90deg, transparent, #4DD9EC, transparent)' }}
+        />
       </section>
 
       {/* ── 為什麼選擇這條路 ── */}
