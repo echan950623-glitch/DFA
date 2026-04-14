@@ -127,7 +127,7 @@ export default function IvyLeaguePage() {
                 <span className="block whitespace-nowrap">那些被淘汰的學生並不是成績能力差，</span>
                 <span className="block whitespace-nowrap">而是沒有一份讓你展翅飛翔的申請資料</span>
               </blockquote>
-              <p className="text-caption text-white/50">— 前哈佛專業申請人 Emerald Macreen</p>
+              <p className="text-caption text-white">— 前哈佛專業申請人 Emerald Macreen</p>
             </div>
           </ScrollReveal>
         </div>
@@ -137,7 +137,7 @@ export default function IvyLeaguePage() {
       <section className="relative z-10 section-padding">
         <div className="container-max">
           <ScrollReveal>
-            <p className="text-body-lg text-white/80 leading-relaxed max-w-3xl">
+            <p className="text-body-lg text-white leading-relaxed max-w-3xl">
               美國與加拿大長期被視為全球高等教育的核心。<br />
               從常春藤聯盟（Ivy League）到頂尖公立大學與研究型學校，<br />
               這兩個國家提供的不只是學歷，<br />
@@ -214,7 +214,7 @@ export default function IvyLeaguePage() {
                 <span className="block whitespace-nowrap">而是幫你選擇最適合的國家與路徑</span>
               </p>
               <div className="my-6 h-px max-w-xs mx-auto bg-white/30" />
-              <p className="text-body-lg text-white/80 leading-relaxed">
+              <p className="text-body-lg text-white leading-relaxed">
                 因為留學的關鍵<br />
                 從來不是去哪一間<br />
                 <span className="text-white font-bold">而是你未來要走哪一條路</span>

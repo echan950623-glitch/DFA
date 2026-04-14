@@ -11,21 +11,21 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="font-black text-2xl tracking-wider mb-1">DFA</div>
-            <p className="text-xs text-white/40 mb-4">Dream Future Academy</p>
-            <p className="text-sm text-white/75 leading-relaxed">
+            <p className="text-xs text-white mb-4">Dream Future Academy</p>
+            <p className="text-sm text-white leading-relaxed">
               專注解決教育資源分布不公，為孩子成就光明的未來。
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">快速連結</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">快速連結</h4>
             <ul className="space-y-2">
               {navItems.slice(0, 5).map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.children ? item.children[0].path : item.path}
-                    className="text-sm text-white/80 hover:text-white transition-colors"
+                    className="text-sm text-white hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -36,10 +36,10 @@ export default function Footer() {
 
           {/* Offices */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">辦公室據點</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">辦公室據點</h4>
             <ul className="space-y-2">
               {offices.map((o) => (
-                <li key={o.city} className="text-sm text-white/80">
+                <li key={o.city} className="text-sm text-white">
                   {o.city} {o.label}
                 </li>
               ))}
@@ -48,7 +48,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">聯絡我們</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">聯絡我們</h4>
             <div className="flex gap-3">
               <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FaInstagram className="text-sm" />
@@ -63,11 +63,11 @@ export default function Footer() {
                 <FaEnvelope className="text-sm" />
               </a>
             </div>
-            <p className="text-xs text-white/30 mt-4">@dreamfuture.academy</p>
+            <p className="text-xs text-white mt-4">@dreamfuture.academy</p>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-white/30">
+        <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-white">
           &copy; {new Date().getFullYear()} Dream Future Academy. All rights reserved.
         </div>
       </div>

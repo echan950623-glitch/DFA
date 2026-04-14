@@ -16,7 +16,7 @@ export default function SectionHeading({
 }) {
   const h2Color   = light ? 'text-white' : 'text-txt-primary'
   const eyeColor  = light ? 'text-dfa-cyan' : 'text-dfa-blue'
-  const subColor  = light ? 'text-white/50' : 'text-txt-muted'
+  const subColor  = light ? 'text-white' : 'text-txt-muted'
 
   const eyebrow = label && (
     <p className={`text-eyebrow uppercase mb-3 ${eyeColor}`}>{label}</p>

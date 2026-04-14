@@ -133,7 +133,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
 
               {/* Header */}
               <div className="px-8 pt-10 pb-6 text-center">
-                <p className="text-xs font-semibold text-white/60 uppercase tracking-[0.2em] mb-2">
+                <p className="text-xs font-semibold text-white uppercase tracking-[0.2em] mb-2">
                   Application Process
                 </p>
                 <h2 className="text-2xl md:text-3xl font-black text-white leading-snug">
@@ -157,7 +157,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                     {/* Connector arrow (hidden on mobile, last card) */}
                     {i < STEPS.length - 1 && (
                       <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                        <span className="text-white/40 text-xl font-bold">›</span>
+                        <span className="text-white text-xl font-bold">›</span>
                       </div>
                     )}
 
@@ -177,7 +177,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-white/70 text-xs leading-relaxed">
+                    <p className="text-white text-xs leading-relaxed">
                       {step.desc}
                     </p>
                   </motion.div>

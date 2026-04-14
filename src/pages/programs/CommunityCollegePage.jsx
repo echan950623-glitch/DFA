@@ -61,14 +61,14 @@ export default function CommunityCollegePage() {
             ].map((item, i) => (
               <div key={i} className="contents">
                 {i > 0 && (
-                  <span className="text-5xl md:text-6xl font-black text-white/60 leading-none">
+                  <span className="text-5xl md:text-6xl font-black text-white leading-none">
                     {i === 1 ? '+' : '='}
                   </span>
                 )}
                 <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center text-white text-center p-4 shrink-0 border-2 border-white/20 bg-white/10 backdrop-blur-sm">
                   <div>
                     <p className="text-lg md:text-xl font-bold text-white leading-snug">{item.title}</p>
-                    <p className="text-sm text-white/60 mt-1">{item.sub}</p>
+                    <p className="text-sm text-white mt-1">{item.sub}</p>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function CommunityCollegePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <h2 className="text-eyebrow text-white/50 uppercase mb-6">Transfer Requirements</h2>
+            <h2 className="text-eyebrow text-white uppercase mb-6">Transfer Requirements</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {TRANSFER_REQS.map((r) => (
                 <div
@@ -95,7 +95,7 @@ export default function CommunityCollegePage() {
                     {r.num}
                   </div>
                   <p className="text-h3 text-white mb-1">{r.unit}</p>
-                  <p className="text-body text-white/60">{r.desc}</p>
+                  <p className="text-body text-white">{r.desc}</p>
                 </div>
               ))}
             </div>
@@ -109,13 +109,13 @@ export default function CommunityCollegePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ScrollReveal>
               <h3 className="text-h3 text-white mb-4">什麼是美國社區大學</h3>
-              <p className="text-body text-white/80 leading-relaxed">
+              <p className="text-body text-white leading-relaxed">
                 美國社區大學是美國高等教育體系的重要組成部分，是美國政府為了普及高等教育而設立的正規學校。國際生可以在完成社區大學大一大二的課程學習後，轉學入名校繼續讀大三大四，畢業取得名校的學士學位。
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h3 className="text-h3 text-white mb-4">美國社區大學的特點</h3>
-              <p className="text-body text-white/80 leading-relaxed">
+              <p className="text-body text-white leading-relaxed">
                 入學條件簡單、學費較低 CP 值高、小班教學有助於融入美國當地文化。越來越多的社區學院和本州名校簽訂轉學協議或保送協議，名校大三優先錄取社區學院轉學生。
               </p>
             </ScrollReveal>
@@ -131,7 +131,7 @@ export default function CommunityCollegePage() {
               <blockquote className="text-h2 text-white leading-snug mb-6">
                 那些被淘汰的學生並不是成績能力差，而是沒有一份讓你展翅飛翔的申請資料
               </blockquote>
-              <p className="text-caption text-white/50">— 前哈佛專業申請人 Emerald Macreen</p>
+              <p className="text-caption text-white">— 前哈佛專業申請人 Emerald Macreen</p>
             </div>
           </ScrollReveal>
         </div>
@@ -150,7 +150,7 @@ export default function CommunityCollegePage() {
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="text-body text-white/80 leading-relaxed max-w-4xl">
+            <p className="text-body text-white leading-relaxed max-w-4xl">
               「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
             </p>
           </ScrollReveal>
@@ -168,7 +168,7 @@ export default function CommunityCollegePage() {
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div className="border-t-2 border-white/30 pt-6">
                   <p className="text-h3 text-white mb-3">{m.myth}</p>
-                  <p className="text-body text-white/70 leading-relaxed">{m.truth}</p>
+                  <p className="text-body text-white leading-relaxed">{m.truth}</p>
                 </div>
               </ScrollReveal>
             ))}

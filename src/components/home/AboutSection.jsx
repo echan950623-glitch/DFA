@@ -71,7 +71,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <ScrollReveal>
-              <p className="text-eyebrow text-white/60 uppercase mb-4">Our Vision</p>
+              <p className="text-eyebrow text-white uppercase mb-4">Our Vision</p>
               <h2 className="text-h1 text-white leading-tight">
                 每一個背景，<br />
                 都值得一條<br />
@@ -80,7 +80,7 @@ export default function AboutSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="space-y-5 text-body text-white/70 leading-relaxed">
+              <div className="space-y-5 text-body text-white leading-relaxed">
                 <p>
                   我們的核心理念是讓學生{' '}
                   <strong className="text-white font-semibold">

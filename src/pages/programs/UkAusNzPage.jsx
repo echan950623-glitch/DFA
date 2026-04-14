@@ -117,7 +117,7 @@ export default function UkAusNzPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-white/60 text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
+            <p className="text-white text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
             <div className="flex gap-3 flex-wrap">
               {COUNTRIES.map((c) => (
                 <button
@@ -224,7 +224,7 @@ export default function UkAusNzPage() {
                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 bg-white/20">
                     {i + 1}
                   </div>
-                  <p className="text-body text-white/80 leading-relaxed">{p}</p>
+                  <p className="text-body text-white leading-relaxed">{p}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -237,7 +237,7 @@ export default function UkAusNzPage() {
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-h2 text-white mb-3">找到屬於你的築夢路徑</h2>
-            <p className="text-white/80">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
+            <p className="text-white">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
           </ScrollReveal>
         </div>
       </section>

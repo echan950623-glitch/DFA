@@ -264,7 +264,7 @@ export default function TuitionPage() {
                     </div>
                   )}
                   <p className={`text-lg font-black ${plan.dark ? 'text-white' : plan.headerText}`}>{plan.name}</p>
-                  <p className={`text-xs font-medium mt-0.5 ${plan.dark ? 'text-white/70' : 'text-gray-500'}`}>{plan.sub}</p>
+                  <p className={`text-xs font-medium mt-0.5 ${plan.dark ? 'text-white' : 'text-gray-500'}`}>{plan.sub}</p>
                   <p className={`mt-2 text-xs rounded-full px-2 py-0.5 inline-block ${plan.badgeColor}`}>{plan.target}</p>
                 </div>
               ))}
@@ -318,7 +318,7 @@ export default function TuitionPage() {
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-black text-white mb-3">用更聰明的方式，實現留學夢想</h2>
-            <p className="text-white/80 mb-8">透過完整升學規劃與轉學策略，在提升升學品質的同時，有效控制留學成本</p>
+            <p className="text-white mb-8">透過完整升學規劃與轉學策略，在提升升學品質的同時，有效控制留學成本</p>
             <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               立即預約免費諮詢
             </a>

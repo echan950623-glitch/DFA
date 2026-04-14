@@ -35,7 +35,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-body-lg text-white/80 leading-relaxed"
+          className="text-body-lg text-white leading-relaxed"
         >
           透過 2+2 轉學路徑，以更低門檻、更省學費的方式，<br />
           成功轉入 UC 系統名校。全程一對一顧問陪跑。

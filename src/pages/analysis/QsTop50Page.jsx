@@ -134,7 +134,7 @@ export default function QsTop50Page() {
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-h2 text-white mb-3">讓顧問幫你分析最佳落點</h2>
-            <p className="text-white/80 mb-8">依據你的背景量身制定衝刺校・目標校・保底校清單</p>
+            <p className="text-white mb-8">依據你的背景量身制定衝刺校・目標校・保底校清單</p>
             <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               預約免費落點分析
             </a>

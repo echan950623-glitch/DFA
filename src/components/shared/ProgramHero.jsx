@@ -28,7 +28,7 @@ export default function ProgramHero({ title, subtitle, transparent = false }) {
         >
           <h1 className="text-display text-white leading-[1.05] mb-5 max-w-3xl">{title}</h1>
           {subtitle && (
-            <p className="text-h3 text-white/90 whitespace-nowrap">{subtitle}</p>
+            <p className="text-h3 text-white whitespace-nowrap">{subtitle}</p>
           )}
         </motion.div>
       </div>
