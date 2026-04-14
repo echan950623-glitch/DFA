@@ -33,9 +33,9 @@ const COUNTRIES = [
       { label: '工作簽', value: 'PSW 2–4 年' },
       { label: '代表名校', value: 'Group of Eight' },
     ],
-    color: 'border-yellow-500',
-    badge: 'bg-yellow-50 text-yellow-700',
-    accent: '#D97706',
+    color: 'border-blue-500',
+    badge: 'bg-blue-50 text-blue-700',
+    accent: '#1D4ED8',
   },
   {
     id: 'sg',
@@ -49,9 +49,9 @@ const COUNTRIES = [
       { label: 'NUS 全球排名', value: 'Top 20' },
       { label: '就業優勢', value: '亞太金融中心' },
     ],
-    color: 'border-red-500',
-    badge: 'bg-red-50 text-red-700',
-    accent: '#DC2626',
+    color: 'border-blue-500',
+    badge: 'bg-blue-50 text-blue-700',
+    accent: '#1D4ED8',
   },
 ]
 
@@ -148,7 +148,7 @@ export default function UkAusNzPage() {
                   <span className="text-xs font-black px-1.5 py-0.5 rounded"
                     style={activeTab === c.id
                       ? { background: c.accent, color: 'white' }
-                      : { background: 'rgba(255,255,255,0.2)', color: 'white' }
+                      : { background: '#ffffff', color: '#374151' }
                     }
                   >{c.code}</span>
                   {c.name}
@@ -166,35 +166,34 @@ export default function UkAusNzPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.35 }}
-                className="mt-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 md:p-8 max-w-4xl"
+                className="mt-8 bg-white rounded-xl p-6 md:p-8 max-w-4xl overflow-hidden"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-xs font-black px-2 py-1 rounded text-white"
-                    style={{ background: active.accent }}>{active.code}</span>
-                  <div>
-                    <h3 className="text-h3 text-white">{active.name}</h3>
-                    <p className="text-sm text-white/70">{active.tagline}</p>
-                  </div>
+                {/* Top accent bar */}
+                <div className="h-1 rounded-full mb-6" style={{ background: active.accent }} />
+
+                <div className="mb-4">
+                  <h3 className="text-h3 text-txt-primary">{active.name}</h3>
+                  <p className="text-sm font-semibold mt-0.5" style={{ color: active.accent }}>{active.tagline}</p>
                 </div>
 
-                <p className="text-body text-white/80 leading-relaxed mb-6">{active.desc}</p>
+                <p className="text-body text-txt-secondary leading-relaxed mb-6">{active.desc}</p>
 
                 {/* Highlight pills */}
                 <div className="flex flex-wrap gap-3 mb-6">
                   {active.highlights.map((h) => (
-                    <div key={h.label} className="rounded-lg px-4 py-2.5 bg-white/15 border border-white/20">
-                      <p className="text-xs text-white/60">{h.label}</p>
-                      <p className="text-sm font-black text-white">{h.value}</p>
+                    <div key={h.label} className="rounded-lg px-4 py-2.5 bg-blue-50 border border-blue-100">
+                      <p className="text-xs text-txt-muted">{h.label}</p>
+                      <p className="text-sm font-black text-txt-primary">{h.value}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Schools */}
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-white/50 mb-2">代表院校</p>
+                  <p className="text-xs uppercase tracking-widest text-txt-muted mb-2">代表院校</p>
                   <div className="flex flex-wrap gap-2">
                     {active.schools.map((s) => (
-                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-white/10 text-white/80 border border-white/15">{s}</span>
+                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-gray-100 text-txt-secondary">{s}</span>
                     ))}
                   </div>
                 </div>
