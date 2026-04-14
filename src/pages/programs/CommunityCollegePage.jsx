@@ -223,17 +223,6 @@ export default function CommunityCollegePage() {
               轉學名校，是換一條更聰明的路
             </h2>
           </motion.div>
-          <ScrollReveal delay={0.4}>
-            <a
-              href="https://lin.ee/O1ejJf7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-12 text-white font-bold rounded-md px-12 py-4 text-body-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }}
-            >
-              立即預約免費諮詢
-            </a>
-          </ScrollReveal>
         </div>
       </section>
     </>
