@@ -98,7 +98,7 @@ export default function UkAusNzPage() {
           Hero + 目的地選擇 整合區塊
           ══════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-[70vh] flex flex-col justify-end overflow-hidden"
+        className="relative min-h-[60vh] flex flex-col justify-start overflow-hidden"
         style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
       >
         {/* Decorative circles */}
