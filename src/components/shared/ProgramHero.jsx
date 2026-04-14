@@ -17,7 +17,7 @@ export default function ProgramHero({ title, subtitle }) {
         >
           <h1 className="text-h1 text-white mb-4 max-w-3xl">{title}</h1>
           {subtitle && (
-            <p className="text-body-lg text-white/70 max-w-2xl">{subtitle}</p>
+            <p className="text-h3 text-white/90 max-w-2xl">{subtitle}</p>
           )}
         </motion.div>
       </div>
