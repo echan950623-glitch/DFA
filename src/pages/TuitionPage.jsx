@@ -305,7 +305,7 @@ export default function TuitionPage() {
           <ScrollReveal delay={0.3}>
             <p className="text-center text-gray-500 text-sm mt-6">
               如需了解各方案詳細費用，請
-              <a href="#contact" className="text-dfa-blue font-semibold hover:underline mx-1">聯絡我們</a>
+              <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="text-dfa-blue font-semibold hover:underline mx-1">聯絡我們</a>
               進行免費評估
             </p>
           </ScrollReveal>
@@ -319,7 +319,7 @@ export default function TuitionPage() {
           <ScrollReveal>
             <h2 className="text-3xl font-black text-white mb-3">用更聰明的方式，實現留學夢想</h2>
             <p className="text-white/80 mb-8">透過完整升學規劃與轉學策略，在提升升學品質的同時，有效控制留學成本</p>
-            <a href="#contact" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               立即預約免費諮詢
             </a>
           </ScrollReveal>

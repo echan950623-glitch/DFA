@@ -18,7 +18,7 @@ export default function ImmigrationPage() {
               <p className="text-gray-600 leading-relaxed mb-8">
                 我們正在規劃完整的技術移民與海外定居服務方案，協助學員在完成學業後，順利在海外發展職涯並取得居留身份。更多詳情敬請期待，或立即聯繫我們了解最新動態。
               </p>
-              <a href="#contact" className="btn-gradient inline-block">
+              <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="btn-gradient inline-block">
                 預約諮詢了解更多
               </a>
             </div>

@@ -56,8 +56,10 @@ export default function Navbar() {
                 )
               )}
             </nav>
-            <Link
-              to="#contact"
+            <a
+              href="https://lin.ee/O1ejJf7"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`ml-3 text-[14px] font-semibold px-5 py-2.5 rounded-md transition-all whitespace-nowrap ${
                 showSolid
                   ? 'bg-dfa-blue text-white hover:bg-dfa-dark'
@@ -65,7 +67,7 @@ export default function Navbar() {
               }`}
             >
               免費諮詢
-            </Link>
+            </a>
           </div>
 
           {/* Hamburger (mobile + tablet) */}

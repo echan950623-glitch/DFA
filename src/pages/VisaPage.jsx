@@ -59,7 +59,7 @@ export default function VisaPage() {
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-3xl font-black text-white mb-6">需要簽證與行前協助？</h2>
-            <a href="#contact" className="inline-block bg-white text-dfa-blue font-bold rounded-md px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-blue font-bold rounded-md px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               立即預約免費諮詢
             </a>
           </ScrollReveal>

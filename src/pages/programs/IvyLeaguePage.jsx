@@ -428,7 +428,7 @@ export default function IvyLeaguePage() {
               準備好踏入世界頂尖學府了嗎？
             </h2>
             <a
-              href="#contact"
+              href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer"
               className="inline-block bg-white text-dfa-blue font-bold rounded-md px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               立即預約免費諮詢

@@ -68,11 +68,9 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row gap-4"
         >
           <a
-            href="#cta"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })
-            }}
+            href="https://lin.ee/O1ejJf7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-white text-dfa-dark font-bold px-8 py-4 rounded-md text-body hover:bg-white/90 transition-all duration-200 shadow-lg"
           >
             預約 15 分鐘免費評估

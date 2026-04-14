@@ -18,7 +18,7 @@ export default function StudyTourPage() {
               <p className="text-gray-600 leading-relaxed mb-8">
                 我們正在規劃多元化的海外遊學體驗方案，涵蓋美國、英國、澳洲等熱門目的地的短期遊學、暑期課程與文化體驗行程。更多詳情敬請期待，或立即聯繫我們了解最新動態。
               </p>
-              <a href="#contact" className="btn-gradient inline-block">
+              <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="btn-gradient inline-block">
                 預約諮詢了解更多
               </a>
             </div>

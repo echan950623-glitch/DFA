@@ -187,7 +187,9 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
               {/* Footer CTA */}
               <div className="px-8 pb-10 text-center">
                 <a
-                  href="#cta"
+                  href="https://lin.ee/O1ejJf7"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={onClose}
                   className="inline-block bg-white text-dfa-dark font-bold px-8 py-3 rounded-lg text-sm hover:bg-dfa-cyan hover:text-white transition-colors duration-200"
                 >

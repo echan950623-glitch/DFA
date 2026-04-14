@@ -1,4 +1,4 @@
-import { FaLine, FaWhatsapp, FaEnvelope, FaFacebookF } from 'react-icons/fa'
+import { FaLine, FaEnvelope, FaFacebookF } from 'react-icons/fa'
 import { socialLinks } from '../../data/contact'
 
 const contactButtons = [

@@ -63,13 +63,15 @@ export default function MobileMenu({ onClose }) {
           )
         )}
         <div className="pt-4 px-4">
-          <Link
-            to="#contact"
+          <a
+            href="https://lin.ee/O1ejJf7"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onClose}
             className="block text-center text-[16px] font-semibold bg-dfa-blue text-white py-3.5 rounded-md hover:bg-dfa-dark transition-colors w-full"
           >
             免費諮詢
-          </Link>
+          </a>
         </div>
       </nav>
     </motion.div>
