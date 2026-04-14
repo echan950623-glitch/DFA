@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
@@ -107,8 +106,6 @@ const STEPS = [
 ]
 
 export default function IvyLeaguePage() {
-  const [openStep, setOpenStep] = useState(null)
-
   return (
     <>
       <ProgramHero
@@ -238,8 +235,8 @@ export default function IvyLeaguePage() {
           <ScrollReveal>
             <div className="text-center mx-auto">
               <p className="text-h2 text-txt-primary leading-snug">
-                在 DFA，我們不只幫你申請學校，<br />
-                而是幫你選擇最適合的國家與路徑
+                <span className="block whitespace-nowrap">在 DFA，我們不只幫你申請學校，</span>
+                <span className="block whitespace-nowrap">而是幫你選擇最適合的國家與路徑</span>
               </p>
               <div className="my-6 h-px max-w-xs mx-auto bg-gradient-to-r from-transparent via-dfa-blue to-transparent" />
               <p className="text-body-lg text-txt-secondary leading-relaxed">
@@ -261,49 +258,41 @@ export default function IvyLeaguePage() {
             <SectionHeading label="Application Process" title="申請流程" subtitle="六個關鍵步驟，帶你從起點直達夢校" split />
           </ScrollReveal>
 
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="max-w-3xl mx-auto">
             {STEPS.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 0.07}>
-                <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-                  <button
-                    className="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-gray-50 transition-colors"
-                    onClick={() => setOpenStep(openStep === i ? null : i)}
-                  >
-                    {/* Step number badge */}
+                <div className="flex gap-0">
+                  {/* Left: connector line + circle */}
+                  <div className="flex flex-col items-center w-16 shrink-0">
                     <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-black text-sm shrink-0"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-sm shrink-0 z-10"
                       style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
                     >
                       {step.num}
                     </div>
-                    <div className="flex-1">
-                      <p className="font-bold text-txt-primary">{step.title}</p>
-                      {step.note && (
-                        <p className="text-caption text-dfa-blue mt-0.5">{step.note}</p>
-                      )}
-                    </div>
-                    <span className="text-dfa-blue text-sm font-medium shrink-0">
-                      {openStep === i ? '收起 ↑' : '展開 ↓'}
-                    </span>
-                  </button>
+                    {/* Vertical connector line (not on last step) */}
+                    {i < STEPS.length - 1 && (
+                      <div className="w-0.5 flex-1 min-h-[2rem] bg-gradient-to-b from-dfa-blue/40 to-dfa-blue/10 my-1" />
+                    )}
+                  </div>
 
-                  {openStep === i && (
-                    <div className="px-6 pb-5 border-t border-gray-50">
-                      <ul className="mt-4 space-y-2">
+                  {/* Right: content card */}
+                  <div className="flex-1 pb-8">
+                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 ml-2">
+                      <p className="font-black text-txt-primary text-lg mb-1">{step.title}</p>
+                      {step.note && (
+                        <p className="text-caption text-dfa-blue mb-3">{step.note}</p>
+                      )}
+                      <ul className="space-y-2 mt-3">
                         {step.points.map((pt, j) => (
                           <li key={j} className="flex gap-3 items-start">
-                            <span
-                              className="mt-0.5 w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-white text-xs font-bold"
-                              style={{ background: 'linear-gradient(135deg, #4DD9EC, #0066CC)' }}
-                            >
-                              {j + 1}
-                            </span>
+                            <span className="mt-1 w-1.5 h-1.5 rounded-full bg-dfa-blue shrink-0" />
                             <span className="text-body text-txt-secondary leading-relaxed">{pt}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                  )}
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -320,12 +309,6 @@ export default function IvyLeaguePage() {
             <h2 className="text-h2 text-white mb-6">
               準備好踏入世界頂尖學府了嗎？
             </h2>
-            <a
-              href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer"
-              className="inline-block bg-white text-dfa-blue font-bold rounded-md px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            >
-              立即預約免費諮詢
-            </a>
           </ScrollReveal>
         </div>
       </section>

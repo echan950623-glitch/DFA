@@ -221,13 +221,7 @@ export default function UkAusNzPage() {
         <div className="container-max text-center">
           <ScrollReveal>
             <h2 className="text-h2 text-white mb-3">找到屬於你的築夢路徑</h2>
-            <p className="text-white/80 mb-8">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
-            <a
-              href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer"
-              className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            >
-              立即預約免費諮詢
-            </a>
+            <p className="text-white/80">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
           </ScrollReveal>
         </div>
       </section>
