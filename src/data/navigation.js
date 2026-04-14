@@ -9,7 +9,14 @@ export const navItems = [
       { label: '英、澳、新築夢計畫', path: '/programs/uk-aus-nz' },
     ],
   },
-  { label: '申請落點分析', path: '/apply-analysis' },
+  {
+    label: '申請落點分析',
+    path: '/apply-analysis',
+    children: [
+      { label: 'QS Top 50', path: '/apply-analysis/qs-top50' },
+      { label: '美國 Top 50', path: '/apply-analysis/us-top50' },
+    ],
+  },
   { label: '夢校與課程', path: '/schools' },
   { label: '築夢導師', path: '/team' },
   { label: '經濟入夢', path: '/tuition' },

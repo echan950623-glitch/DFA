@@ -1,38 +1,26 @@
 import { useState } from 'react'
-import ProgramHero from '../components/shared/ProgramHero'
-import ScrollReveal from '../components/ui/ScrollReveal'
-import SectionHeading from '../components/ui/SectionHeading'
-import { allStories } from '../data/successStories'
+import ProgramHero from '../../components/shared/ProgramHero'
+import ScrollReveal from '../../components/ui/ScrollReveal'
+import SectionHeading from '../../components/ui/SectionHeading'
+import { allStories } from '../../data/successStories'
 
 const TIERS = [
   {
-    id: 'reach',
-    label: '衝刺校',
-    en: 'Reach',
+    id: 'reach', label: '衝刺校', en: 'Reach',
     desc: '目標排名前 10–30，錄取難度高但值得挑戰。背景強化後勝算大幅提升。',
-    color: 'bg-sky-50 border-sky-400',
-    badge: 'text-sky-600',
-    pill: 'bg-sky-100 text-sky-800',
+    color: 'bg-sky-50 border-sky-400', badge: 'text-sky-600', pill: 'bg-sky-100 text-sky-800',
     examples: ['UCB', 'UCLA', 'UCSD', 'Michigan', 'UIUC'],
   },
   {
-    id: 'target',
-    label: '目標校',
-    en: 'Target',
+    id: 'target', label: '目標校', en: 'Target',
     desc: '符合背景條件、有合理錄取機率的學校，是申請策略的主力。',
-    color: 'bg-indigo-50 border-indigo-400',
-    badge: 'text-indigo-600',
-    pill: 'bg-indigo-100 text-indigo-800',
+    color: 'bg-indigo-50 border-indigo-400', badge: 'text-indigo-600', pill: 'bg-indigo-100 text-indigo-800',
     examples: ['UC Davis', 'UC Irvine', 'UCSB', 'UNC', 'Purdue'],
   },
   {
-    id: 'safety',
-    label: '保底校',
-    en: 'Safety',
+    id: 'safety', label: '保底校', en: 'Safety',
     desc: '確保至少有優質錄取結果，讓整體申請策略零風險。',
-    color: 'bg-emerald-50 border-emerald-400',
-    badge: 'text-emerald-600',
-    pill: 'bg-emerald-100 text-emerald-800',
+    color: 'bg-emerald-50 border-emerald-400', badge: 'text-emerald-600', pill: 'bg-emerald-100 text-emerald-800',
     examples: ['UC Riverside', 'UC Santa Cruz', 'UC Merced', 'Arizona State'],
   },
 ]
@@ -50,13 +38,13 @@ const UNIVERSITIES = [
   { name: '加州大學河濱分校', nameEn: 'UC Riverside', rank: 'Top 100', tag: 'UCR' },
 ]
 
-export default function ApplyAnalysisPage() {
+export default function UsTop50Page() {
   const [activeStory, setActiveStory] = useState(null)
 
   return (
     <>
       <ProgramHero
-        title="申請落點分析"
+        title="美國大學排名 Top 50"
         subtitle="不是所有人都應該只申請夢想學校 — 真正會申請的人，會同時布局三個層級"
       />
 
@@ -64,12 +52,7 @@ export default function ApplyAnalysisPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading
-              label="Strategy"
-              title="三層次申請策略"
-              subtitle="聰明布局，確保最佳錄取結果"
-              split
-            />
+            <SectionHeading label="Strategy" title="三層次申請策略" subtitle="聰明布局，確保最佳錄取結果" split />
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -90,12 +73,6 @@ export default function ApplyAnalysisPage() {
               </ScrollReveal>
             ))}
           </div>
-
-          <ScrollReveal delay={0.3}>
-            <p className="text-center text-txt-muted text-body mt-8 max-w-xl mx-auto leading-relaxed">
-              DFA 顧問會依據每位學生的 GPA、修課紀錄、課外活動與目標，制定最優化的申請學校組合
-            </p>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -132,7 +109,6 @@ export default function ApplyAnalysisPage() {
                 >
                   <div className="h-1.5" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
                   <div className="p-5 flex flex-col md:flex-row md:items-center gap-4">
-                    {/* Avatar + info */}
                     <div className="flex items-center gap-4 md:w-72 shrink-0">
                       <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0"
                         style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
@@ -144,7 +120,6 @@ export default function ApplyAnalysisPage() {
                         <p className="text-caption text-txt-muted">{story.major} ｜ GPA <span className="font-bold text-dfa-blue">{story.gpa}</span></p>
                       </div>
                     </div>
-                    {/* Story preview / expand */}
                     <div className="flex-1">
                       <p className={`text-body text-txt-secondary leading-relaxed ${activeStory?.name === story.name ? '' : 'line-clamp-2'}`}>
                         {story.story}
