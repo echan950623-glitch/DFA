@@ -171,23 +171,23 @@ export default function IvyLeaguePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* US column */}
             <ScrollReveal delay={0.1}>
-              <div className="rounded-xl border-2 border-blue-300 overflow-hidden h-full">
-                <div className="px-6 py-4 flex items-center gap-3" style={{ background: 'linear-gradient(135deg, #2DD8EE22, #1040CC33)' }}>
-                  <span className="text-2xl">🇺🇸</span>
+              <div className="rounded-xl border-2 border-blue-300 overflow-hidden h-full flex flex-col">
+                <div className="px-6 py-5 flex items-center gap-4 bg-blue-50">
+                  <span className="text-xs font-black px-2 py-1 rounded bg-dfa-blue text-white tracking-widest">US</span>
                   <div>
-                    <p className="text-sm font-black text-dfa-blue">US 美國</p>
-                    <p className="text-xs text-txt-muted">世界頂尖教育與機會中心</p>
+                    <p className="text-base font-black text-dfa-blue">美國</p>
+                    <p className="text-sm text-txt-muted">世界頂尖教育與機會中心</p>
                   </div>
                 </div>
-                <div className="p-6 space-y-5 bg-white">
+                <div className="p-6 space-y-5 bg-white flex-1">
                   {US_POINTS.map((p, i) => (
                     <div key={i} className="flex gap-3">
-                      <span className="text-dfa-blue font-black text-lg shrink-0 mt-0.5">✓</span>
+                      <span className="text-dfa-blue font-black text-xl shrink-0 mt-0.5">✓</span>
                       <div>
-                        <p className="font-bold text-txt-primary text-sm">{p.title}</p>
-                        <p className="text-caption text-txt-secondary leading-relaxed mt-0.5">{p.desc}</p>
+                        <p className="font-bold text-txt-primary text-base">{p.title}</p>
+                        <p className="text-body text-txt-secondary leading-relaxed mt-1">{p.desc}</p>
                         {p.note && (
-                          <p className="text-caption text-dfa-blue mt-1">
+                          <p className="text-body text-dfa-blue mt-1">
                             <span className="mr-1">👉</span>{p.note}
                           </p>
                         )}
@@ -200,23 +200,23 @@ export default function IvyLeaguePage() {
 
             {/* CA column */}
             <ScrollReveal delay={0.15}>
-              <div className="rounded-xl border-2 border-red-300 overflow-hidden h-full">
-                <div className="px-6 py-4 flex items-center gap-3 bg-red-50">
-                  <span className="text-2xl">🇨🇦</span>
+              <div className="rounded-xl border-2 border-red-300 overflow-hidden h-full flex flex-col">
+                <div className="px-6 py-5 flex items-center gap-4 bg-red-50">
+                  <span className="text-xs font-black px-2 py-1 rounded bg-red-600 text-white tracking-widest">CA</span>
                   <div>
-                    <p className="text-sm font-black text-red-700">CA 加拿大</p>
-                    <p className="text-xs text-txt-muted">高品質教育 + 高性價比選擇</p>
+                    <p className="text-base font-black text-red-700">加拿大</p>
+                    <p className="text-sm text-txt-muted">高品質教育 + 高性價比選擇</p>
                   </div>
                 </div>
-                <div className="p-6 space-y-5 bg-white">
+                <div className="p-6 space-y-5 bg-white flex-1">
                   {CA_POINTS.map((p, i) => (
                     <div key={i} className="flex gap-3">
-                      <span className="text-red-500 font-black text-lg shrink-0 mt-0.5">✓</span>
+                      <span className="text-red-500 font-black text-xl shrink-0 mt-0.5">✓</span>
                       <div>
-                        <p className="font-bold text-txt-primary text-sm">{p.title}</p>
-                        <p className="text-caption text-txt-secondary leading-relaxed mt-0.5">{p.desc}</p>
+                        <p className="font-bold text-txt-primary text-base">{p.title}</p>
+                        <p className="text-body text-txt-secondary leading-relaxed mt-1">{p.desc}</p>
                         {p.note && (
-                          <p className="text-caption text-red-600 mt-1">
+                          <p className="text-body text-red-600 mt-1">
                             <span className="mr-1">👉</span>{p.note}
                           </p>
                         )}
@@ -236,13 +236,13 @@ export default function IvyLeaguePage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <div className="text-center max-w-3xl mx-auto">
-              <p className="text-h2 text-txt-primary leading-tight">
-                在 DFA，我們不只幫你申請學校<br />
+            <div className="text-center mx-auto">
+              <p className="text-h2 text-txt-primary leading-snug">
+                在 DFA，我們不只幫你申請學校，<br />
                 而是幫你選擇最適合的國家與路徑
               </p>
               <div className="my-6 h-px max-w-xs mx-auto bg-gradient-to-r from-transparent via-dfa-blue to-transparent" />
-              <p className="text-h3 text-txt-secondary leading-relaxed">
+              <p className="text-body-lg text-txt-secondary leading-relaxed">
                 因為留學的關鍵<br />
                 從來不是去哪一間<br />
                 <span className="text-dfa-blue font-bold">而是你未來要走哪一條路</span>
