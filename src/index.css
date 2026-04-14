@@ -4,18 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply text-gray-800 font-sans;
-    background-color: #FFFFFF;
-    font-size: 1.125rem;
-    line-height: 1.75;
-  }
-}
-
 /* ── Entry Animation ─────────────────────────────────────── */
 .dfa-entry-overlay {
   position: fixed;
@@ -80,6 +68,19 @@
 @keyframes dfaSloganIn {
   to { opacity: 1; transform: translateY(0); }
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-gray-800 font-sans;
+    background-color: #FFFFFF;
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+}
+
 
 @layer components {
   .gradient-text {

@@ -1,9 +1,10 @@
-import { FaLine, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
+import { FaLine, FaWhatsapp, FaEnvelope, FaFacebookF } from 'react-icons/fa'
+import { socialLinks } from '../../data/contact'
 
 const contactButtons = [
-  { icon: FaLine, label: 'Line', href: '#', color: 'bg-green-500 hover:bg-green-600' },
-  { icon: FaWhatsapp, label: 'WhatsApp', href: '#', color: 'bg-emerald-500 hover:bg-emerald-600' },
-  { icon: FaEnvelope, label: 'Email', href: 'mailto:info@dreamfuture.academy', color: 'bg-blue-500 hover:bg-blue-600' },
+  { icon: FaFacebookF, label: 'Facebook', href: socialLinks.facebook, color: 'bg-blue-600 hover:bg-blue-700' },
+  { icon: FaLine, label: 'Line', href: socialLinks.line, color: 'bg-green-500 hover:bg-green-600' },
+  { icon: FaEnvelope, label: 'Email', href: socialLinks.email, color: 'bg-sky-500 hover:bg-sky-600' },
 ]
 
 export default function FloatingContact() {

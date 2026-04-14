@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { FaInstagram, FaLine, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
+import { FaInstagram, FaFacebookF, FaLine, FaEnvelope } from 'react-icons/fa'
 import { navItems } from '../../data/navigation'
-import { offices } from '../../data/contact'
+import { offices, socialLinks } from '../../data/contact'
 
 export default function Footer() {
   return (
@@ -50,16 +50,16 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">聯絡我們</h4>
             <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FaInstagram className="text-sm" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <FaFacebookF className="text-sm" />
+              </a>
+              <a href={socialLinks.line} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FaLine className="text-sm" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <FaWhatsapp className="text-sm" />
-              </a>
-              <a href="mailto:info@dreamfuture.academy" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={socialLinks.email} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FaEnvelope className="text-sm" />
               </a>
             </div>
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-white/30">
-          © {new Date().getFullYear()} Dream Future Academy. All rights reserved.
+          &copy; {new Date().getFullYear()} Dream Future Academy. All rights reserved.
         </div>
       </div>
     </footer>

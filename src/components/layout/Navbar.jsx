@@ -36,8 +36,8 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav + CTA */}
-          <div className="hidden lg:flex items-center gap-1">
-            <nav className="flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-0.5">
+            <nav className="flex items-center gap-0">
               {navItems.map((item) =>
                 item.children ? (
                   <NavDropdown key={item.label} item={item} solid={showSolid} />
@@ -45,7 +45,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className={`px-3 py-2 text-[16px] font-medium whitespace-nowrap transition-colors rounded-md ${
+                    className={`px-2.5 py-2 text-[14px] font-medium whitespace-nowrap transition-colors rounded-md ${
                       showSolid
                         ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
                         : 'text-white/85 hover:text-white hover:bg-white/10'
@@ -58,7 +58,7 @@ export default function Navbar() {
             </nav>
             <Link
               to="#contact"
-              className={`ml-4 text-[16px] font-semibold px-6 py-2.5 rounded-md transition-all whitespace-nowrap ${
+              className={`ml-3 text-[14px] font-semibold px-5 py-2.5 rounded-md transition-all whitespace-nowrap ${
                 showSolid
                   ? 'bg-dfa-blue text-white hover:bg-dfa-dark'
                   : 'bg-white/10 text-white border border-white/30 hover:bg-white/20'
@@ -68,10 +68,10 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Hamburger (mobile) */}
+          {/* Hamburger (mobile + tablet) */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 ${showSolid ? 'text-gray-700' : 'text-white'}`}
+            className={`xl:hidden p-2 ${showSolid ? 'text-gray-700' : 'text-white'}`}
           >
             {mobileOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>

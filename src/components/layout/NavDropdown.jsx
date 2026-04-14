@@ -13,7 +13,7 @@ export default function NavDropdown({ item, solid }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className={`flex items-center gap-1 px-3 py-2 text-[16px] font-medium whitespace-nowrap rounded-md transition-colors ${
+        className={`flex items-center gap-1 px-2.5 py-2 text-[14px] font-medium whitespace-nowrap rounded-md transition-colors ${
           solid
             ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
             : 'text-white/85 hover:text-white hover:bg-white/10'

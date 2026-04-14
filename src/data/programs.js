@@ -18,9 +18,9 @@ export const programs = [
   {
     id: 'uk-aus-nz',
     title: '英、澳、新築夢計畫',
-    subtitle: 'UK, Australia & NZ Program',
-    description: '提供完整申請服務，助您成功進入牛津、劍橋、帝國理工等英國頂尖學府，涵蓋澳洲八大名校與紐西蘭入學規劃。',
+    subtitle: 'UK, Australia & Singapore Program',
+    description: '提供完整申請服務，助您成功進入牛津、劍橋、帝國理工等英國頂尖學府，涵蓋澳洲八大名校與新加坡 NUS/NTU 頂尖學府申請規劃。',
     path: '/programs/uk-aus-nz',
-    highlights: ['英國頂尖學府', '澳洲八大名校', '紐西蘭入學規劃'],
+    highlights: ['英國頂尖學府', '澳洲八大名校', '新加坡頂尖學府'],
   },
 ]
