@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export default function ProgramHero({ title, subtitle, transparent = false }) {
   return (
     <section
-      className="relative min-h-[60vh] flex items-start overflow-hidden"
+      className="relative min-h-[60vh] flex items-start"
       style={transparent ? {} : { background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
     >
       {/* Decorative circles */}

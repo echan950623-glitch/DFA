@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 
@@ -101,42 +102,20 @@ export default function UkAusNzPage() {
           backgroundSize: '28px 28px',
         }}
       />
-      {/* ══════════════════════════════════════════════════════════
-          Hero + 目的地選擇 整合區塊
-          ══════════════════════════════════════════════════════════ */}
-      <section
-        className="relative min-h-[60vh] flex flex-col justify-start overflow-hidden"
-      >
-        {/* Decorative circles */}
-        <div className="absolute top-10 right-20 w-72 h-72 rounded-full bg-white/5" />
-        <div className="absolute top-32 right-48 w-40 h-40 rounded-full bg-white/5" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-white/[0.03] -translate-x-1/3 translate-y-1/3" />
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
+      {/* ── Hero ── */}
+      <ProgramHero
+        title="英、澳、新築夢計畫"
+        subtitle="穩定進入世界名校的另一條路 — 英國・澳洲・新加坡"
+        transparent
+      />
 
-        <div className="container-max relative z-10 px-6 md:px-8 xl:px-[75px] pb-14 pt-32">
-          {/* Title block */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mb-10"
-          >
-            <h1 className="text-display text-white leading-[1.05] mb-5">英、澳、新築夢計畫</h1>
-            <p className="text-h3 text-white/90 whitespace-nowrap">穩定進入世界名校的另一條路 — 英國・澳洲・新加坡</p>
-          </motion.div>
-
-          {/* Tab buttons */}
+      {/* ── 目的地選擇 ── */}
+      <section className="relative z-10 section-padding">
+        <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
             <p className="text-white/60 text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
             <div className="flex gap-3 flex-wrap">
