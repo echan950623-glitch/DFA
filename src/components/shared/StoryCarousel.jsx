@@ -184,9 +184,9 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
                   className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col hover:bg-white/10 transition-colors duration-200 shrink-0"
                   style={{ width: cardWidth || `calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})` }}
                 >
-                  {/* Name + year */}
+                  {/* Name */}
                   <div className="text-center mb-4">
-                    <p className="text-white font-black text-lg leading-tight">{s.year} {s.name}</p>
+                    <p className="text-white font-black text-lg leading-tight">{s.name}</p>
                   </div>
 
                   {/* School */}

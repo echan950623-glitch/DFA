@@ -1,7 +1,72 @@
+import { useState, useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 import { SUCCESS_STORIES } from '../../components/shared/StoryCarousel'
+
+const GAP = 16
+const VISIBLE_UNI = 5
+
+function UniversityCarousel({ universities }) {
+  const [idx, setIdx] = useState(0)
+  const trackRef = useRef(null)
+  const [cardWidth, setCardWidth] = useState(0)
+  const total = universities.length
+  const canPrev = idx > 0
+  const canNext = idx + VISIBLE_UNI < total
+
+  useEffect(() => {
+    const measure = () => {
+      if (trackRef.current) {
+        const w = trackRef.current.clientWidth
+        setCardWidth((w - GAP * (VISIBLE_UNI - 1)) / VISIBLE_UNI)
+      }
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  const translateX = -(idx * (cardWidth + GAP))
+
+  return (
+    <div className="flex items-center gap-3 max-w-4xl mx-auto mb-16">
+      <button
+        onClick={() => canPrev && setIdx(i => i - 1)}
+        disabled={!canPrev}
+        className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center text-xl transition-all duration-200 ${canPrev ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
+      >‹</button>
+
+      <div className="flex-1 overflow-hidden" ref={trackRef}>
+        <motion.div
+          className="flex"
+          style={{ gap: GAP }}
+          animate={{ x: translateX }}
+          transition={{ type: 'tween', ease: 'easeInOut', duration: 0.4 }}
+        >
+          {universities.map((u) => (
+            <div
+              key={u.tag}
+              className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0"
+              style={{ width: cardWidth || `calc((100% - ${GAP * (VISIBLE_UNI - 1)}px) / ${VISIBLE_UNI})` }}
+            >
+              <div className="text-xl font-black text-dfa-blue mb-1">{u.tag}</div>
+              <p className="text-xs text-txt-secondary font-medium leading-tight">{u.name}</p>
+              <p className="text-[11px] text-txt-faint mt-1">{u.rank}</p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <button
+        onClick={() => canNext && setIdx(i => i + 1)}
+        disabled={!canNext}
+        className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center text-xl transition-all duration-200 ${canNext ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
+      >›</button>
+    </div>
+  )
+}
 
 const TIERS = [
   {
@@ -80,17 +145,7 @@ export default function UsTop50Page() {
             <SectionHeading label="Universities" title="美國名校榜單" subtitle="DFA 學員成功錄取院校一覽" split />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-4xl mx-auto mb-16">
-            {UNIVERSITIES.map((u, i) => (
-              <ScrollReveal key={u.tag} delay={i * 0.05}>
-                <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                  <div className="text-xl font-black text-dfa-blue mb-1">{u.tag}</div>
-                  <p className="text-xs text-txt-secondary font-medium leading-tight">{u.name}</p>
-                  <p className="text-[11px] text-txt-faint mt-1">{u.rank}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <UniversityCarousel universities={UNIVERSITIES} />
 
         </div>
       </section>
