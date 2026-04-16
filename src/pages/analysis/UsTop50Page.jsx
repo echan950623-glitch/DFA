@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
-import { allStories } from '../../data/successStories'
+import { SUCCESS_STORIES } from '../../components/shared/StoryCarousel'
 
 const TIERS = [
   {
@@ -39,8 +38,6 @@ const UNIVERSITIES = [
 ]
 
 export default function UsTop50Page() {
-  const [activeStory, setActiveStory] = useState(null)
-
   return (
     <>
       <ProgramHero
@@ -95,57 +92,41 @@ export default function UsTop50Page() {
             ))}
           </div>
 
-          {/* Success stories */}
-          <ScrollReveal>
-            <SectionHeading label="Success Stories" title="學員案例" subtitle="真實的錄取故事" split />
-          </ScrollReveal>
+        </div>
+      </section>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {allStories.map((story, i) => (
-              <ScrollReveal key={`${story.name}-${i}`} delay={i * 0.08}>
-                <div
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-md transition-all duration-200"
-                  onClick={() => setActiveStory(activeStory?.name === story.name ? null : story)}
-                >
-                  <div className="h-1.5" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
-                  <div className="p-5 flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex items-center gap-4 md:w-72 shrink-0">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
-                        {story.name.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="font-bold text-txt-primary">{story.name}</p>
-                        <p className="text-caption text-txt-muted">{story.college} → <span className="text-dfa-blue font-semibold">{story.university}</span></p>
-                        <p className="text-caption text-txt-muted">{story.major} ｜ GPA <span className="font-bold text-dfa-blue">{story.gpa}</span></p>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <p className={`text-body text-txt-secondary leading-relaxed ${activeStory?.name === story.name ? '' : 'line-clamp-2'}`}>
-                        {story.story}
-                      </p>
-                    </div>
-                    <div className="shrink-0 text-dfa-blue text-xs font-medium">
-                      {activeStory?.name === story.name ? '收起 ↑' : '展開 ↓'}
-                    </div>
+      {/* ── 學員案例 垂直網格 ── */}
+      <section className="relative z-10 section-padding bg-dfa-dark overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #2DD8EE 0%, transparent 50%), radial-gradient(circle at 80% 50%, #1A75F5 0%, transparent 50%)' }} />
+        <div className="container-max relative">
+          <div className="text-center mb-12">
+            <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">SUCCESS STORIES</p>
+            <h2 className="text-h2 text-white">學員成功案例</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SUCCESS_STORIES.map((s, i) => (
+              <ScrollReveal key={s.id} delay={i * 0.05}>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col hover:bg-white/10 transition-colors duration-200 h-full">
+                  <div className="text-center mb-4">
+                    <p className="text-white font-black text-lg leading-tight">{s.year} {s.name}</p>
                   </div>
+                  <div className="mb-4 text-center">
+                    <p className="text-[11px] font-bold tracking-widest text-dfa-blue/80 uppercase mb-0.5">{s.from}</p>
+                    <p className="text-white/50 text-xs mb-0.5">↓</p>
+                    <p className="text-sm font-black text-white tracking-wide uppercase">{s.to}</p>
+                  </div>
+                  <div className="flex justify-center gap-2 mb-4">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-dfa-blue/20 text-white font-medium">{s.major}</span>
+                    {s.gpa !== '—' && s.gpa !== '優秀' && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-medium">GPA {s.gpa}</span>
+                    )}
+                  </div>
+                  <p className="text-white text-[13px] leading-relaxed flex-1">{s.quote}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="section-padding" style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}>
-        <div className="container-max text-center">
-          <ScrollReveal>
-            <h2 className="text-h2 text-white mb-3">讓顧問幫你分析最佳落點</h2>
-            <p className="text-white mb-8">依據你的背景量身制定衝刺校・目標校・保底校清單</p>
-            <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              預約免費落點分析
-            </a>
-          </ScrollReveal>
         </div>
       </section>
     </>

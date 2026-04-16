@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
+import StoryCarousel from '../../components/shared/StoryCarousel'
 
 /* ── Data ── */
 const TRANSFER_REQS = [
@@ -27,25 +28,15 @@ const MYTHS = [
 
 export default function CommunityCollegePage() {
   return (
-    <div style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}>
-      {/* Dot grid across whole page */}
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-
+    <>
       {/* ── Hero ── */}
       <ProgramHero
         title="社區大學轉學名校"
         subtitle="不是備案，是更聰明的策略"
-        transparent
       />
 
       {/* ── 2+2 Flow + Transfer Requirements ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-dfa-light">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -61,14 +52,14 @@ export default function CommunityCollegePage() {
             ].map((item, i) => (
               <div key={i} className="contents">
                 {i > 0 && (
-                  <span className="text-5xl md:text-6xl font-black text-white leading-none">
+                  <span className="text-5xl md:text-6xl font-black text-dfa-blue leading-none">
                     {i === 1 ? '+' : '='}
                   </span>
                 )}
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center text-white text-center p-4 shrink-0 border-2 border-white/20 bg-white/10 backdrop-blur-sm">
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center text-center p-4 shrink-0 border-2 border-dfa-blue/30 bg-dfa-blue/10">
                   <div>
-                    <p className="text-lg md:text-xl font-bold text-white leading-snug">{item.title}</p>
-                    <p className="text-sm text-white mt-1">{item.sub}</p>
+                    <p className="text-lg md:text-xl font-bold text-dfa-dark leading-snug">{item.title}</p>
+                    <p className="text-sm text-gray-700 mt-1">{item.sub}</p>
                   </div>
                 </div>
               </div>
@@ -81,21 +72,18 @@ export default function CommunityCollegePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <h2 className="text-eyebrow text-white uppercase mb-6">Transfer Requirements</h2>
+            <h2 className="text-eyebrow text-dfa-blue uppercase mb-6">Transfer Requirements</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {TRANSFER_REQS.map((r) => (
                 <div
                   key={r.unit}
-                  className="rounded-lg border border-white/15 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/15 transition-all duration-300"
+                  className="rounded-lg border border-gray-200 bg-dfa-light p-6 hover:bg-gray-100 transition-all duration-300"
                 >
-                  <div
-                    className="text-h1 font-black mb-2 leading-none"
-                    style={{ background: 'linear-gradient(to bottom, #fff, rgba(255,255,255,0.6))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                  >
+                  <div className="text-h1 font-black mb-2 leading-none text-dfa-blue">
                     {r.num}
                   </div>
-                  <p className="text-h3 text-white mb-1">{r.unit}</p>
-                  <p className="text-body text-white">{r.desc}</p>
+                  <p className="text-h3 text-dfa-dark mb-1">{r.unit}</p>
+                  <p className="text-body text-gray-700">{r.desc}</p>
                 </div>
               ))}
             </div>
@@ -104,18 +92,18 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* ── 什麼是社區大學 + 特點 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-white">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ScrollReveal>
-              <h3 className="text-h3 text-white mb-4">什麼是美國社區大學</h3>
-              <p className="text-body text-white leading-relaxed">
+              <h3 className="text-h3 text-dfa-dark mb-4">什麼是美國社區大學</h3>
+              <p className="text-body text-gray-700 leading-relaxed">
                 美國社區大學是美國高等教育體系的重要組成部分，是美國政府為了普及高等教育而設立的正規學校。國際生可以在完成社區大學大一大二的課程學習後，轉學入名校繼續讀大三大四，畢業取得名校的學士學位。
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h3 className="text-h3 text-white mb-4">美國社區大學的特點</h3>
-              <p className="text-body text-white leading-relaxed">
+              <h3 className="text-h3 text-dfa-dark mb-4">美國社區大學的特點</h3>
+              <p className="text-body text-gray-700 leading-relaxed">
                 入學條件簡單、學費較低 CP 值高、小班教學有助於融入美國當地文化。越來越多的社區學院和本州名校簽訂轉學協議或保送協議，名校大三優先錄取社區學院轉學生。
               </p>
             </ScrollReveal>
@@ -123,22 +111,71 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
+      {/* ── 四年制 vs 社區大學比較表 ── */}
+      <section className="relative z-10 section-padding pt-0 bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse rounded-xl overflow-hidden text-sm md:text-base">
+                <thead>
+                  <tr style={{ background: '#0A2A6E' }}>
+                    <th className="text-white font-bold px-6 py-4 text-left w-[22%]">比較項目</th>
+                    <th className="text-white font-bold px-6 py-4 text-center">四年制大學<br /><span className="font-normal text-sm">(University / Liberal Arts)</span></th>
+                    <th className="text-white font-bold px-6 py-4 text-center">社區大學<br /><span className="font-normal text-sm">(Community College)</span></th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white">
+                  {[
+                    {
+                      label: '入學門檻',
+                      uni: '較高，通常需 SAT/ACT、托福 90+、高 GPA。',
+                      cc: '極具彈性，多數免 SAT，托福約 61-80 即可。',
+                    },
+                    {
+                      label: '學費支出',
+                      uni: '每年約 40,000 - 65,000 美金。',
+                      cc: <span>每年約 10,000 - 15,000 美金 <span className="text-dfa-blue font-bold">(省 70%)</span>。</span>,
+                    },
+                    {
+                      label: '畢業學位',
+                      uni: '四年完成學士學位。',
+                      cc: '兩年副學士，轉學後兩年拿學士（畢業證書與直接入學者相同）。',
+                    },
+                    {
+                      label: '校園氛圍',
+                      uni: '大型校園、豐富的研究與社圃資源。',
+                      cc: <span className="text-dfa-blue font-medium">小班教學、師生比低，顧問關注度高。</span>,
+                    },
+                  ].map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-dfa-light/50'}>
+                      <td className="px-6 py-4 font-semibold text-gray-700 border-b border-gray-100">{row.label}</td>
+                      <td className="px-6 py-4 text-gray-600 border-b border-gray-100 border-l border-gray-100">{row.uni}</td>
+                      <td className="px-6 py-4 text-gray-600 border-b border-gray-100 border-l border-gray-100">{row.cc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ── 引言 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl">
-              <blockquote className="text-h2 text-white leading-snug mb-6">
+              <blockquote className="text-h2 text-dfa-dark leading-snug mb-6">
                 那些被淘汰的學生並不是成績能力差，而是沒有一份讓你展翅飛翔的申請資料
               </blockquote>
-              <p className="text-caption text-white">— 前哈佛專業申請人 Emerald Macreen</p>
+              <p className="text-caption text-gray-500">— 前哈佛專業申請人 Emerald Macreen</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── 項目介紹 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading
@@ -146,11 +183,10 @@ export default function CommunityCollegePage() {
               title="2+2 陪跑項目"
               subtitle="從課程規劃到申請輔導，全程一對一導師制"
               split
-              light
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="text-body text-white leading-relaxed max-w-4xl">
+            <p className="text-body text-gray-700 leading-relaxed max-w-4xl">
               「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
             </p>
           </ScrollReveal>
@@ -158,17 +194,17 @@ export default function CommunityCollegePage() {
       </section>
 
       {/* ── 破除迷思 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Myth Busting" title="破除轉學迷思" light />
+            <SectionHeading label="Myth Busting" title="破除轉學迷思" />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {MYTHS.map((m, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="border-t-2 border-white/30 pt-6">
-                  <p className="text-h3 text-white mb-3">{m.myth}</p>
-                  <p className="text-body text-white leading-relaxed">{m.truth}</p>
+                <div className="border-t-2 border-gray-200 pt-6">
+                  <p className="text-h3 text-dfa-dark mb-3">{m.myth}</p>
+                  <p className="text-body text-gray-700 leading-relaxed">{m.truth}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -176,8 +212,11 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
+      {/* ── 成功案例 Carousel ── */}
+      <StoryCarousel title="學員成功案例" label="SUCCESS STORIES" />
+
       {/* ── CTA ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-white">
         <div className="container-max text-center">
           <motion.div
             initial={{ scale: 0.2, opacity: 0 }}
@@ -185,15 +224,15 @@ export default function CommunityCollegePage() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ type: 'spring', stiffness: 180, damping: 16 }}
           >
-            <h2 className="text-h1 md:text-display text-white leading-tight mb-3">
+            <h2 className="text-h1 md:text-display text-dfa-dark leading-tight mb-3">
               申請名校，是硬碰硬
             </h2>
-            <h2 className="text-h1 md:text-display text-white leading-tight">
+            <h2 className="text-h1 md:text-display text-dfa-dark leading-tight">
               轉學名校，是換一條更聰明的路
             </h2>
           </motion.div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
