@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
-import { SUCCESS_STORIES } from '../../components/shared/StoryCarousel'
+import StoryCarousel from '../../components/shared/StoryCarousel'
 
 const GAP = 16
 const VISIBLE_UNI = 5
@@ -150,40 +150,8 @@ export default function UsTop50Page() {
         </div>
       </section>
 
-      {/* ── 學員案例 垂直網格 ── */}
-      <section className="relative z-10 section-padding bg-dfa-dark overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #2DD8EE 0%, transparent 50%), radial-gradient(circle at 80% 50%, #1A75F5 0%, transparent 50%)' }} />
-        <div className="container-max relative">
-          <div className="text-center mb-12">
-            <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">SUCCESS STORIES</p>
-            <h2 className="text-h2 text-white">學員成功案例</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SUCCESS_STORIES.map((s, i) => (
-              <ScrollReveal key={s.id} delay={i * 0.05}>
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col hover:bg-white/10 transition-colors duration-200 h-full">
-                  <div className="text-center mb-4">
-                    <p className="text-white font-black text-lg leading-tight">{s.year} {s.name}</p>
-                  </div>
-                  <div className="mb-4 text-center">
-                    <p className="text-[11px] font-bold tracking-widest text-dfa-blue/80 uppercase mb-0.5">{s.from}</p>
-                    <p className="text-white/50 text-xs mb-0.5">↓</p>
-                    <p className="text-sm font-black text-white tracking-wide uppercase">{s.to}</p>
-                  </div>
-                  <div className="flex justify-center gap-2 mb-4">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-dfa-blue/20 text-white font-medium">{s.major}</span>
-                    {s.gpa !== '—' && s.gpa !== '優秀' && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-medium">GPA {s.gpa}</span>
-                    )}
-                  </div>
-                  <p className="text-white text-[13px] leading-relaxed flex-1">{s.quote}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── 學員案例 Carousel ── */}
+      <StoryCarousel title="學員成功案例" label="SUCCESS STORIES" />
     </>
   )
 }
