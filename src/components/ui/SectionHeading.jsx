@@ -28,7 +28,7 @@ export default function SectionHeading({
       <div className="mb-heading-gap">
         {eyebrow}
         <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10">
-          <h2 className={`text-h2 shrink-0 ${h2Color}`}>{title}</h2>
+          <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words shrink-0 ${h2Color}`}>{title}</h2>
           <p className={`text-body leading-relaxed ${subColor}`}>{subtitle}</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap text-center">
         {eyebrow}
-        <h2 className={`text-h2 mb-3 ${h2Color}`}>{title}</h2>
+        <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>{title}</h2>
         {subtitle && <p className={`text-body max-w-xl mx-auto ${subColor}`}>{subtitle}</p>}
       </div>
     )
@@ -50,7 +50,7 @@ export default function SectionHeading({
   return (
     <div className="mb-heading-gap">
       {eyebrow}
-      <h2 className={`text-h2 mb-3 ${h2Color}`}>{title}</h2>
+      <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>{title}</h2>
       {subtitle && <p className={`text-body max-w-xl ${subColor}`}>{subtitle}</p>}
     </div>
   )
