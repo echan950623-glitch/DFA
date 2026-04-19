@@ -268,18 +268,18 @@ export default function SchoolsPage() {
           <ScrollReveal>
             <SectionHeading label="Why USA" title="為何選擇美國大學？" subtitle="留學美國的核心優勢" split />
           </ScrollReveal>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-8">
             {WHY_USA.map((w, i) => (
-              <ScrollReveal key={w.title} delay={i * 0.1}>
-                <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <ScrollReveal key={w.title} delay={i * 0.1} className="h-full">
+                <div className="h-full bg-white rounded-xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                   <div
-                    className="w-12 h-12 mx-auto mb-3 rounded-lg flex items-center justify-center text-xl"
+                    className="w-16 h-16 mx-auto mb-5 rounded-xl flex items-center justify-center text-3xl"
                     style={{ background: 'linear-gradient(135deg, #2DD8EE22, #1040CC22)' }}
                   >
                     {w.icon}
                   </div>
-                  <h3 className="font-bold text-txt-primary mb-1 text-sm">{w.title}</h3>
-                  <p className="text-[11px] text-txt-secondary leading-relaxed">{w.desc}</p>
+                  <h3 className="font-bold text-txt-primary mb-3 text-lg">{w.title}</h3>
+                  <p className="text-sm text-txt-secondary leading-relaxed">{w.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
