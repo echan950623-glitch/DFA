@@ -29,9 +29,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img
-              src={showSolid ? '/logos/logo-color-transparent.png' : '/logos/logo-white.png'}
+              src={showSolid ? '/logos/S__5767186.jpg' : '/logos/logo-white-nobg.png'}
               alt="Dream Future Academy"
-              className="h-10 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </Link>
 

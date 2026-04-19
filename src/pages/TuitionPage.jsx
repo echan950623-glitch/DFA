@@ -41,7 +41,7 @@ const VIP_PLANS = [
     color: 'border-dfa-blue',
     headerBg: 'bg-dfa-dark',
     headerText: 'text-white',
-    badgeColor: 'bg-dfa-cyan/20 text-dfa-cyan',
+    badgeColor: 'bg-dfa-blue/20 text-dfa-blue',
     dark: true,
   },
 ]
@@ -236,16 +236,77 @@ export default function TuitionPage() {
         </div>
       </section>
 
+      {/* ── VIP 三方案介紹卡 ── */}
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}>
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              title="VIP 升學服務方案"
+              subtitle="美國社區大學轉學 2+2 — 三階段專業輔導計畫"
+              light
+            />
+            <p className="text-center text-white/80 text-sm mb-10 -mt-4">
+              透過夢想家完善升學規劃與轉學機制，在確保升學品質的同時有效控制留學預算
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Basic */}
+            <ScrollReveal delay={0}>
+              <div className="bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-6 h-full hover:bg-white/15 transition-colors duration-200">
+                <div className="mb-4">
+                  <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-1">入門首選</p>
+                  <h3 className="text-xl font-black text-white">VIP 基礎</h3>
+                  <p className="text-sm text-white/70 font-medium">規劃方案</p>
+                  <div className="mt-2 inline-block text-xs bg-sky-400/30 text-sky-200 font-medium px-3 py-1 rounded-full">申請國外院校</div>
+                </div>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  適合尚在探索升學方向的學生，透過完整背景評估與升學策略規劃，協助建立清晰的申請藍圖。從科系定位、留學路徑到初步選校建議，幫助學生在早期階段掌握方向，為後續申請打下穩固基礎。
+                </p>
+              </div>
+            </ScrollReveal>
+            {/* Advanced */}
+            <ScrollReveal delay={0.1}>
+              <div className="bg-white rounded-2xl p-6 h-full shadow-xl relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-dfa-blue text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">推薦方案</div>
+                <div className="mb-4">
+                  <p className="text-xs font-bold text-dfa-blue/60 uppercase tracking-widest mb-1">主流選擇</p>
+                  <h3 className="text-xl font-black text-dfa-dark">VIP 進階</h3>
+                  <p className="text-sm text-gray-500 font-medium">申請方案</p>
+                  <div className="mt-2 inline-block text-xs bg-blue-100 text-blue-700 font-medium px-3 py-1 rounded-full">TOP 100 名校</div>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  針對已確定升學目標的學生設計，提供完整且系統化的申請輔導與文件打造服務。從選校策略、履歷優化到申請文書撰寫，透過專業顧問一對一指導，全面強化學術背景與履歷深度，讓整體申請更具說服力與差異化優勢。
+                </p>
+              </div>
+            </ScrollReveal>
+            {/* Flagship */}
+            <ScrollReveal delay={0.2}>
+              <div className="bg-dfa-dark rounded-2xl p-6 h-full">
+                <div className="mb-4">
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-1">頂尖規格</p>
+                  <h3 className="text-xl font-black text-white">VIP 旗艦</h3>
+                  <p className="text-sm text-white/60 font-medium">全程託管計畫</p>
+                  <div className="mt-2 inline-block text-xs bg-dfa-blue/30 text-sky-300 font-medium px-3 py-1 rounded-full">TOP 30 / UC 前六</div>
+                </div>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  為目標頂尖名校學生打造的高端升學方案，提供長期且系統化的全方位規劃與管理。整合學術研究、實習與國際資源，打造具差異化的申請履歷。結合 2+2 轉學策略，在提升錄取機率的同時，最高可節省百萬以上學費。
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ── VIP 方案比較表 ── */}
       <section className="section-padding bg-white">
         <div className="container-max w-full">
           <ScrollReveal>
             <SectionHeading
-              title="VIP 升學服務方案"
-              subtitle="美國社區大學轉學 2+2 — 三階段專業輔導計畫"
+              title="方案詳細比較"
+              subtitle="三方案完整功能對照表"
             />
             <p className="text-center text-gray-500 text-sm mb-12 -mt-4">
-              透過夢想家完善升學規劃與轉學機制，在確保升學品質的同時有效控制留學預算
+              如需了解各方案詳細組費用，請 <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="text-dfa-blue underline">聯絡我們</a> 進行免費評估
             </p>
           </ScrollReveal>
 
@@ -308,20 +369,6 @@ export default function TuitionPage() {
               <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="text-dfa-blue font-semibold hover:underline mx-1">聯絡我們</a>
               進行免費評估
             </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="section-padding"
-        style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}>
-        <div className="container-max text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl font-black text-white mb-3">用更聰明的方式，實現留學夢想</h2>
-            <p className="text-white mb-8">透過完整升學規劃與轉學策略，在提升升學品質的同時，有效控制留學成本</p>
-            <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              立即預約免費諮詢
-            </a>
           </ScrollReveal>
         </div>
       </section>

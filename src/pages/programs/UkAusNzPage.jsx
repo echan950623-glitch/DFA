@@ -94,106 +94,92 @@ export default function UkAusNzPage() {
   const active = COUNTRIES.find((c) => c.id === activeTab)
 
   return (
-    <div style={{ background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}>
-      <div
-        className="fixed inset-0 opacity-[0.04] pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      {/* ── Hero ── */}
+    <>
+      {/* ── Hero + 目的地選擇 ── */}
       <ProgramHero
         title="英、澳、新築夢計畫"
         subtitle="穩定進入世界名校的另一條路 — 英國・澳洲・新加坡"
-        transparent
-      />
-
-      {/* ── 目的地選擇 ── */}
-      <section className="relative z-10 section-padding">
-        <div className="container-max">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-white text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
-            <div className="flex gap-3 flex-wrap">
-              {COUNTRIES.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => setActiveTab(activeTab === c.id ? null : c.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold text-sm transition-all duration-200 border-2 ${
-                    activeTab === c.id
-                      ? 'bg-white shadow-lg scale-105'
-                      : 'bg-white/10 text-white border-white/30 hover:bg-white/20'
-                  }`}
-                  style={activeTab === c.id ? { color: c.accent, borderColor: 'white' } : {}}
-                >
-                  <span className="text-xs font-black px-1.5 py-0.5 rounded"
-                    style={activeTab === c.id
-                      ? { background: c.accent, color: 'white' }
-                      : { background: '#ffffff', color: '#374151' }
-                    }
-                  >{c.code}</span>
-                  {c.name}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Inline content panel */}
-          <AnimatePresence mode="wait">
-            {active && (
-              <motion.div
-                key={active.id}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 12 }}
-                transition={{ duration: 0.35 }}
-                className="mt-8 bg-white rounded-xl p-6 md:p-8 max-w-4xl overflow-hidden"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <p className="text-white text-sm uppercase tracking-widest mb-4">選擇你的目的地</p>
+          <div className="flex gap-3 flex-wrap">
+            {COUNTRIES.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setActiveTab(activeTab === c.id ? null : c.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-md font-bold text-sm transition-all duration-200 border-2 ${
+                  activeTab === c.id
+                    ? 'bg-white shadow-lg scale-105'
+                    : 'bg-white/10 text-white border-white/30 hover:bg-white/20'
+                }`}
+                style={activeTab === c.id ? { color: c.accent, borderColor: 'white' } : {}}
               >
-                {/* Top accent bar */}
-                <div className="h-1 rounded-full mb-6" style={{ background: active.accent }} />
+                <span className="text-xs font-black px-1.5 py-0.5 rounded"
+                  style={activeTab === c.id
+                    ? { background: c.accent, color: 'white' }
+                    : { background: '#ffffff', color: '#374151' }
+                  }
+                >{c.code}</span>
+                {c.name}
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
-                <div className="mb-4">
-                  <h3 className="text-h3 text-txt-primary">{active.name}</h3>
-                  <p className="text-sm font-semibold mt-0.5" style={{ color: active.accent }}>{active.tagline}</p>
-                </div>
+        {/* Inline content panel */}
+        <AnimatePresence mode="wait">
+          {active && (
+            <motion.div
+              key={active.id}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.35 }}
+              className="mt-6 bg-white rounded-xl p-6 md:p-8 max-w-4xl overflow-hidden"
+            >
+              {/* Top accent bar */}
+              <div className="h-1 rounded-full mb-6" style={{ background: active.accent }} />
 
-                <p className="text-body text-txt-secondary leading-relaxed mb-6">{active.desc}</p>
+              <div className="mb-4">
+                <h3 className="text-h3 text-txt-primary">{active.name}</h3>
+                <p className="text-sm font-semibold mt-0.5" style={{ color: active.accent }}>{active.tagline}</p>
+              </div>
 
-                {/* Highlight pills */}
-                <div className="flex flex-wrap gap-3 mb-6">
-                  {active.highlights.map((h) => (
-                    <div key={h.label} className="rounded-lg px-4 py-2.5 bg-blue-50 border border-blue-100">
-                      <p className="text-xs text-txt-muted">{h.label}</p>
-                      <p className="text-sm font-black text-txt-primary">{h.value}</p>
-                    </div>
+              <p className="text-body text-txt-secondary leading-relaxed mb-6">{active.desc}</p>
+
+              {/* Highlight pills */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                {active.highlights.map((h) => (
+                  <div key={h.label} className="rounded-lg px-4 py-2.5 bg-blue-50 border border-blue-100">
+                    <p className="text-xs text-txt-muted">{h.label}</p>
+                    <p className="text-sm font-black text-txt-primary">{h.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Schools */}
+              <div>
+                <p className="text-xs uppercase tracking-widest text-txt-muted mb-2">代表院校</p>
+                <div className="flex flex-wrap gap-2">
+                  {active.schools.map((s) => (
+                    <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-gray-100 text-txt-secondary">{s}</span>
                   ))}
                 </div>
-
-                {/* Schools */}
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-txt-muted mb-2">代表院校</p>
-                  <div className="flex flex-wrap gap-2">
-                    {active.schools.map((s) => (
-                      <span key={s} className="text-caption font-medium px-3 py-1.5 rounded-md bg-gray-100 text-txt-secondary">{s}</span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-      </section>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </ProgramHero>
 
       {/* ── 為什麼選擇這條路 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Why This Path" title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" split light />
+            <SectionHeading label="Why This Path" title="為什麼選擇這條路？" subtitle="英澳新路徑的核心優勢" split />
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {WHY_REASONS.map((r, i) => (
@@ -212,19 +198,19 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── 適合族群 ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Who It's For" title="誰適合這個計畫？" subtitle="以下族群尤其推薦" split light />
+            <SectionHeading label="Who It's For" title="誰適合這個計畫？" subtitle="以下族群尤其推薦" split />
           </ScrollReveal>
           <div className="max-w-3xl mx-auto space-y-4">
             {TARGET_PROFILES.map((p, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="flex items-start gap-4 bg-white/10 rounded-lg p-5 border border-white/15">
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 bg-white/20">
+                <div className="flex items-start gap-4 bg-white rounded-lg p-5 border border-gray-200 shadow-sm">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 bg-dfa-blue">
                     {i + 1}
                   </div>
-                  <p className="text-body text-white leading-relaxed">{p}</p>
+                  <p className="text-body text-gray-700 leading-relaxed">{p}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -233,14 +219,14 @@ export default function UkAusNzPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative z-10 section-padding">
+      <section className="relative z-10 section-padding bg-white">
         <div className="container-max text-center">
           <ScrollReveal>
-            <h2 className="text-h2 text-white mb-3">找到屬於你的築夢路徑</h2>
-            <p className="text-white">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
+            <h2 className="text-h2 text-dfa-dark mb-3">找到屬於你的築夢路徑</h2>
+            <p className="text-gray-600">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
           </ScrollReveal>
         </div>
       </section>
-    </div>
+    </>
   )
 }

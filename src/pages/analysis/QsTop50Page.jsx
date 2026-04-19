@@ -128,19 +128,6 @@ export default function QsTop50Page() {
           </div>
         </div>
       </section>
-
-      {/* ── CTA ── */}
-      <section className="section-padding" style={{ background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}>
-        <div className="container-max text-center">
-          <ScrollReveal>
-            <h2 className="text-h2 text-white mb-3">讓顧問幫你分析最佳落點</h2>
-            <p className="text-white mb-8">依據你的背景量身制定衝刺校・目標校・保底校清單</p>
-            <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-dfa-dark font-bold rounded-lg px-10 py-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              預約免費落點分析
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
     </>
   )
 }

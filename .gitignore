@@ -4,3 +4,5 @@ dist
 .env.local
 *.pptx
 *.pdf
+pptx_unpacked
+.claude/settings.local.json

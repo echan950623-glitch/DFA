@@ -15,7 +15,7 @@ export default function SectionHeading({
   center = false,
 }) {
   const h2Color   = light ? 'text-white' : 'text-txt-primary'
-  const eyeColor  = light ? 'text-dfa-cyan' : 'text-dfa-blue'
+  const eyeColor  = light ? 'text-white' : 'text-dfa-blue'
   const subColor  = light ? 'text-white' : 'text-txt-muted'
 
   const eyebrow = label && (

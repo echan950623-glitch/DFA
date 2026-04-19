@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
-export default function ProgramHero({ title, subtitle, transparent = false }) {
+export default function ProgramHero({ title, subtitle, transparent = false, children }) {
   return (
     <section
-      className="relative min-h-[40vh] md:min-h-[60vh] flex items-start overflow-hidden"
-      style={transparent ? {} : { background: 'linear-gradient(to right, #2DD8EE 0%, #1A9AE6 40%, #1040CC 100%)' }}
+      className="relative min-h-[40vh] md:min-h-[50vh] flex items-start overflow-hidden"
+      style={transparent ? {} : { background: 'linear-gradient(135deg, #2DD8EE 0%, #1A9AE6 30%, #0A2A6E 100%)' }}
     >
       {/* Decorative circles */}
       <div className="absolute top-10 right-20 w-72 h-72 rounded-full bg-white/5" />
@@ -29,6 +29,9 @@ export default function ProgramHero({ title, subtitle, transparent = false }) {
           <h1 className="text-[2.5rem] md:text-h1 xl:text-display text-white leading-[1.1] mb-4 md:whitespace-nowrap">{title}</h1>
           {subtitle && (
             <p className="text-body md:text-h3 text-white md:whitespace-nowrap">{subtitle}</p>
+          )}
+          {children && (
+            <div className="mt-6">{children}</div>
           )}
         </motion.div>
       </div>

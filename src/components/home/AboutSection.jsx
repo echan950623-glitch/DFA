@@ -39,7 +39,7 @@ export default function AboutSection() {
                 {PROOF_POINTS.map((p) => (
                   <div key={p.label} className="flex items-start gap-5 py-6 border-b border-gray-100 last:border-0">
                     <div className="w-1 self-stretch min-h-[3rem] shrink-0 rounded-full"
-                      style={{ background: 'linear-gradient(to bottom, #22D4EC, #1A75F5)' }}
+                      style={{ background: 'linear-gradient(to bottom, #2DD8EE, #1A75F5)' }}
                     />
                     <div>
                       <div className="text-h3 text-txt-primary mb-1">{p.label}</div>
@@ -75,7 +75,7 @@ export default function AboutSection() {
               <h2 className="text-h1 text-white leading-tight">
                 每一個背景，<br />
                 都值得一條<br />
-                <span className="text-dfa-cyan">通往頂尖大學的路。</span>
+                <span className="text-white">通往頂尖大學的路。</span>
               </h2>
             </ScrollReveal>
 

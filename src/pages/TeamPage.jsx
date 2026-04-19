@@ -5,7 +5,7 @@ import SectionHeading from '../components/ui/SectionHeading'
 import { teamMembers } from '../data/team'
 
 const GAP = 20
-const VISIBLE = 3   // 3 columns visible, each column has 2 rows = 6 teachers per view
+const VISIBLE = 3       // 3 columns × 2 rows = 6 cards visible
 
 // Group members into column pairs [[m0,m1],[m2,m3],...]
 function chunkPairs(arr) {
@@ -26,6 +26,7 @@ export default function TeamPage() {
   const canPrev = idx > 0
   const canNext = idx + VISIBLE < total
 
+  // Measure track width → derive column width so exactly 3 columns fill the container
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
@@ -49,7 +50,12 @@ export default function TeamPage() {
 
       <section className="section-padding bg-white">
         <div className="container-max">
-          <SectionHeading label="Our Team" title="築夢導師" subtitle="來自世界頂尖學府，陪你走每一步" split />
+          <SectionHeading
+            label="知識網絡"
+            title="我們的大學升學顧問"
+            subtitle="我們的大學升學顧問團隊匯聚了大學招生領域的頂尖人才，包括前招生官和常春藤錄校專業顧問。每位成員都擁有豐富的實務經驗和行之有效的策略，能夠引導您的孩子進入理想的大學。我們擁有業界超高的升學率，以上便是我們使命範疇的一小部分成員。"
+            split
+          />
 
           {/* Carousel */}
           <div className="flex items-center gap-4 mt-10">
@@ -77,18 +83,18 @@ export default function TeamPage() {
                     {pair.map((member) => (
                       <div
                         key={member.name}
-                        className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                        className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 min-h-[280px]"
                       >
                         <div className="h-1.5 bg-dfa-blue" />
-                        <div className="p-5">
-                          <div className="flex items-center gap-4 mb-3">
-                            {/* Avatar — bigger */}
-                            <div className="w-20 h-20 rounded-full bg-dfa-blue flex items-center justify-center text-white text-2xl font-black shrink-0">
+                        <div className="p-5 h-full">
+                          <div className="flex items-center gap-3 mb-3">
+                            {/* Avatar */}
+                            <div className="w-16 h-16 rounded-full bg-dfa-blue flex items-center justify-center text-white text-xl font-black shrink-0">
                               {member.name.charAt(0)}
                             </div>
-                            <div>
-                              <h3 className="text-lg font-bold text-txt-primary">{member.name}</h3>
-                              <p className="text-sm font-semibold text-dfa-blue">{member.school}</p>
+                            <div className="min-w-0">
+                              <h3 className="text-base font-bold text-txt-primary leading-snug">{member.name}</h3>
+                              <p className="text-sm font-semibold text-dfa-blue leading-snug">{member.school}</p>
                               <p className="text-xs text-txt-muted">{member.degree}</p>
                             </div>
                           </div>
@@ -111,7 +117,7 @@ export default function TeamPage() {
 
           {/* Dots */}
           <div className="flex justify-center gap-1.5 mt-8">
-            {Array.from({ length: total - VISIBLE + 1 }).map((_, i) => (
+            {Array.from({ length: Math.max(0, total - VISIBLE + 1) }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
@@ -119,6 +125,28 @@ export default function TeamPage() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ── */}
+      <section className="relative h-[520px] overflow-hidden">
+        <img
+          src="/images/S__5791784.jpg"
+          alt="Campus"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-2">前進夢想，為自己翻轉未來</h2>
+          <p className="text-xl md:text-2xl font-bold text-white mb-8">你是下一個嗎？</p>
+          <a
+            href="https://lin.ee/O1ejJf7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-white text-white font-bold text-lg px-10 py-3 rounded hover:bg-white hover:text-dfa-dark transition-all duration-300"
+          >
+            立即諮詢
+          </a>
         </div>
       </section>
     </>

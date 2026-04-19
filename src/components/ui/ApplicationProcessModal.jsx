@@ -139,7 +139,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                 <h2 className="text-2xl md:text-3xl font-black text-white leading-snug">
                   美加藤校築夢計畫
                   <br />
-                  <span className="text-dfa-cyan font-bold text-xl md:text-2xl">五步驟申請流程</span>
+                  <span className="text-white/80 font-bold text-xl md:text-2xl">五步驟申請流程</span>
                 </h2>
               </div>
 
@@ -162,7 +162,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                     )}
 
                     {/* Step number */}
-                    <span className="text-[10px] font-bold text-dfa-cyan tracking-widest mb-3">
+                    <span className="text-[10px] font-bold text-white/80 tracking-widest mb-3">
                       STEP {step.number}
                     </span>
 
@@ -191,7 +191,7 @@ export default function ApplicationProcessModal({ isOpen, onClose }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
-                  className="inline-block bg-white text-dfa-dark font-bold px-8 py-3 rounded-lg text-sm hover:bg-dfa-cyan hover:text-white transition-colors duration-200"
+                  className="inline-block bg-white text-dfa-dark font-bold px-8 py-3 rounded-lg text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
                 >
                   立即預約免費評估 →
                 </a>

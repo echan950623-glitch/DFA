@@ -2,13 +2,14 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
-      {/* Background video */}
+    <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-gradient-to-br from-cyan-500 via-blue-600 to-blue-900">
+      {/* Background video with poster fallback */}
       <video
         autoPlay
         muted
         loop
         playsInline
+        poster="/images/S__5791784.jpg"
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/intro.mp4" type="video/mp4" />
