@@ -6,27 +6,35 @@ import SectionHeading from '../../components/ui/SectionHeading'
 import StoryCarousel from '../../components/shared/StoryCarousel'
 
 const GAP = 16
-const VISIBLE_UNI = 5
+const VISIBLE_UNI_DESKTOP = 5
+const VISIBLE_UNI_MOBILE = 2
 
 function UniversityCarousel({ universities }) {
   const [idx, setIdx] = useState(0)
   const trackRef = useRef(null)
   const [cardWidth, setCardWidth] = useState(0)
+  const [visible, setVisible] = useState(VISIBLE_UNI_DESKTOP)
   const total = universities.length
   const canPrev = idx > 0
-  const canNext = idx + VISIBLE_UNI < total
+  const canNext = idx + visible < total
 
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
         const w = trackRef.current.clientWidth
-        setCardWidth((w - GAP * (VISIBLE_UNI - 1)) / VISIBLE_UNI)
+        const v = window.innerWidth < 768 ? VISIBLE_UNI_MOBILE : VISIBLE_UNI_DESKTOP
+        setVisible(v)
+        setCardWidth((w - GAP * (v - 1)) / v)
       }
     }
     measure()
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  useEffect(() => {
+    if (idx + visible > total) setIdx(Math.max(0, total - visible))
+  }, [visible, total, idx])
 
   const translateX = -(idx * (cardWidth + GAP))
 
@@ -49,11 +57,11 @@ function UniversityCarousel({ universities }) {
             <div
               key={u.tag}
               className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shrink-0"
-              style={{ width: cardWidth || `calc((100% - ${GAP * (VISIBLE_UNI - 1)}px) / ${VISIBLE_UNI})` }}
+              style={{ width: cardWidth || `calc((100% - ${GAP * (visible - 1)}px) / ${visible})` }}
             >
-              <div className="text-xl font-black text-dfa-blue mb-1">{u.tag}</div>
-              <p className="text-xs text-txt-secondary font-medium leading-tight">{u.name}</p>
-              <p className="text-[11px] text-txt-faint mt-1">{u.rank}</p>
+              <div className="text-2xl font-black text-dfa-blue mb-2">{u.tag}</div>
+              <p className="text-sm text-txt-secondary font-medium leading-tight">{u.name}</p>
+              <p className="text-xs text-txt-faint mt-1.5">{u.rank}</p>
             </div>
           ))}
         </motion.div>

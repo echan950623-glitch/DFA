@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { HiX } from 'react-icons/hi'
 import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
@@ -177,12 +178,12 @@ function SchoolDetail({ school }) {
       className="flex flex-col"
     >
       {/* Header */}
-      <div className="px-5 py-3 border-b border-gray-100 shrink-0">
+      <div className="px-5 py-4 border-b border-gray-100 shrink-0">
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-[10px] font-bold bg-dfa-blue text-white px-2 py-0.5 rounded">{school.type}</span>
+          <span className="text-xs font-bold bg-dfa-blue text-white px-2.5 py-0.5 rounded">{school.type}</span>
         </div>
-        <h2 className="text-lg font-black text-dfa-dark leading-tight">{school.nameEn}</h2>
-        <p className="text-sm text-dfa-blue font-bold">{school.name}</p>
+        <h2 className="text-xl font-black text-dfa-dark leading-tight">{school.nameEn}</h2>
+        <p className="text-base text-dfa-blue font-bold">{school.name}</p>
       </div>
 
       {/* Image + Map — always side by side */}
@@ -219,9 +220,9 @@ function SchoolDetail({ school }) {
             { icon: '📅', label: '創校', value: school.founded },
             { icon: '👥', label: '學生數', value: school.students },
           ].map((s) => (
-            <div key={s.label} className="bg-dfa-light rounded-lg p-2">
-              <p className="text-[10px] text-txt-muted">{s.icon} {s.label}</p>
-              <p className="text-[11px] font-bold text-dfa-dark mt-0.5 leading-tight">{s.value}</p>
+            <div key={s.label} className="bg-dfa-light rounded-lg p-3">
+              <p className="text-xs text-txt-muted">{s.icon} {s.label}</p>
+              <p className="text-sm font-bold text-dfa-dark mt-1 leading-tight">{s.value}</p>
             </div>
           ))}
         </div>
@@ -229,14 +230,14 @@ function SchoolDetail({ school }) {
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {school.tags.map((t) => (
-            <span key={t} className="text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-dfa-light text-dfa-blue">{t}</span>
+            <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-dfa-light text-dfa-blue">{t}</span>
           ))}
         </div>
 
         {/* Introduction */}
-        <div className="border-t border-gray-100 pt-3 mb-4">
-          <h3 className="text-xs font-black text-dfa-dark mb-2">{school.name}介紹</h3>
-          <p className="text-xs text-txt-secondary leading-[1.8]">{school.intro}</p>
+        <div className="border-t border-gray-100 pt-4 mb-4">
+          <h3 className="text-base font-black text-dfa-dark mb-2">{school.name}介紹</h3>
+          <p className="text-sm text-txt-secondary leading-[1.8]">{school.intro}</p>
         </div>
 
         <a
@@ -254,6 +255,23 @@ function SchoolDetail({ school }) {
 
 export default function SchoolsPage() {
   const [selectedSchool, setSelectedSchool] = useState(SCHOOLS[0])
+  const [modalOpen, setModalOpen] = useState(false)
+
+  // Lock body scroll while modal open
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [modalOpen])
+
+  const openModal = (school) => {
+    setSelectedSchool(school)
+    // Only open modal on mobile breakpoints
+    if (window.innerWidth < 768) setModalOpen(true)
+  }
 
   return (
     <>
@@ -291,12 +309,29 @@ export default function SchoolsPage() {
       <section className="py-12 bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Target Schools" title="目標名校" subtitle="點擊左側學校查看完整介紹" split />
+            <SectionHeading label="Target Schools" title="目標名校" subtitle="點擊學校查看完整介紹" split />
           </ScrollReveal>
 
-          {/* Master-detail: left sets height, right fills via absolute */}
-          <div className="flex rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white w-full">
-            {/* Left — all schools visible, natural height */}
+          {/* Mobile: grid of school cards → open modal on tap */}
+          <div className="md:hidden grid grid-cols-2 gap-3">
+            {SCHOOLS.map((school) => (
+              <button
+                key={school.id}
+                onClick={() => openModal(school)}
+                className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-left hover:shadow-md transition-all duration-200 active:scale-95"
+              >
+                <span className="inline-block text-xs font-medium px-2 py-0.5 rounded-full bg-dfa-light text-dfa-blue mb-2">
+                  {school.type}
+                </span>
+                <p className="text-sm font-bold text-dfa-dark leading-tight mb-1">{school.name}</p>
+                <p className="text-xs text-txt-muted leading-tight line-clamp-2">{school.nameEn}</p>
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop: master-detail side by side */}
+          <div className="hidden md:flex rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white w-full">
+            {/* Left — all schools visible */}
             <div className="w-[220px] xl:w-[260px] shrink-0 border-r border-gray-200 bg-white">
               {SCHOOLS.map((school) => (
                 <button
@@ -311,10 +346,10 @@ export default function SchoolsPage() {
                   <p className={`text-sm font-bold leading-tight ${selectedSchool?.id === school.id ? 'text-white' : 'text-dfa-dark'}`}>
                     {school.name}
                   </p>
-                  <p className={`text-[10px] mt-0.5 leading-tight ${selectedSchool?.id === school.id ? 'text-white/70' : 'text-txt-muted'}`}>
+                  <p className={`text-xs mt-1 leading-tight ${selectedSchool?.id === school.id ? 'text-white/70' : 'text-txt-muted'}`}>
                     {school.nameEn.length > 36 ? school.nameEn.substring(0, 36) + '…' : school.nameEn}
                   </p>
-                  <span className={`inline-block text-[9px] mt-1.5 px-1.5 py-0.5 rounded-full font-medium ${
+                  <span className={`inline-block text-xs mt-2 px-2 py-0.5 rounded-full font-medium ${
                     selectedSchool?.id === school.id
                       ? 'bg-white/20 text-white'
                       : 'bg-dfa-light text-dfa-blue'
@@ -325,15 +360,48 @@ export default function SchoolsPage() {
               ))}
             </div>
 
-            {/* Right — absolutely fills the flex space, scrollable */}
+            {/* Right — scrollable detail */}
             <div className="flex-1 relative">
               <div className="absolute inset-0 overflow-y-auto bg-white">
-              <AnimatePresence mode="wait">
-                <SchoolDetail key={selectedSchool?.id} school={selectedSchool} />
-              </AnimatePresence>
+                <AnimatePresence mode="wait">
+                  <SchoolDetail key={selectedSchool?.id} school={selectedSchool} />
+                </AnimatePresence>
               </div>
             </div>
           </div>
+
+          {/* Mobile modal */}
+          <AnimatePresence>
+            {modalOpen && selectedSchool && (
+              <motion.div
+                className="fixed inset-0 z-50 md:hidden flex items-end sm:items-center justify-center bg-black/60"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setModalOpen(false)}
+              >
+                <motion.div
+                  className="relative w-full h-[90vh] bg-white rounded-t-2xl sm:rounded-2xl overflow-hidden flex flex-col"
+                  initial={{ y: '100%' }}
+                  animate={{ y: 0 }}
+                  exit={{ y: '100%' }}
+                  transition={{ type: 'tween', duration: 0.3 }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setModalOpen(false)}
+                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-dfa-blue"
+                    aria-label="關閉"
+                  >
+                    <HiX className="text-xl" />
+                  </button>
+                  <div className="overflow-y-auto flex-1">
+                    <SchoolDetail school={selectedSchool} />
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

@@ -124,23 +124,29 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
   const trackRef = useRef(null)
   const [cardWidth, setCardWidth] = useState(0)
 
-  const VISIBLE = 3
+  const [visible, setVisible] = useState(3)
   const total = stories.length
   const canPrev = idx > 0
-  const canNext = idx + VISIBLE < total
+  const canNext = idx + visible < total
 
-  // Measure track width → derive card width
+  // Measure track width + set visible count by breakpoint
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
         const w = trackRef.current.clientWidth
-        setCardWidth((w - GAP * (VISIBLE - 1)) / VISIBLE)
+        const v = window.innerWidth < 768 ? 1 : 3
+        setVisible(v)
+        setCardWidth((w - GAP * (v - 1)) / v)
       }
     }
     measure()
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  useEffect(() => {
+    if (idx + visible > total) setIdx(Math.max(0, total - visible))
+  }, [visible, total, idx])
 
   const prev = () => { if (canPrev) setIdx(i => i - 1) }
   const next = () => { if (canNext) setIdx(i => i + 1) }
@@ -182,7 +188,7 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
                 <div
                   key={s.id}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col hover:bg-white/10 transition-colors duration-200 shrink-0"
-                  style={{ width: cardWidth || `calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})` }}
+                  style={{ width: cardWidth || `calc((100% - ${GAP * (visible - 1)}px) / ${visible})` }}
                 >
                   {/* Name */}
                   <div className="text-center mb-4">
@@ -191,21 +197,21 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
 
                   {/* School */}
                   <div className="mb-4 text-center">
-                    <p className="text-[11px] font-bold tracking-widest text-dfa-blue/80 uppercase mb-0.5">{s.from}</p>
-                    <p className="text-white/50 text-xs mb-0.5">↓</p>
-                    <p className="text-sm font-black text-white tracking-wide uppercase">{s.to}</p>
+                    <p className="text-xs font-bold tracking-widest text-dfa-blue/80 uppercase mb-1">{s.from}</p>
+                    <p className="text-white/50 text-sm mb-1">↓</p>
+                    <p className="text-base font-black text-white tracking-wide uppercase">{s.to}</p>
                   </div>
 
                   {/* Major + GPA */}
                   <div className="flex justify-center gap-2 mb-4">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-dfa-blue/20 text-white font-medium">{s.major}</span>
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-dfa-blue/20 text-white font-medium">{s.major}</span>
                     {s.gpa !== '—' && s.gpa !== '優秀' && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white font-medium">GPA {s.gpa}</span>
+                      <span className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-white font-medium">GPA {s.gpa}</span>
                     )}
                   </div>
 
                   {/* Quote */}
-                  <p className="text-white text-[13px] leading-relaxed flex-1">
+                  <p className="text-white text-sm leading-relaxed flex-1">
                     {s.quote}
                   </p>
                 </div>
@@ -225,7 +231,7 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
 
         {/* Dots */}
         <div className="flex justify-center gap-1.5 mt-8">
-          {Array.from({ length: total - VISIBLE + 1 }).map((_, i) => (
+          {Array.from({ length: total - visible + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setIdx(i)}

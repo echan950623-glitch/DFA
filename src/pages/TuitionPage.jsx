@@ -310,9 +310,11 @@ export default function TuitionPage() {
             </p>
           </ScrollReveal>
 
-          {/* Plan headers */}
+          {/* Plan headers + table (share scroll container for aligned cols) */}
           <ScrollReveal delay={0.1}>
-            <div className="grid grid-cols-4 gap-3 mb-0 max-w-5xl mx-auto overflow-x-auto">
+            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <div className="min-w-[720px]">
+            <div className="grid grid-cols-4 gap-3 mb-0">
               <div /> {/* empty for row label col */}
               {VIP_PLANS.map((plan) => (
                 <div
@@ -330,11 +332,9 @@ export default function TuitionPage() {
                 </div>
               ))}
             </div>
-          </ScrollReveal>
 
-          {/* Table rows */}
-          <ScrollReveal delay={0.2}>
-            <div className="max-w-5xl mx-auto border border-gray-100 rounded-b-2xl overflow-x-auto shadow-md" style={{ minWidth: 0 }}>
+            {/* Table rows */}
+            <div className="border border-gray-100 rounded-b-2xl shadow-md">
               {VIP_ROWS.map((group, gi) => (
                 <div key={group.category}>
                   {/* Category header */}
@@ -350,7 +350,7 @@ export default function TuitionPage() {
                       className={`grid grid-cols-4 border-b border-gray-50 ${ri % 2 === 0 ? 'bg-white' : 'bg-gray-50/40'}`}
                     >
                       <div className="px-4 py-3 flex items-start">
-                        <span className="text-xs font-semibold text-gray-700 leading-relaxed">{row.label}</span>
+                        <span className="text-sm font-semibold text-gray-700 leading-relaxed">{row.label}</span>
                       </div>
                       <div className="px-3 py-3 border-l border-gray-100"><CellContent text={row.basic} /></div>
                       <div className="px-3 py-3 border-l border-blue-100 bg-blue-50/30"><CellContent text={row.advanced} /></div>
@@ -359,6 +359,8 @@ export default function TuitionPage() {
                   ))}
                 </div>
               ))}
+            </div>
+            </div>
             </div>
           </ScrollReveal>
 

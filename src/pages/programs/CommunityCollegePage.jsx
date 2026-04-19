@@ -115,8 +115,8 @@ export default function CommunityCollegePage() {
       <section className="relative z-10 section-padding pt-0 bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse rounded-xl overflow-hidden text-sm md:text-base">
+            <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full min-w-[640px] border-collapse rounded-xl overflow-hidden text-sm md:text-base">
                 <thead>
                   <tr style={{ background: '#0A2A6E' }}>
                     <th className="text-white font-bold px-6 py-4 text-left w-[22%]">比較項目</th>

@@ -25,13 +25,13 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-screen-2xl mx-auto flex items-center justify-between h-[88px] px-6 xl:px-[75px]">
+        <div className="max-w-screen-2xl mx-auto flex items-center justify-between h-[72px] md:h-[88px] px-4 md:px-6 xl:px-[75px]">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img
               src={showSolid ? '/logos/logo-color-nobg.png' : '/logos/logo-white-nobg.png'}
               alt="Dream Future Academy"
-              className="h-16 w-auto object-contain"
+              className="h-10 md:h-16 w-auto object-contain"
             />
           </Link>
 

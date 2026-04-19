@@ -5,7 +5,8 @@ import SectionHeading from '../components/ui/SectionHeading'
 import { teamMembers } from '../data/team'
 
 const GAP = 20
-const VISIBLE = 3       // 3 columns × 2 rows = 6 cards visible
+const VISIBLE_DESKTOP = 3   // 3 columns × 2 rows = 6 cards (md+)
+const VISIBLE_MOBILE = 1    // 1 column on narrow screens
 
 // Group members into column pairs [[m0,m1],[m2,m3],...]
 function chunkPairs(arr) {
@@ -22,22 +23,30 @@ export default function TeamPage() {
   const [idx, setIdx] = useState(0)
   const trackRef = useRef(null)
   const [colWidth, setColWidth] = useState(0)
+  const [visible, setVisible] = useState(VISIBLE_DESKTOP)
 
   const canPrev = idx > 0
-  const canNext = idx + VISIBLE < total
+  const canNext = idx + visible < total
 
-  // Measure track width → derive column width so exactly 3 columns fill the container
+  // Measure track width → derive column width; choose visible count by breakpoint
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
         const w = trackRef.current.clientWidth
-        setColWidth((w - GAP * (VISIBLE - 1)) / VISIBLE)
+        const v = window.innerWidth < 768 ? VISIBLE_MOBILE : VISIBLE_DESKTOP
+        setVisible(v)
+        setColWidth((w - GAP * (v - 1)) / v)
       }
     }
     measure()
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  // Clamp idx when visible changes (e.g., rotate orientation)
+  useEffect(() => {
+    if (idx + visible > total) setIdx(Math.max(0, total - visible))
+  }, [visible, total, idx])
 
   const translateX = -(idx * (colWidth + GAP))
 
@@ -78,7 +87,7 @@ export default function TeamPage() {
                   <div
                     key={pi}
                     className="shrink-0 flex flex-col gap-5"
-                    style={{ width: colWidth || `calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})` }}
+                    style={{ width: colWidth || `calc((100% - ${GAP * (visible - 1)}px) / ${visible})` }}
                   >
                     {pair.map((member) => (
                       <div
@@ -95,7 +104,7 @@ export default function TeamPage() {
                             <div className="min-w-0">
                               <h3 className="text-base font-bold text-txt-primary leading-snug">{member.name}</h3>
                               <p className="text-sm font-semibold text-dfa-blue leading-snug">{member.school}</p>
-                              <p className="text-xs text-txt-muted">{member.degree}</p>
+                              <p className="text-sm text-txt-muted">{member.degree}</p>
                             </div>
                           </div>
                           <p className="text-sm text-txt-secondary leading-relaxed">{member.bio}</p>
@@ -117,7 +126,7 @@ export default function TeamPage() {
 
           {/* Dots */}
           <div className="flex justify-center gap-1.5 mt-8">
-            {Array.from({ length: Math.max(0, total - VISIBLE + 1) }).map((_, i) => (
+            {Array.from({ length: Math.max(0, total - visible + 1) }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
