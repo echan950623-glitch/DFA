@@ -3,6 +3,7 @@ import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 import StoryCarousel from '../../components/shared/StoryCarousel'
+import CTABanner from '../../components/shared/CTABanner'
 
 /* ── Data ── */
 const TRANSFER_REQS = [
@@ -160,19 +161,6 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 引言 ── */}
-      <section className="relative z-10 section-padding bg-dfa-light">
-        <div className="container-max">
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <blockquote className="text-h2 text-dfa-dark leading-snug mb-6">
-                那些被淘汰的學生並不是成績能力差，而是沒有一份讓你展翅飛翔的申請資料
-              </blockquote>
-              <p className="text-caption text-gray-500">— 前哈佛專業申請人 Emerald Macreen</p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* ── 項目介紹 ── */}
       <section className="relative z-10 section-padding bg-white">
@@ -233,6 +221,11 @@ export default function CommunityCollegePage() {
           </motion.div>
         </div>
       </section>
+
+      <CTABanner
+        heading="準備踏上轉學名校之路？"
+        subtitle="免費 1 對 1 諮詢，評估你的轉學可行性與最佳策略"
+      />
     </>
   )
 }

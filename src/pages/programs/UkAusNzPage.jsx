@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
+import CTABanner from '../../components/shared/CTABanner'
 
 /* ─── 三國資料 ─────────────────────────────────────────────── */
 const COUNTRIES = [
@@ -218,15 +219,10 @@ export default function UkAusNzPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="relative z-10 section-padding bg-white">
-        <div className="container-max text-center">
-          <ScrollReveal>
-            <h2 className="text-h2 text-dfa-dark mb-3">找到屬於你的築夢路徑</h2>
-            <p className="text-gray-600">英國・澳洲・新加坡，讓顧問幫你找出最適合的方向</p>
-          </ScrollReveal>
-        </div>
-      </section>
+      <CTABanner
+        heading="找到屬於你的築夢路徑"
+        subtitle="英國・澳洲・新加坡，讓顧問幫你找出最適合的方向"
+      />
     </>
   )
 }

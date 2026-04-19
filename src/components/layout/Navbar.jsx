@@ -45,13 +45,16 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     to={item.path}
-                    className={`px-2.5 py-2 text-[14px] font-medium whitespace-nowrap transition-colors rounded-md ${
+                    className={`relative px-2.5 py-2 text-[14px] font-medium whitespace-nowrap transition-colors rounded-md ${
                       showSolid
                         ? 'text-gray-700 hover:text-dfa-blue hover:bg-gray-50'
                         : 'text-white hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.label}
+                    {item.comingSoon && (
+                      <span className="absolute -top-1 -right-1 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-amber-400 text-amber-900 leading-none">即將推出</span>
+                    )}
                   </Link>
                 )
               )}

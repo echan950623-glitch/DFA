@@ -4,6 +4,7 @@ import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
 import StoryCarousel from '../../components/shared/StoryCarousel'
+import CTABanner from '../../components/shared/CTABanner'
 
 const GAP = 16
 const VISIBLE_UNI_DESKTOP = 5
@@ -39,7 +40,7 @@ function UniversityCarousel({ universities }) {
   const translateX = -(idx * (cardWidth + GAP))
 
   return (
-    <div className="flex items-center gap-3 max-w-4xl mx-auto mb-16">
+    <div className="flex items-center gap-3 max-w-4xl mx-auto mb-16 border border-gray-200 rounded-2xl bg-white/50 p-4 shadow-sm">
       <button
         onClick={() => canPrev && setIdx(i => i - 1)}
         disabled={!canPrev}
@@ -160,6 +161,11 @@ export default function UsTop50Page() {
 
       {/* ── 學員案例 Carousel ── */}
       <StoryCarousel title="學員成功案例" label="SUCCESS STORIES" />
+
+      <CTABanner
+        heading="想進入 US Top 50？"
+        subtitle="Reach、Target、Safety 三層布局，讓顧問協助你擬定最佳申請策略"
+      />
     </>
   )
 }

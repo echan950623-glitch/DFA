@@ -56,9 +56,12 @@ export default function MobileMenu({ onClose }) {
               key={item.label}
               to={item.path}
               onClick={onClose}
-              className="block px-4 py-3.5 text-[17px] text-gray-700 font-medium rounded-md hover:bg-dfa-light"
+              className="flex items-center gap-2 px-4 py-3.5 text-[17px] text-gray-700 font-medium rounded-md hover:bg-dfa-light"
             >
               {item.label}
+              {item.comingSoon && (
+                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-400 text-amber-900">即將推出</span>
+              )}
             </Link>
           )
         )}

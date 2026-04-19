@@ -1,6 +1,7 @@
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
+import CTABanner from '../../components/shared/CTABanner'
 
 /* ─── 美 vs 加 比較資料 ─────────────────────────────────────── */
 const US_POINTS = [
@@ -255,14 +256,10 @@ export default function IvyLeaguePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="relative z-10 section-padding bg-dfa-light">
-        <div className="container-max text-center">
-          <ScrollReveal>
-            <h2 className="text-h2 text-dfa-dark">準備好踏入世界頂尖學府了嗎？</h2>
-          </ScrollReveal>
-        </div>
-      </section>
+      <CTABanner
+        heading="準備好踏入世界頂尖學府了嗎？"
+        subtitle="從選校、文件到面試，完整陪跑你的名校之路"
+      />
     </>
   )
 }

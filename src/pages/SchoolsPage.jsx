@@ -5,6 +5,7 @@ import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { partnerSchools, sampleCourses } from '../data/schools'
+import CTABanner from '../components/shared/CTABanner'
 
 /* ── 目標名校資料 ── */
 const SCHOOLS = [
@@ -469,6 +470,11 @@ export default function SchoolsPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        heading="鎖定你的夢校了嗎？"
+        subtitle="讓顧問協助規劃從社大到名校的完整路徑"
+      />
     </>
   )
 }

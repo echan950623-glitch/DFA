@@ -1,6 +1,7 @@
 import ProgramHero from '../../components/shared/ProgramHero'
 import ScrollReveal from '../../components/ui/ScrollReveal'
 import SectionHeading from '../../components/ui/SectionHeading'
+import CTABanner from '../../components/shared/CTABanner'
 
 const QS_UNIVERSITIES = [
   { rank: 1, name: '麻省理工學院', nameEn: 'MIT', country: '🇺🇸', field: '理工 / 商學' },
@@ -128,6 +129,11 @@ export default function QsTop50Page() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        heading="想進入世界名校？"
+        subtitle="專業顧問為你分析最適合的申請策略"
+      />
     </>
   )
 }

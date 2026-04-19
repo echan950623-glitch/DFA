@@ -2,6 +2,7 @@ import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { HiDocumentText, HiHome, HiPhone, HiGlobeAlt } from 'react-icons/hi'
+import CTABanner from '../components/shared/CTABanner'
 
 const visaServices = [
   {
@@ -54,6 +55,11 @@ export default function VisaPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        heading="讓我們陪你從台灣到美國"
+        subtitle="簽證、行前、落地，全程一對一協助"
+      />
     </>
   )
 }

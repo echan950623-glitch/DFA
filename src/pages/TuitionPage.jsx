@@ -2,6 +2,7 @@ import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { HiCash, HiAcademicCap, HiUserGroup, HiClipboardCheck, HiCheck } from 'react-icons/hi'
+import CTABanner from '../components/shared/CTABanner'
 
 const advantages = [
   { icon: HiCash, title: '學費便宜', desc: '社區大學每學分費用遠低於四年制大學，整體就讀預算相當親民，是留學性價比最高的選擇。' },
@@ -312,7 +313,7 @@ export default function TuitionPage() {
 
           {/* Plan headers + table (share scroll container for aligned cols) */}
           <ScrollReveal delay={0.1}>
-            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 pt-6">
             <div className="min-w-[720px]">
             <div className="grid grid-cols-4 gap-3 mb-0">
               <div /> {/* empty for row label col */}
@@ -334,7 +335,7 @@ export default function TuitionPage() {
             </div>
 
             {/* Table rows */}
-            <div className="border border-gray-100 rounded-b-2xl shadow-md">
+            <div className="border border-gray-200 rounded-b-2xl shadow-md bg-white">
               {VIP_ROWS.map((group, gi) => (
                 <div key={group.category}>
                   {/* Category header */}
@@ -374,6 +375,11 @@ export default function TuitionPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <CTABanner
+        heading="不確定哪個方案最適合你？"
+        subtitle="讓顧問依你的背景與目標，協助挑選最佳 VIP 方案"
+      />
     </>
   )
 }

@@ -22,6 +22,6 @@ export const navItems = [
   { label: '經濟入夢', path: '/tuition' },
   { label: '夢想手續與簽證', path: '/visa' },
   { label: '專業家教', path: '/tutoring' },
-  { label: '移夢他國', path: '/immigration' },
-  { label: '遊學四海', path: '/study-tour' },
+  { label: '移夢他國', path: '/immigration', comingSoon: true },
+  { label: '遊學四海', path: '/study-tour', comingSoon: true },
 ]

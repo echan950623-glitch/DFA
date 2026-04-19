@@ -1,6 +1,7 @@
 import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
+import CTABanner from '../components/shared/CTABanner'
 
 const tutoringServices = [
   {
@@ -60,6 +61,11 @@ export default function TutoringPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        heading="想了解適合你的家教方案？"
+        subtitle="一對一評估學術程度、設計專屬課程"
+      />
     </>
   )
 }
