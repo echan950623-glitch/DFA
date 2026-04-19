@@ -119,8 +119,8 @@ export default function UsTop50Page() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {TIERS.map((tier, i) => (
-              <ScrollReveal key={tier.id} delay={i * 0.12}>
-                <div className={`rounded-lg border-2 p-6 ${tier.color} hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg`}>
+              <ScrollReveal key={tier.id} delay={i * 0.12} className="h-full">
+                <div className={`h-full rounded-lg border-2 p-6 ${tier.color} hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg`}>
                   <div className="flex items-center gap-3 mb-4">
                     <span className={`text-2xl font-black ${tier.badge}`}>{tier.en}</span>
                     <span className="text-lg font-bold text-txt-primary">{tier.label}</span>

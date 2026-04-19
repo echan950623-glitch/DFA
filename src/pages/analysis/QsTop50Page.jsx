@@ -81,8 +81,8 @@ export default function QsTop50Page() {
               { en: 'Target', label: '目標校', desc: '符合背景條件，有合理錄取機率的世界名校', color: 'bg-indigo-50 border-indigo-400', badge: 'text-indigo-600' },
               { en: 'Safety', label: '保底校', desc: '確保至少有優質錄取結果，零風險', color: 'bg-emerald-50 border-emerald-400', badge: 'text-emerald-600' },
             ].map((tier, i) => (
-              <ScrollReveal key={tier.en} delay={i * 0.12}>
-                <div className={`rounded-lg border-2 p-6 ${tier.color} hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg`}>
+              <ScrollReveal key={tier.en} delay={i * 0.12} className="h-full">
+                <div className={`h-full rounded-lg border-2 p-6 ${tier.color} hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg`}>
                   <div className="flex items-center gap-3 mb-3">
                     <span className={`text-2xl font-black ${tier.badge}`}>{tier.en}</span>
                     <span className="text-lg font-bold text-txt-primary">{tier.label}</span>
