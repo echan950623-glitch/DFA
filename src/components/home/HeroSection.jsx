@@ -25,7 +25,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-h1 xl:text-display text-white leading-[1.08] mb-4"
+          className="text-5xl md:text-h1 xl:text-display text-white leading-[1.1] mb-4"
         >
           社區大學 2 年<br />
           轉入美國名校
