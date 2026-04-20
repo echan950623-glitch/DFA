@@ -92,28 +92,8 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 什麼是社區大學 + 特點 ── */}
+      {/* ── 四年制 vs 社區大學比較表（前置：先展示價值） ── */}
       <section className="relative z-10 section-padding bg-white">
-        <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <ScrollReveal>
-              <h3 className="text-h3 text-dfa-dark mb-4">什麼是美國社區大學</h3>
-              <p className="text-body text-gray-700 leading-relaxed">
-                美國社區大學是美國高等教育體系的重要組成部分，是美國政府為了普及高等教育而設立的正規學校。國際生可以在完成社區大學大一大二的課程學習後，轉學入名校繼續讀大三大四，畢業取得名校的學士學位。
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h3 className="text-h3 text-dfa-dark mb-4">美國社區大學的特點</h3>
-              <p className="text-body text-gray-700 leading-relaxed">
-                入學條件簡單、學費較低 CP 值高、小班教學有助於融入美國當地文化。越來越多的社區學院和本州名校簽訂轉學協議或保送協議，名校大三優先錄取社區學院轉學生。
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 四年制 vs 社區大學比較表 ── */}
-      <section className="relative z-10 section-padding pt-0 bg-white">
         <div className="container-max">
           <ScrollReveal>
             <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
@@ -162,22 +142,26 @@ export default function CommunityCollegePage() {
       </section>
 
 
-      {/* ── 項目介紹 ── */}
+      {/* ── 成功案例 Carousel（社會證明前置） ── */}
+      <StoryCarousel title="學員成功案例" label="SUCCESS STORIES" />
+
+      {/* ── 什麼是社區大學 + 特點 ── */}
       <section className="relative z-10 section-padding bg-white">
         <div className="container-max">
-          <ScrollReveal>
-            <SectionHeading
-              label="Community College Transfer"
-              title="2+2 陪跑項目"
-              subtitle="從課程規劃到申請輔導，全程一對一導師制"
-              split
-            />
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <p className="text-body text-gray-700 leading-relaxed max-w-4xl">
-              「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
-            </p>
-          </ScrollReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <ScrollReveal>
+              <h3 className="text-h3 text-dfa-dark mb-4">什麼是美國社區大學</h3>
+              <p className="text-body text-gray-700 leading-relaxed">
+                美國社區大學是美國高等教育體系的重要組成部分，是美國政府為了普及高等教育而設立的正規學校。國際生可以在完成社區大學大一大二的課程學習後，轉學入名校繼續讀大三大四，畢業取得名校的學士學位。
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h3 className="text-h3 text-dfa-dark mb-4">美國社區大學的特點</h3>
+              <p className="text-body text-gray-700 leading-relaxed">
+                入學條件簡單、學費較低 CP 值高、小班教學有助於融入美國當地文化。越來越多的社區學院和本州名校簽訂轉學協議或保送協議，名校大三優先錄取社區學院轉學生。
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -200,8 +184,24 @@ export default function CommunityCollegePage() {
         </div>
       </section>
 
-      {/* ── 成功案例 Carousel ── */}
-      <StoryCarousel title="學員成功案例" label="SUCCESS STORIES" />
+      {/* ── 項目介紹 ── */}
+      <section className="relative z-10 section-padding bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Community College Transfer"
+              title="2+2 陪跑項目"
+              subtitle="從課程規劃到申請輔導，全程一對一導師制"
+              split
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <p className="text-body text-gray-700 leading-relaxed max-w-4xl">
+              「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* ── CTA ── */}
       <section className="relative z-10 section-padding bg-white">

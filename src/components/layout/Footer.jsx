@@ -11,21 +11,21 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="font-black text-2xl tracking-wider mb-1">DFA</div>
-            <p className="text-xs text-white mb-4">Dream Future Academy</p>
-            <p className="text-sm text-white leading-relaxed">
+            <p className="text-sm text-white/80 mb-4">Dream Future Academy</p>
+            <p className="text-base text-white leading-relaxed">
               專注解決教育資源分布不公，為孩子成就光明的未來。
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">快速連結</h4>
-            <ul className="space-y-2">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">快速連結</h4>
+            <ul className="space-y-2.5">
               {navItems.slice(0, 5).map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.children ? item.children[0].path : item.path}
-                    className="text-sm text-white hover:text-white transition-colors"
+                    className="text-base text-white/90 hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -36,10 +36,10 @@ export default function Footer() {
 
           {/* Offices */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">辦公室據點</h4>
-            <ul className="space-y-2">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">辦公室據點</h4>
+            <ul className="space-y-2.5">
               {offices.map((o) => (
-                <li key={o.city} className="text-sm text-white">
+                <li key={o.city} className="text-base text-white/90">
                   {o.city} {o.label}
                 </li>
               ))}
@@ -48,26 +48,26 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">聯絡我們</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">聯絡我們</h4>
             <div className="flex gap-3">
-              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <FaInstagram className="text-sm" />
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <FaInstagram className="text-base" />
               </a>
-              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <FaFacebookF className="text-sm" />
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <FaFacebookF className="text-base" />
               </a>
-              <a href={socialLinks.line} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <FaLine className="text-sm" />
+              <a href={socialLinks.line} target="_blank" rel="noopener noreferrer" aria-label="LINE" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <FaLine className="text-base" />
               </a>
-              <a href={socialLinks.email} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <FaEnvelope className="text-sm" />
+              <a href={socialLinks.email} aria-label="Email" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <FaEnvelope className="text-base" />
               </a>
             </div>
-            <p className="text-xs text-white mt-4">@dreamfuture.academy</p>
+            <p className="text-sm text-white/80 mt-4">@dreamfuture.academy</p>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-white">
+        <div className="mt-12 pt-6 border-t border-white/10 text-center text-sm text-white/80">
           &copy; {new Date().getFullYear()} Dream Future Academy. All rights reserved.
         </div>
       </div>
