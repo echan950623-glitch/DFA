@@ -410,7 +410,7 @@ export default function SchoolsPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
-            <SectionHeading label="Partner Colleges" title="合作社大院校" subtitle="Partner Community Colleges" split />
+            <SectionHeading label="Partner Colleges" title="合作社區大學" subtitle="Partner Community Colleges" split />
           </ScrollReveal>
           <div className="space-y-8 max-w-4xl mx-auto">
             {partnerSchools.map((school, i) => (

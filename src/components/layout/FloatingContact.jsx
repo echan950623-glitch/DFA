@@ -1,7 +1,8 @@
-import { FaLine, FaEnvelope, FaFacebookF } from 'react-icons/fa'
+import { FaLine, FaEnvelope, FaFacebookF, FaInstagram } from 'react-icons/fa'
 import { socialLinks } from '../../data/contact'
 
 const contactButtons = [
+  { icon: FaInstagram, label: 'Instagram', href: socialLinks.instagram, color: 'bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] hover:brightness-110' },
   { icon: FaFacebookF, label: 'Facebook', href: socialLinks.facebook, color: 'bg-blue-600 hover:bg-blue-700' },
   { icon: FaLine, label: 'Line', href: socialLinks.line, color: 'bg-green-500 hover:bg-green-600' },
   { icon: FaEnvelope, label: 'Email', href: socialLinks.email, color: 'bg-sky-500 hover:bg-sky-600' },

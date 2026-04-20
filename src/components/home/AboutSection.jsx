@@ -4,7 +4,7 @@ import DecoDots from '../ui/DecoDots'
 
 const PROOF_POINTS = [
   { label: '客製化轉學規劃', sub: '依每位學生背景量身制定升學路徑' },
-  { label: '合約保障錄取', sub: '未達標準全額退費，零風險承諾' },
+  { label: '升學成果保障條款', sub: '未達標準全額退費，零風險承諾' },
   { label: '加州在地資源', sub: '美國當地顧問與學校直接對接' },
   { label: '台美全程支援', sub: '台北 台中 高雄 加州，全程無斷點' },
 ]
