@@ -553,14 +553,14 @@ export default function SchoolsPage() {
                   { title: '取得大學文憑', lines: ['不用 SAT / ACT', '省錢 + 名校跳板'] },
                 ].map((step, i, arr) => (
                   <div key={step.title} className="contents">
-                    <div className="flex-1 rounded-xl bg-amber-50 border-2 border-amber-300 px-5 py-5 text-center min-h-[160px] flex flex-col justify-center">
-                      <p className="text-lg md:text-xl font-black text-amber-700 mb-2">{step.title}</p>
+                    <div className="flex-1 rounded-xl bg-dfa-light border-2 border-dfa-blue/40 px-5 py-5 text-center min-h-[160px] flex flex-col justify-center">
+                      <p className="text-lg md:text-xl font-black text-dfa-blue mb-2">{step.title}</p>
                       {step.lines.map((l) => (
                         <p key={l} className="text-sm text-txt-secondary">{l}</p>
                       ))}
                     </div>
                     {i < arr.length - 1 && (
-                      <span className="text-3xl md:text-4xl text-amber-500 font-black self-center shrink-0 md:rotate-0 rotate-90">→</span>
+                      <span className="text-3xl md:text-4xl text-dfa-blue font-black self-center shrink-0 md:rotate-0 rotate-90">→</span>
                     )}
                   </div>
                 ))}
