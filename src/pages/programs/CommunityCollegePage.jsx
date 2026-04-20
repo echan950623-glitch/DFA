@@ -212,10 +212,10 @@ export default function CommunityCollegePage() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ type: 'spring', stiffness: 180, damping: 16 }}
           >
-            <h2 className="text-h1 md:text-display text-dfa-dark leading-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-h1 xl:text-display text-dfa-dark leading-tight mb-3">
               申請名校，是硬碰硬
             </h2>
-            <h2 className="text-h1 md:text-display text-dfa-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-h1 xl:text-display text-dfa-dark leading-tight">
               轉學名校，是換一條更聰明的路
             </h2>
           </motion.div>
