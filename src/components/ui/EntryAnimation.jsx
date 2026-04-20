@@ -36,6 +36,13 @@ export default function EntryAnimation() {
 
       {/* 副標語 */}
       <div className="dfa-entry-slogan">留學不僅是夢想</div>
+
+      {/* Logo */}
+      <img
+        src="/logos/logo-white-nobg.png"
+        alt="Dream Future Academy"
+        className="dfa-entry-logo"
+      />
     </div>
   )
 }
