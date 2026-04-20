@@ -1,8 +1,16 @@
+# Build output
 node_modules
 dist
+
+# Env
 .env
 .env.local
+
+# Client reference materials (not shipped with the site)
 *.pptx
 *.pdf
-pptx_unpacked
+_docs/
+pptx_unpacked/
+
+# Claude
 .claude/settings.local.json

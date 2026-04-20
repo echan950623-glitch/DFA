@@ -20,7 +20,7 @@ export default function CTABanner({
     return (
       <section className="relative overflow-hidden min-h-[420px] md:min-h-[520px] flex items-center">
         <img
-          src="/images/S__5791784.jpg"
+          src="/images/campus.jpg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"

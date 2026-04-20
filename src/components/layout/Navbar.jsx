@@ -29,7 +29,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img
-              src={showSolid ? '/logos/0420.png' : '/logos/LOGO.png'}
+              src={showSolid ? '/logos/logo-color.png' : '/logos/logo-white.png'}
               alt="Dream Future Academy"
               className="h-10 md:h-16 w-auto object-contain"
               style={!showSolid ? { filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.15))' } : undefined}

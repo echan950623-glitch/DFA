@@ -140,7 +140,7 @@ export default function TeamPage() {
       {/* ── CTA Banner ── */}
       <section className="relative h-[520px] overflow-hidden">
         <img
-          src="/images/S__5791784.jpg"
+          src="/images/campus.jpg"
           alt="Campus"
           className="absolute inset-0 w-full h-full object-cover"
         />
