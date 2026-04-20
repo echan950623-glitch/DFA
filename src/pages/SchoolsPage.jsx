@@ -531,8 +531,113 @@ export default function SchoolsPage() {
         </div>
       </section>
 
-      {/* ── 合作社大院校 ── */}
+      {/* ── 美國社區大學升學指南 ── */}
       <section className="section-padding bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Transfer Guide"
+              title="美國社區大學升學指南"
+              subtitle="兩年制社大 + 兩年制大學 = 美國名校學位的聰明路徑"
+              split
+            />
+          </ScrollReveal>
+
+          {/* 2+2 流程示意 */}
+          <ScrollReveal>
+            <div className="max-w-5xl mx-auto mb-16">
+              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2">
+                {[
+                  { title: '2 年社區大學就讀', lines: ['相等於大一及大二', '修滿至少 60 個可轉學學分'] },
+                  { title: '轉學至四年制大學', lines: ['就讀大三及大四', '修得剩餘畢業學分'] },
+                  { title: '取得大學文憑', lines: ['不用 SAT / ACT', '省錢 + 名校跳板'] },
+                ].map((step, i, arr) => (
+                  <div key={step.title} className="contents">
+                    <div className="flex-1 rounded-xl bg-amber-50 border-2 border-amber-300 px-5 py-5 text-center min-h-[160px] flex flex-col justify-center">
+                      <p className="text-lg md:text-xl font-black text-amber-700 mb-2">{step.title}</p>
+                      {step.lines.map((l) => (
+                        <p key={l} className="text-sm text-txt-secondary">{l}</p>
+                      ))}
+                    </div>
+                    {i < arr.length - 1 && (
+                      <span className="text-3xl md:text-4xl text-amber-500 font-black self-center shrink-0 md:rotate-0 rotate-90">→</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* 通往高等教育的橋樑 intro */}
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto mb-12 text-center">
+              <h3 className="text-2xl md:text-3xl font-black text-dfa-blue mb-4">美國社區大學：通往高等教育的橋樑</h3>
+              <p className="text-body text-txt-secondary leading-relaxed">
+                美國社區大學（Community College）是受美國教育部認可的公立學校，提供兩年制高等教育。國際學生在社大完成大一、大二課程後，可轉學進入四年制大學完成大三大四，最後取得學士學位 — 與直接入學四年制大學的學位完全相同。
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* 6 大優勢 */}
+          <ScrollReveal>
+            <h4 className="text-xl md:text-2xl font-black text-dfa-dark text-center mb-8">6 大優勢，拓展你的美國升學之路</h4>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-16">
+            {[
+              { num: '01', title: '公立教育部認可', desc: '所有社區大學皆為美國教育部正式認可的公立大學，學分與學位受所有四年制大學承認。' },
+              { num: '02', title: '只需 2 年時間', desc: '先在社大學習基礎課程，再轉入大學主修系所，整體修業時間與直升四年制大學相當。' },
+              { num: '03', title: '較四年制大學經濟實惠', desc: '學費約為四年制公立大學的三分之一，光前兩年就能省下可觀的學費與生活費。' },
+              { num: '04', title: '入學門檻低', desc: '多數學校免 SAT / ACT，英文門檻較寬鬆（TOEFL iBT 約 45–61）；未達標可先上語言課程。' },
+              { num: '05', title: '彈性入學時間', desc: '一年有春季、秋季等多次入學機會，不必等一年，錯過一季就能補上。' },
+              { num: '06', title: '美國名校跳板', desc: '加州社大與 UC、CSU 系統有成熟轉學協議，提供 TAG 保證錄取管道，是進入名校的最佳跳板。' },
+            ].map((adv, i) => (
+              <ScrollReveal key={adv.num} delay={i * 0.05} className="h-full">
+                <div className="h-full bg-dfa-light rounded-xl p-6 border-l-4 border-dfa-blue">
+                  <p className="text-2xl font-black text-dfa-blue mb-2">{adv.num}</p>
+                  <p className="text-base font-bold text-dfa-dark mb-2">{adv.title}</p>
+                  <p className="text-sm text-txt-secondary leading-relaxed">{adv.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* 社區大學 vs 四年制大學 比較表 */}
+          <ScrollReveal>
+            <h4 className="text-xl md:text-2xl font-black text-dfa-dark text-center mb-8">社區大學 vs 四年制大學 一覽表</h4>
+            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full min-w-[640px] border-collapse rounded-xl overflow-hidden text-sm md:text-base border border-gray-200">
+                <thead>
+                  <tr style={{ background: '#0A2A6E' }}>
+                    <th className="text-white font-bold px-5 py-4 text-left w-[20%]">比較項目</th>
+                    <th className="text-white font-bold px-5 py-4 text-center">社區大學</th>
+                    <th className="text-white font-bold px-5 py-4 text-center">四年制大學</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white">
+                  {[
+                    { k: '修業時間', cc: '2 年取得副學士', uni: '4 年取得學士' },
+                    { k: '年學費', cc: <span>約 <span className="text-dfa-blue font-bold">US$ 10,000–15,000</span></span>, uni: '約 US$ 30,000–55,000' },
+                    { k: '入學門檻', cc: '寬鬆，多數免 SAT / ACT', uni: '較高，通常需 SAT / ACT 與高 GPA' },
+                    { k: '英文成績要求', cc: 'TOEFL iBT 約 45–61 / IELTS 5.0–5.5 / Duolingo 75–95', uni: 'TOEFL iBT 約 80+ / IELTS 6.5+ / Duolingo 110+' },
+                    { k: '畢業學位', cc: '副學士（Associate\'s）— 可銜接四年制取得學士', uni: '學士（Bachelor\'s）' },
+                    { k: '校園氛圍', cc: '小班制、師生比低、顧問關注度高', uni: '大型校園、研究資源豐富' },
+                  ].map((row, i) => (
+                    <tr key={row.k} className={i % 2 === 0 ? 'bg-white' : 'bg-dfa-light/40'}>
+                      <td className="px-5 py-4 font-semibold text-gray-700 border-b border-gray-100">{row.k}</td>
+                      <td className="px-5 py-4 text-gray-600 border-b border-gray-100 border-l border-gray-100 text-center">{row.cc}</td>
+                      <td className="px-5 py-4 text-gray-600 border-b border-gray-100 border-l border-gray-100 text-center">{row.uni}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="text-xs text-txt-muted mt-3 text-center">* 學費與英文門檻依各校公告為準，以上為一般範圍參考值。</p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── 合作社大院校 ── */}
+      <section className="section-padding bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading label="Partner Colleges" title="合作社區大學" subtitle="Partner Community Colleges" split />
@@ -548,7 +653,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── 課表示例 ── */}
-      <section className="section-padding bg-dfa-light">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading label="Curriculum" title="社大課表示例" subtitle="Sample Course Schedule" split />
