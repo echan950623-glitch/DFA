@@ -257,6 +257,13 @@ function SchoolDetail({ school }) {
 /* ── 合作社區大學卡片（可展開） ── */
 function PartnerSchoolCard({ school }) {
   const [open, setOpen] = useState(false)
+  const hasExpandable = !!(
+    school.type ||
+    school.partnership ||
+    (school.sections && school.sections.length) ||
+    (school.majors && school.majors.length) ||
+    (school.englishRequirements && school.englishRequirements.length)
+  )
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
       <div className="h-2" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
@@ -357,14 +364,16 @@ function PartnerSchoolCard({ school }) {
           )}
         </AnimatePresence>
 
-        {/* Toggle button */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
-        >
-          {open ? '收合' : '查看更多'}
-          <HiChevronDown className={`text-base transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
-        </button>
+        {/* Toggle button — only if there's expandable content */}
+        {hasExpandable && (
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
+          >
+            {open ? '收合' : '查看更多'}
+            <HiChevronDown className={`text-base transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
+          </button>
+        )}
       </div>
     </div>
   )
