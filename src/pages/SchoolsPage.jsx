@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { HiX } from 'react-icons/hi'
+import { HiX, HiChevronDown } from 'react-icons/hi'
 import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
@@ -254,6 +254,122 @@ function SchoolDetail({ school }) {
   )
 }
 
+/* ── 合作社區大學卡片（可展開） ── */
+function PartnerSchoolCard({ school }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+      <div className="h-2" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
+      <div className="p-6 md:p-8">
+        {/* Header */}
+        <div className="flex items-start gap-4 mb-5">
+          <div
+            className="w-14 h-14 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0"
+            style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
+          >
+            {school.nameEn.match(/\(([^)]+)\)/)?.[1] || school.name.charAt(0)}
+          </div>
+          <div className="flex-1">
+            <h3 className="text-h3 text-txt-primary">{school.name}</h3>
+            <p className="text-sm text-dfa-blue font-semibold">{school.nameEn}</p>
+          </div>
+        </div>
+
+        <span className="inline-block text-sm font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue mb-4">
+          {school.highlight}
+        </span>
+
+        {/* Quick facts — always visible */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 text-sm">
+          {school.website && (
+            <div className="flex gap-2"><span className="text-txt-muted shrink-0">官網：</span><a href={school.website} target="_blank" rel="noopener noreferrer" className="text-dfa-blue hover:underline truncate">{school.nameEn}</a></div>
+          )}
+          {school.location && <div className="flex gap-2"><span className="text-txt-muted shrink-0">地點：</span><span className="text-txt-primary">{school.location}</span></div>}
+          <div className="flex gap-2"><span className="text-txt-muted shrink-0">建校：</span><span className="text-txt-primary">{school.founded} 年</span></div>
+        </div>
+
+        {/* Intro teaser — always visible */}
+        {school.intro && (
+          <p className="text-body text-txt-secondary leading-relaxed mb-5">{school.intro}</p>
+        )}
+
+        {/* Collapsible details */}
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="overflow-hidden"
+            >
+              <div className="pt-2">
+                {school.type && (
+                  <p className="text-sm mb-5"><span className="text-txt-muted">學校類型：</span><span className="text-txt-primary">{school.type}</span></p>
+                )}
+
+                {school.partnership && (
+                  <div className="border-l-4 border-dfa-blue bg-dfa-light/60 rounded-r-md px-4 py-3 mb-5">
+                    <p className="text-sm font-semibold text-dfa-dark">{school.partnership}</p>
+                  </div>
+                )}
+
+                {school.sections && school.sections.map((sec) => (
+                  <div key={sec.title} className="mb-5">
+                    <h4 className="text-base font-bold text-dfa-blue mb-2">{sec.title}</h4>
+                    <ul className="space-y-1.5">
+                      {sec.points.map((p, j) => (
+                        <li key={j} className="flex gap-2">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-dfa-blue/60 shrink-0" />
+                          <span className="text-sm text-txt-secondary leading-relaxed">{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                {school.majors && (
+                  <div className="mb-6">
+                    <h4 className="text-base font-bold text-dfa-blue mb-3">🔥 熱門科系</h4>
+                    <ul className="space-y-3">
+                      {school.majors.map((m) => (
+                        <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-4">
+                          <p className="text-sm font-bold text-txt-primary">{m.name} <span className="text-txt-muted font-medium">{m.en}</span></p>
+                          <p className="text-sm text-txt-secondary mt-0.5">{m.transferTo}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {school.englishRequirements && (
+                  <div>
+                    <h4 className="text-base font-bold text-dfa-blue mb-3">📝 入學英文成績要求</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {school.englishRequirements.map((r) => (
+                        <span key={r} className="text-sm font-semibold px-3 py-1.5 rounded-md bg-dfa-light text-dfa-dark">{r}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Toggle button */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
+        >
+          {open ? '收合' : '查看更多'}
+          <HiChevronDown className={`text-base transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function SchoolsPage() {
   const [selectedSchool, setSelectedSchool] = useState(SCHOOLS[0])
   const [modalOpen, setModalOpen] = useState(false)
@@ -412,98 +528,10 @@ export default function SchoolsPage() {
           <ScrollReveal>
             <SectionHeading label="Partner Colleges" title="合作社區大學" subtitle="Partner Community Colleges" split />
           </ScrollReveal>
-          <div className="space-y-10 max-w-5xl mx-auto">
+          <div className="space-y-6 max-w-5xl mx-auto">
             {partnerSchools.map((school, i) => (
               <ScrollReveal key={school.nameEn} delay={i * 0.1}>
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                  <div className="h-2" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
-                  <div className="p-6 md:p-8">
-                    {/* Header */}
-                    <div className="flex items-start gap-4 mb-5">
-                      <div
-                        className="w-14 h-14 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
-                      >
-                        {school.nameEn.match(/\(([^)]+)\)/)?.[1] || school.name.charAt(0)}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-h3 text-txt-primary">{school.name}</h3>
-                        <p className="text-sm text-dfa-blue font-semibold">{school.nameEn}</p>
-                      </div>
-                    </div>
-
-                    <span className="inline-block text-sm font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue mb-4">
-                      {school.highlight}
-                    </span>
-
-                    {/* Quick facts */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 text-sm">
-                      {school.website && (
-                        <div className="flex gap-2"><span className="text-txt-muted shrink-0">官網：</span><a href={school.website} target="_blank" rel="noopener noreferrer" className="text-dfa-blue hover:underline truncate">{school.nameEn}</a></div>
-                      )}
-                      {school.location && <div className="flex gap-2"><span className="text-txt-muted shrink-0">地點：</span><span className="text-txt-primary">{school.location}</span></div>}
-                      <div className="flex gap-2"><span className="text-txt-muted shrink-0">建校：</span><span className="text-txt-primary">{school.founded} 年</span></div>
-                      {school.type && <div className="flex gap-2"><span className="text-txt-muted shrink-0">學校類型：</span><span className="text-txt-primary">{school.type}</span></div>}
-                    </div>
-
-                    {/* Partnership badge */}
-                    {school.partnership && (
-                      <div className="border-l-4 border-dfa-blue bg-dfa-light/60 rounded-r-md px-4 py-3 mb-5">
-                        <p className="text-sm font-semibold text-dfa-dark">{school.partnership}</p>
-                      </div>
-                    )}
-
-                    {/* Intro paragraph */}
-                    {school.intro && (
-                      <div className="mb-6">
-                        <h4 className="text-base font-bold text-dfa-blue mb-2">📖 學校介紹</h4>
-                        <p className="text-body text-txt-secondary leading-relaxed">{school.intro}</p>
-                      </div>
-                    )}
-
-                    {/* Sections */}
-                    {school.sections && school.sections.map((sec) => (
-                      <div key={sec.title} className="mb-5">
-                        <h4 className="text-base font-bold text-dfa-blue mb-2">{sec.title}</h4>
-                        <ul className="space-y-1.5">
-                          {sec.points.map((p, j) => (
-                            <li key={j} className="flex gap-2">
-                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-dfa-blue/60 shrink-0" />
-                              <span className="text-sm text-txt-secondary leading-relaxed">{p}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-
-                    {/* Majors */}
-                    {school.majors && (
-                      <div className="mb-6">
-                        <h4 className="text-base font-bold text-dfa-blue mb-3">🔥 熱門科系</h4>
-                        <ul className="space-y-3">
-                          {school.majors.map((m) => (
-                            <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-4">
-                              <p className="text-sm font-bold text-txt-primary">{m.name} <span className="text-txt-muted font-medium">{m.en}</span></p>
-                              <p className="text-sm text-txt-secondary mt-0.5">{m.transferTo}</p>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* English requirements */}
-                    {school.englishRequirements && (
-                      <div>
-                        <h4 className="text-base font-bold text-dfa-blue mb-3">📝 入學英文成績要求</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {school.englishRequirements.map((r) => (
-                            <span key={r} className="text-sm font-semibold px-3 py-1.5 rounded-md bg-dfa-light text-dfa-dark">{r}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <PartnerSchoolCard school={school} />
               </ScrollReveal>
             ))}
           </div>
