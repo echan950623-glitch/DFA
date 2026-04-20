@@ -39,7 +39,7 @@ export default function EntryAnimation() {
 
       {/* Logo */}
       <img
-        src="/logos/logo-white-nobg.png"
+        src="/logos/LOGO.png"
         alt="Dream Future Academy"
         className="dfa-entry-logo"
       />
