@@ -73,10 +73,6 @@ const PAIN_POINTS = [
 /* ─── DFA 能為你做什麼 ──────────────────────────────────────── */
 const WHY_DFA = [
   {
-    label: '10 年以上台灣學生申請經驗',
-    desc: '熟悉台灣教育制度與名校招生的落差 — 不會拿美國本土學生的模板硬套在你身上。',
-  },
-  {
     label: '美加雙軌同時評估',
     desc: '藤校 reach、加拿大 target、UC 轉學保底 — 同一份規劃書內同時布局，錄取不靠單一路徑。',
   },
@@ -268,7 +264,7 @@ export default function IvyLeaguePage() {
             <SectionHeading
               label="Real Challenges"
               title="台灣學生申請名校的真實挑戰"
-              subtitle="我們看過太多優秀學生卡在這四個點 — 先認清問題，再對症下藥"
+              subtitle="優秀學生常卡在這四個點"
               split
             />
           </ScrollReveal>
@@ -294,12 +290,12 @@ export default function IvyLeaguePage() {
             <SectionHeading
               label="Why DFA"
               title="為什麼選擇 DFA"
-              subtitle="不是所有留學顧問都適合台灣學生 — 這是我們做得不一樣的地方"
+              subtitle="我們做得不一樣的地方"
               split
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-8">
             {WHY_DFA.map((w, i) => (
               <ScrollReveal key={w.label} delay={i * 0.1} className="h-full">
                 <div className="h-full bg-white rounded-xl p-6 border-l-4 border-dfa-blue shadow-sm">
