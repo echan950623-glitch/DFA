@@ -1,5 +1,12 @@
 export const partnerSchools = [
   {
+    name: '迪安薩學院',
+    nameEn: 'De Anza College',
+    founded: 1967,
+    description: '位於北加州矽谷核心地帶的四年制公立社區大學，隸屬於 Foothill-De Anza 社區學院區，鄰近 Apple 總部與眾多高科技企業，擁有實習與產業連結優勢。學生總數超過 21,500 人，來自全球 88 個國家。每年約有 2,800 名學生成功轉入四年制大學，是轉入 UC Berkeley、UC San Diego 等頂尖理工校系的重要管道。',
+    highlight: '矽谷核心 · 年均 2,800 人轉入四年制',
+  },
+  {
     name: '聖莫妮卡學院',
     nameEn: 'Santa Monica College (SMC)',
     founded: 1929,

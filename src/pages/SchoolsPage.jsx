@@ -431,7 +431,7 @@ export default function SchoolsPage() {
                         <p className="text-caption text-txt-secondary">成立於 {school.founded} 年</p>
                       </div>
                     </div>
-                    <span className="inline-block text-xs font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue mb-3">
+                    <span className="inline-block text-sm font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue mb-3">
                       {school.highlight}
                     </span>
                     <p className="text-body text-txt-secondary leading-relaxed">{school.description}</p>
