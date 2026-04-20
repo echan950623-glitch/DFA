@@ -28,21 +28,21 @@ export default function EntryAnimation() {
   return (
     <div className={`dfa-entry-overlay${phase === 'fadeout' ? ' dfa-entry-fade-out' : ''}`}>
 
-      {/* 主標題 */}
-      <div className="dfa-entry-title">夢想家留學</div>
-
-      {/* 展開橫線 */}
-      <div className="dfa-entry-line" />
-
-      {/* 副標語 */}
-      <div className="dfa-entry-slogan">留學不僅是夢想</div>
-
-      {/* Logo */}
+      {/* Logo — top */}
       <img
         src="/logos/logo-white.png"
         alt="Dream Future Academy"
         className="dfa-entry-logo"
       />
+
+      {/* 主標題 + 副標（合併一行） */}
+      <div className="dfa-entry-title">
+        <span className="dfa-entry-title-main">夢想家留學</span>
+        <span className="dfa-entry-title-sub">，留學不僅是夢想</span>
+      </div>
+
+      {/* 英文 tagline */}
+      <div className="dfa-entry-tagline">Turning Global Education into Reality</div>
     </div>
   )
 }
