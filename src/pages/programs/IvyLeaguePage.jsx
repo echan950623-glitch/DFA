@@ -46,6 +46,50 @@ const CA_POINTS = [
   },
 ]
 
+/* ─── 台灣學生的三大挑戰 ─────────────────────────────────────── */
+const PAIN_POINTS = [
+  {
+    num: '01',
+    title: '學術成績不是唯一',
+    desc: '頂尖名校錄取率普遍低於 10%，申請者都是世界各地的高分學生。光有 GPA 不足以讓你脫穎而出。',
+  },
+  {
+    num: '02',
+    title: '文書不是翻譯而是說故事',
+    desc: '台灣學生常把中文作文直翻英文，失去招生官想看的個性與亮點。我們和你一起重寫，讓故事有血肉。',
+  },
+  {
+    num: '03',
+    title: '課外活動要有敘事線',
+    desc: '不是做得多就好，而是要能串出「你是誰」的主軸。我們協助你盤點現有活動、補齊缺口。',
+  },
+  {
+    num: '04',
+    title: '推薦信要有具體敘述',
+    desc: '我們提供老師背景資料包，協助他們用招生官看得懂的方式為你背書，避免千篇一律的模板。',
+  },
+]
+
+/* ─── DFA 能為你做什麼 ──────────────────────────────────────── */
+const WHY_DFA = [
+  {
+    label: '10 年以上台灣學生申請經驗',
+    desc: '熟悉台灣教育制度與名校招生的落差 — 不會拿美國本土學生的模板硬套在你身上。',
+  },
+  {
+    label: '美加雙軌同時評估',
+    desc: '藤校 reach、加拿大 target、UC 轉學保底 — 同一份規劃書內同時布局，錄取不靠單一路徑。',
+  },
+  {
+    label: '升學成果保障條款',
+    desc: '未達合約錄取標準全額退費，我們和你站在同一邊。',
+  },
+  {
+    label: '從高一到大學一對一陪跑',
+    desc: '不是只在申請季才出現的顧問，而是陪你 3–4 年規劃學術、實習、競賽、文書的完整團隊。',
+  },
+]
+
 /* ─── 申請流程 6 步 ─────────────────────────────────────────── */
 const STEPS = [
   {
@@ -214,6 +258,57 @@ export default function IvyLeaguePage() {
               </p>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── 台灣學生申請名校的挑戰 ── */}
+      <section className="relative z-10 section-padding bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Real Challenges"
+              title="台灣學生申請名校的真實挑戰"
+              subtitle="我們看過太多優秀學生卡在這四個點 — 先認清問題，再對症下藥"
+              split
+            />
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-8">
+            {PAIN_POINTS.map((p, i) => (
+              <ScrollReveal key={p.num} delay={i * 0.08} className="h-full">
+                <div className="h-full bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-all duration-300">
+                  <p className="text-3xl font-black text-dfa-blue mb-3">{p.num}</p>
+                  <p className="text-base font-bold text-txt-primary mb-2">{p.title}</p>
+                  <p className="text-sm text-txt-secondary leading-relaxed">{p.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 為什麼選擇 DFA ── */}
+      <section className="relative z-10 section-padding bg-dfa-light">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Why DFA"
+              title="為什麼選擇 DFA"
+              subtitle="不是所有留學顧問都適合台灣學生 — 這是我們做得不一樣的地方"
+              split
+            />
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-8">
+            {WHY_DFA.map((w, i) => (
+              <ScrollReveal key={w.label} delay={i * 0.1} className="h-full">
+                <div className="h-full bg-white rounded-xl p-6 border-l-4 border-dfa-blue shadow-sm">
+                  <p className="text-base font-bold text-dfa-dark mb-2">{w.label}</p>
+                  <p className="text-sm text-txt-secondary leading-relaxed">{w.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
