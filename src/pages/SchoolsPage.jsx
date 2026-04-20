@@ -604,8 +604,9 @@ export default function SchoolsPage() {
           {/* 社區大學 vs 四年制大學 比較表 */}
           <ScrollReveal>
             <h4 className="text-xl md:text-2xl font-black text-dfa-dark text-center mb-8">社區大學 vs 四年制大學 一覽表</h4>
-            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-              <table className="w-full min-w-[640px] border-collapse rounded-xl overflow-hidden text-sm md:text-base border border-gray-200">
+            <div className="max-w-5xl mx-auto">
+              <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+              <table className="w-full min-w-[640px] mx-auto border-collapse rounded-xl overflow-hidden text-sm md:text-base border border-gray-200">
                 <thead>
                   <tr style={{ background: '#0A2A6E' }}>
                     <th className="text-white font-bold px-5 py-4 text-left w-[20%]">比較項目</th>
@@ -630,6 +631,7 @@ export default function SchoolsPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
               <p className="text-xs text-txt-muted mt-3 text-center">* 學費與英文門檻依各校公告為準，以上為一般範圍參考值。</p>
             </div>
           </ScrollReveal>
