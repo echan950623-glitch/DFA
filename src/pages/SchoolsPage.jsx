@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiX, HiChevronDown } from 'react-icons/hi'
 import ProgramHero from '../components/shared/ProgramHero'
@@ -254,18 +254,10 @@ function SchoolDetail({ school }) {
   )
 }
 
-/* ── 合作社區大學卡片（可展開） ── */
-function PartnerSchoolCard({ school }) {
-  const [open, setOpen] = useState(false)
-  const hasExpandable = !!(
-    school.type ||
-    school.partnership ||
-    (school.sections && school.sections.length) ||
-    (school.majors && school.majors.length) ||
-    (school.englishRequirements && school.englishRequirements.length)
-  )
+/* ── 單一學校卡片內容（carousel slide 用，可展開） ── */
+function PartnerSchoolSlide({ school, open }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden h-full">
       <div className="h-2" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
       <div className="p-6 md:p-8">
         {/* Header */}
@@ -286,18 +278,19 @@ function PartnerSchoolCard({ school }) {
           {school.highlight}
         </span>
 
-        {/* Quick facts — always visible */}
+        {/* Quick facts */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5 text-sm">
           {school.website && (
             <div className="flex gap-2"><span className="text-txt-muted shrink-0">官網：</span><a href={school.website} target="_blank" rel="noopener noreferrer" className="text-dfa-blue hover:underline truncate">{school.nameEn}</a></div>
           )}
           {school.location && <div className="flex gap-2"><span className="text-txt-muted shrink-0">地點：</span><span className="text-txt-primary">{school.location}</span></div>}
           <div className="flex gap-2"><span className="text-txt-muted shrink-0">建校：</span><span className="text-txt-primary">{school.founded} 年</span></div>
+          {school.type && <div className="flex gap-2"><span className="text-txt-muted shrink-0">類型：</span><span className="text-txt-primary">{school.type}</span></div>}
         </div>
 
-        {/* Intro teaser — always visible */}
+        {/* Intro — always visible */}
         {school.intro && (
-          <p className="text-body text-txt-secondary leading-relaxed mb-5">{school.intro}</p>
+          <p className="text-body text-txt-secondary leading-relaxed mb-3">{school.intro}</p>
         )}
 
         {/* Collapsible details */}
@@ -310,17 +303,7 @@ function PartnerSchoolCard({ school }) {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="overflow-hidden"
             >
-              <div className="pt-2">
-                {school.type && (
-                  <p className="text-sm mb-5"><span className="text-txt-muted">學校類型：</span><span className="text-txt-primary">{school.type}</span></p>
-                )}
-
-                {school.partnership && (
-                  <div className="border-l-4 border-dfa-blue bg-dfa-light/60 rounded-r-md px-4 py-3 mb-5">
-                    <p className="text-sm font-semibold text-dfa-dark">{school.partnership}</p>
-                  </div>
-                )}
-
+              <div className="pt-4">
                 {school.sections && school.sections.map((sec) => (
                   <div key={sec.title} className="mb-5">
                     <h4 className="text-base font-bold text-dfa-blue mb-2">{sec.title}</h4>
@@ -338,11 +321,14 @@ function PartnerSchoolCard({ school }) {
                 {school.majors && (
                   <div className="mb-6">
                     <h4 className="text-base font-bold text-dfa-blue mb-3">🔥 熱門科系</h4>
-                    <ul className="space-y-3">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {school.majors.map((m) => (
-                        <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-4">
-                          <p className="text-sm font-bold text-txt-primary">{m.name} <span className="text-txt-muted font-medium">{m.en}</span></p>
-                          <p className="text-sm text-txt-secondary mt-0.5">{m.transferTo}</p>
+                        <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-3">
+                          <p className="text-sm font-bold text-txt-primary">{m.name}</p>
+                          <p className="text-xs text-txt-muted">{m.en}</p>
+                          {m.transferTo && (
+                            <p className="text-xs text-txt-secondary mt-0.5">{m.transferTo}</p>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -363,17 +349,106 @@ function PartnerSchoolCard({ school }) {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+    </div>
+  )
+}
 
-        {/* Toggle button — only if there's expandable content */}
-        {hasExpandable && (
+/* ── 合作社區大學 水平輪播 ── */
+function PartnerCarousel({ schools }) {
+  const [idx, setIdx] = useState(0)
+  const [open, setOpen] = useState(false)
+  const topRef = useRef(null)
+  const total = schools.length
+  const canPrev = idx > 0
+  const canNext = idx < total - 1
+
+  const scrollToTop = () => {
+    const el = topRef.current
+    if (!el) return
+    const y = el.getBoundingClientRect().top + window.scrollY - 100
+    window.scrollTo({ top: y, behavior: 'smooth' })
+  }
+
+  const prev = () => { if (canPrev) { setIdx((i) => i - 1); setOpen(false); scrollToTop() } }
+  const next = () => { if (canNext) { setIdx((i) => i + 1); setOpen(false); scrollToTop() } }
+  const jump = (i) => { if (i !== idx) { setIdx(i); setOpen(false); scrollToTop() } }
+  const toggleOpen = () => {
+    setOpen((v) => {
+      if (v) { requestAnimationFrame(scrollToTop) } // collapsing — scroll back up
+      return !v
+    })
+  }
+
+  const school = schools[idx]
+  const hasExpandable = !!(
+    (school.sections && school.sections.length) ||
+    (school.majors && school.majors.length) ||
+    (school.englishRequirements && school.englishRequirements.length)
+  )
+
+  return (
+    <div ref={topRef} className="max-w-5xl mx-auto scroll-mt-24">
+      {/* Slide */}
+      <div className="overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={school.nameEn}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          >
+            <PartnerSchoolSlide school={school} open={open} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Control row — arrows flanking toggle button */}
+      <div className="flex items-stretch gap-2 md:gap-3 mt-4">
+        <button
+          onClick={prev}
+          disabled={!canPrev}
+          aria-label="上一所"
+          className={`shrink-0 w-12 md:w-14 rounded-md border flex items-center justify-center text-2xl transition-colors duration-200 ${
+            canPrev ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue hover:text-white' : 'border-gray-200 text-gray-300 cursor-default'
+          }`}
+        >‹</button>
+
+        {hasExpandable ? (
           <button
-            onClick={() => setOpen((v) => !v)}
-            className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
+            onClick={toggleOpen}
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
           >
             {open ? '收合' : '查看更多'}
             <HiChevronDown className={`text-base transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
           </button>
+        ) : (
+          <div className="flex-1" />
         )}
+
+        <button
+          onClick={next}
+          disabled={!canNext}
+          aria-label="下一所"
+          className={`shrink-0 w-12 md:w-14 rounded-md border flex items-center justify-center text-2xl transition-colors duration-200 ${
+            canNext ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue hover:text-white' : 'border-gray-200 text-gray-300 cursor-default'
+          }`}
+        >›</button>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {schools.map((s, i) => (
+          <button
+            key={s.nameEn}
+            onClick={() => jump(i)}
+            aria-label={`切換到 ${s.name}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === idx ? 'bg-dfa-blue w-8' : 'bg-gray-300 w-2 hover:bg-gray-400'
+            }`}
+          />
+        ))}
       </div>
     </div>
   )
@@ -644,13 +719,9 @@ export default function SchoolsPage() {
           <ScrollReveal>
             <SectionHeading label="Partner Colleges" title="合作社區大學" subtitle="Partner Community Colleges" split />
           </ScrollReveal>
-          <div className="space-y-6 max-w-5xl mx-auto">
-            {partnerSchools.map((school, i) => (
-              <ScrollReveal key={school.nameEn} delay={i * 0.1}>
-                <PartnerSchoolCard school={school} />
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal>
+            <PartnerCarousel schools={partnerSchools} />
+          </ScrollReveal>
         </div>
       </section>
 
@@ -689,3 +760,4 @@ export default function SchoolsPage() {
     </>
   )
 }
+TEST_MARKER_12345
