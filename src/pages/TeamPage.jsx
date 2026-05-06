@@ -99,9 +99,8 @@ const RESEARCH_PROGRAMS = [
 ]
 
 const GAP = 20
-const VISIBLE_DESKTOP = 3   // 3 columns (1024px+)
-const VISIBLE_TABLET  = 2   // 2 columns (768–1023px)
-const VISIBLE_MOBILE = 1    // 1 column on narrow screens
+const VISIBLE_DESKTOP = 3   // 3 columns (>= 1280px)
+const VISIBLE_MD = 2        // 2 columns (1024–1279px)
 
 // Group members into column pairs [[m0,m1],[m2,m3],...]
 function chunkPairs(arr) {
@@ -123,16 +122,12 @@ export default function TeamPage() {
   const canPrev = idx > 0
   const canNext = idx + visible < total
 
-  // Measure track width → derive column width; choose visible count by breakpoint
+  // Desktop-only carousel: measure runs on lg+ (carousel is hidden below lg)
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
         const w = trackRef.current.clientWidth
-        const v = window.innerWidth < 768
-          ? VISIBLE_MOBILE
-          : window.innerWidth < 1024
-            ? VISIBLE_TABLET
-            : VISIBLE_DESKTOP
+        const v = window.innerWidth < 1280 ? VISIBLE_MD : VISIBLE_DESKTOP
         setVisible(v)
         setColWidth((w - GAP * (v - 1)) / v)
       }
@@ -165,94 +160,103 @@ export default function TeamPage() {
             split
           />
 
-          {/* Carousel */}
-          <div className="flex items-center gap-4 mt-10">
-            {/* Prev */}
-            <button
-              onClick={() => canPrev && setIdx(i => i - 1)}
-              disabled={!canPrev}
-              className={`shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center text-base md:text-xl transition-all duration-200 ${canPrev ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
-            >‹</button>
-
-            {/* Track */}
-            <div className="flex-1 overflow-hidden" ref={trackRef}>
-              <motion.div
-                className="flex"
-                style={{ gap: GAP }}
-                animate={{ x: translateX }}
-                transition={{ type: 'tween', ease: 'easeInOut', duration: 0.45 }}
+          {/* ── Mobile / Tablet: pure CSS grid, no JS measurement ── */}
+          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+            {teamMembers.map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
               >
-                {pairs.map((pair, pi) => (
-                  <div
-                    key={pi}
-                    className="shrink-0 flex flex-col gap-5"
-                    style={{ width: colWidth || `calc((100% - ${GAP * (visible - 1)}px) / ${visible})` }}
-                  >
-                    {pair.map((member) => (
-                      <div
-                        key={member.name}
-                        className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-auto lg:h-[300px]"
-                      >
-                        <div className="h-1.5 bg-dfa-blue" />
-                        {/* Mobile: vertical stack / Desktop: horizontal */}
-                        <div className="p-4 md:p-5 h-full flex flex-col">
-                          {/* Mobile / Tablet (< lg): centered vertical */}
-                          <div className="flex lg:hidden flex-col items-center text-center gap-2 mb-3">
-                            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-sm">
-                              {member.photo
-                                ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
-                                : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white font-black">{member.name.charAt(0)}</div>
-                              }
-                            </div>
-                            <div>
-                              <h3 style={{ fontSize: 'clamp(0.8rem, 0.55rem + 1vw, 0.95rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
-                              <p style={{ fontSize: 'clamp(0.7rem, 0.48rem + 0.9vw, 0.85rem)' }} className="font-semibold text-dfa-blue leading-snug">{member.school}</p>
-                              <p style={{ fontSize: 'clamp(0.65rem, 0.44rem + 0.8vw, 0.75rem)' }} className="text-txt-muted leading-snug">{member.degree}</p>
-                            </div>
-                          </div>
-
-                          {/* Desktop (>= lg): horizontal row */}
-                          <div className="hidden lg:flex items-center gap-4 mb-3">
-                            <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
-                              {member.photo
-                                ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
-                                : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-xl font-black">{member.name.charAt(0)}</div>
-                              }
-                            </div>
-                            <div className="min-w-0">
-                              <h3 className="text-base font-bold text-txt-primary leading-snug">{member.name}</h3>
-                              <p className="text-sm font-semibold text-dfa-blue leading-snug">{member.school}</p>
-                              <p className="text-sm text-txt-muted">{member.degree}</p>
-                            </div>
-                          </div>
-
-                          {/* Bio */}
-                          <p style={{ fontSize: 'clamp(0.7rem, 0.48rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-3 lg:line-clamp-none text-center lg:text-left">{member.bio}</p>
-                        </div>
-                      </div>
-                    ))}
+                <div className="h-1.5 bg-dfa-blue" />
+                <div className="p-4 flex flex-col items-center text-center gap-2">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-sm mt-1 shrink-0">
+                    {member.photo
+                      ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
+                      : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-lg font-black">{member.name.charAt(0)}</div>
+                    }
                   </div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Next */}
-            <button
-              onClick={() => canNext && setIdx(i => i + 1)}
-              disabled={!canNext}
-              className={`shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center text-base md:text-xl transition-all duration-200 ${canNext ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
-            >›</button>
+                  <div className="w-full">
+                    <h3 className="font-bold text-txt-primary leading-snug text-sm sm:text-base">{member.name}</h3>
+                    <p className="font-semibold text-dfa-blue leading-snug text-xs sm:text-sm">{member.school}</p>
+                    <p className="text-txt-muted leading-snug text-xs">{member.degree}</p>
+                  </div>
+                  <p className="text-txt-secondary leading-relaxed line-clamp-3 text-xs sm:text-sm w-full">{member.bio}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-1.5 mt-8">
-            {Array.from({ length: Math.max(0, total - visible + 1) }).map((_, i) => (
+          {/* ── Desktop: carousel (lg+) ── */}
+          <div className="hidden lg:block">
+            <div className="flex items-center gap-4 mt-10">
+              {/* Prev */}
               <button
-                key={i}
-                onClick={() => setIdx(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${i === idx ? 'bg-dfa-blue w-4' : 'bg-gray-300 w-1.5'}`}
-              />
-            ))}
+                onClick={() => canPrev && setIdx(i => i - 1)}
+                disabled={!canPrev}
+                className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center text-xl transition-all duration-200 ${canPrev ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
+              >‹</button>
+
+              {/* Track */}
+              <div className="flex-1 overflow-hidden" ref={trackRef}>
+                <motion.div
+                  className="flex"
+                  style={{ gap: GAP }}
+                  animate={{ x: translateX }}
+                  transition={{ type: 'tween', ease: 'easeInOut', duration: 0.45 }}
+                >
+                  {pairs.map((pair, pi) => (
+                    <div
+                      key={pi}
+                      className="shrink-0 flex flex-col gap-5"
+                      style={{ width: colWidth || `calc((100% - ${GAP * (visible - 1)}px) / ${visible})` }}
+                    >
+                      {pair.map((member) => (
+                        <div
+                          key={member.name}
+                          className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-[300px]"
+                        >
+                          <div className="h-1.5 bg-dfa-blue" />
+                          <div className="p-5 h-full flex flex-col">
+                            <div className="flex items-center gap-4 mb-3">
+                              <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
+                                {member.photo
+                                  ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
+                                  : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-xl font-black">{member.name.charAt(0)}</div>
+                                }
+                              </div>
+                              <div className="min-w-0">
+                                <h3 className="text-base font-bold text-txt-primary leading-snug">{member.name}</h3>
+                                <p className="text-sm font-semibold text-dfa-blue leading-snug">{member.school}</p>
+                                <p className="text-sm text-txt-muted">{member.degree}</p>
+                              </div>
+                            </div>
+                            <p className="text-sm text-txt-secondary leading-relaxed line-clamp-4">{member.bio}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Next */}
+              <button
+                onClick={() => canNext && setIdx(i => i + 1)}
+                disabled={!canNext}
+                className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center text-xl transition-all duration-200 ${canNext ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue/10' : 'border-gray-200 text-gray-300 cursor-default'}`}
+              >›</button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-1.5 mt-8">
+              {Array.from({ length: Math.max(0, total - visible + 1) }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === idx ? 'bg-dfa-blue w-4' : 'bg-gray-300 w-1.5'}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
