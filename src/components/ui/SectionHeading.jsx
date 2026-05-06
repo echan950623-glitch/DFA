@@ -27,11 +27,11 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap">
         {eyebrow}
-        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-10">
-          <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words shrink-0 ${h2Color}`}>
+        <div className="flex flex-col xl:flex-row xl:items-baseline gap-2 xl:gap-10">
+          <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight shrink-0 ${h2Color}`}>
             {title}
           </h2>
-          <p className={`text-sm md:text-body leading-relaxed line-clamp-3 md:line-clamp-none ${subColor}`}>
+          <p className={`text-sm md:text-body leading-relaxed line-clamp-3 xl:line-clamp-none min-w-0 ${subColor}`}>
             {subtitle}
           </p>
         </div>
