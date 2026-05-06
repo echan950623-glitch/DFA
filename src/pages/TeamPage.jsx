@@ -99,8 +99,9 @@ const RESEARCH_PROGRAMS = [
 ]
 
 const GAP = 20
-const VISIBLE_DESKTOP = 3   // 3 columns × 2 rows = 6 cards (md+)
-const VISIBLE_MOBILE = 1    // 1 column on narrow screens → 2 cards visible, full width
+const VISIBLE_DESKTOP = 3   // 3 columns (1024px+)
+const VISIBLE_TABLET  = 2   // 2 columns (768–1023px)
+const VISIBLE_MOBILE = 1    // 1 column on narrow screens
 
 // Group members into column pairs [[m0,m1],[m2,m3],...]
 function chunkPairs(arr) {
@@ -127,7 +128,11 @@ export default function TeamPage() {
     const measure = () => {
       if (trackRef.current) {
         const w = trackRef.current.clientWidth
-        const v = window.innerWidth < 768 ? VISIBLE_MOBILE : VISIBLE_DESKTOP
+        const v = window.innerWidth < 768
+          ? VISIBLE_MOBILE
+          : window.innerWidth < 1024
+            ? VISIBLE_TABLET
+            : VISIBLE_DESKTOP
         setVisible(v)
         setColWidth((w - GAP * (v - 1)) / v)
       }
@@ -186,13 +191,13 @@ export default function TeamPage() {
                     {pair.map((member) => (
                       <div
                         key={member.name}
-                        className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-auto md:h-[300px]"
+                        className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 h-auto lg:h-[300px]"
                       >
                         <div className="h-1.5 bg-dfa-blue" />
                         {/* Mobile: vertical stack / Desktop: horizontal */}
                         <div className="p-4 md:p-5 h-full flex flex-col">
-                          {/* Mobile layout: horizontal mini-row */}
-                          <div className="flex md:hidden items-center gap-3 mb-2">
+                          {/* Mobile layout (< 1024px): horizontal mini-row */}
+                          <div className="flex lg:hidden items-center gap-3 mb-2">
                             <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
                               {member.photo
                                 ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
@@ -200,14 +205,14 @@ export default function TeamPage() {
                               }
                             </div>
                             <div className="min-w-0">
-                              <h3 className="text-sm font-bold text-txt-primary leading-snug">{member.name}</h3>
-                              <p className="text-xs font-semibold text-dfa-blue leading-snug">{member.school}</p>
-                              <p className="text-xs text-txt-muted leading-snug">{member.degree}</p>
+                              <h3 style={{ fontSize: 'clamp(0.75rem, 0.5rem + 1vw, 0.875rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
+                              <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.8125rem)' }} className="font-semibold text-dfa-blue leading-snug">{member.school}</p>
+                              <p style={{ fontSize: 'clamp(0.65rem, 0.4rem + 0.8vw, 0.75rem)' }} className="text-txt-muted leading-snug">{member.degree}</p>
                             </div>
                           </div>
 
-                          {/* Desktop: horizontal row */}
-                          <div className="hidden md:flex items-center gap-4 mb-3">
+                          {/* Desktop layout (>= 1024px): horizontal row */}
+                          <div className="hidden lg:flex items-center gap-4 mb-3">
                             <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
                               {member.photo
                                 ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
@@ -222,7 +227,7 @@ export default function TeamPage() {
                           </div>
 
                           {/* Bio */}
-                          <p className="text-xs md:text-sm text-txt-secondary leading-relaxed line-clamp-4 md:line-clamp-none">{member.bio}</p>
+                          <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-4 lg:line-clamp-none">{member.bio}</p>
                         </div>
                       </div>
                     ))}

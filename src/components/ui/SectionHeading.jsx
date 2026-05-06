@@ -27,8 +27,11 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap">
         {eyebrow}
-        <div className="flex flex-col xl:flex-row xl:items-baseline gap-2 xl:gap-10">
-          <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight shrink-0 ${h2Color}`}>
+        <div className="flex flex-col xl:flex-row xl:items-baseline gap-3 xl:gap-12">
+          <h2
+            className={`leading-tight font-black xl:max-w-[480px] shrink-0 ${h2Color}`}
+            style={{ fontSize: 'clamp(1.5rem, 1rem + 2.5vw, 3.5rem)' }}
+          >
             {title}
           </h2>
           <p className={`text-sm md:text-body leading-relaxed line-clamp-3 xl:line-clamp-none min-w-0 ${subColor}`}>
@@ -44,7 +47,10 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap text-center">
         {eyebrow}
-        <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>
+        <h2
+          className={`leading-tight font-black mb-3 ${h2Color}`}
+          style={{ fontSize: 'clamp(1.5rem, 1rem + 2.5vw, 3.5rem)' }}
+        >
           {title}
         </h2>
         {subtitle && (
@@ -58,7 +64,10 @@ export default function SectionHeading({
   return (
     <div className="mb-heading-gap">
       {eyebrow}
-      <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>
+      <h2
+        className={`leading-tight font-black mb-3 ${h2Color}`}
+        style={{ fontSize: 'clamp(1.5rem, 1rem + 2.5vw, 3.5rem)' }}
+      >
         {title}
       </h2>
       {subtitle && (
