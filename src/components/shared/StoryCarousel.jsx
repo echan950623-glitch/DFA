@@ -11,7 +11,7 @@ export const SUCCESS_STORIES = [
     to: 'UCLA ／ USC',
     major: '經濟學',
     gpa: '3.31',
-    quote: 'GPA 3.31、完全沒有課外活動，很多人說我根本沒有機會。但 DFA 幫我找到突破口——完整課業規劃搭配「逆境重生」的文書策略，把弱點變成了最打動招生官的故事。最終同時拿到 UCLA 和 USC 的錄取，我自己都難以置信。',
+    quote: 'GPA 3.31、完全沒有課外活動，很多人說我根本沒有機會。但 DFA 幫我找到突破口——完整課業規劃搭配「逆境重生」的文書策略，把弱點變成了最打動審查委員的故事。最終同時拿到 UCLA 和 USC 的錄取，我自己都難以置信。',
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ export const SUCCESS_STORIES = [
     to: 'UCLA（候補）／ UCSD ／ UCI ／ UCD ／ UCSB',
     major: '經濟學',
     gpa: '3.31',
-    quote: 'GPA 只有 3.31 又毫無課外活動，申請經濟系本來毫無勝算。DFA 幫我找到公益實習機會，文書透過兩小時一對一腦力激盪，挖掘出了打動招生官的故事。最終拿到 UCSD、UCI、UCD、UCSB，甚至被 UCLA 列為候補。',
+    quote: 'GPA 只有 3.31 又毫無課外活動，申請經濟系本來毫無勝算。DFA 幫我找到公益實習機會，文書透過兩小時一對一腦力激盪，挖掘出了打動審查委員的故事。最終拿到 UCSD、UCI、UCD、UCSB，甚至被 UCLA 列為候補。',
   },
   {
     id: 7,
@@ -101,7 +101,7 @@ export const SUCCESS_STORIES = [
     to: 'UC Davis ／ UCI ／ UCSB ／ UCR',
     major: '數學 ／ STEM',
     gpa: '優秀',
-    quote: '11 月中才找到 DFA，距離 UC 申請截止只剩不到三週。DFA 老師全力衝刺，幫我在一週內完成全部四篇文書，以自學 AP 的數學專長和移民故事打動招生官，成功錄取 UCD、UCI、UCSB、UCR，UCLA 和 UCB 也進了候補名單。',
+    quote: '11 月中才找到 DFA，距離 UC 申請截止只剩不到三週。DFA 老師全力衝刺，幫我在一週內完成全部四篇文書，以自學 AP 的數學專長和移民故事打動審查委員，成功錄取 UCD、UCI、UCSB、UCR，UCLA 和 UCB 也進了候補名單。',
   },
   {
     id: 11,
@@ -111,7 +111,7 @@ export const SUCCESS_STORIES = [
     to: 'UC Berkeley ／ UCSD ／ 密歇根大學',
     major: '全球研究 ／ 經濟',
     gpa: '3.75',
-    quote: '有兩學期微積分用 P/NP 修課，這是轉學的大紅旗。DFA 建議我改修統計並拿了 A+，同時幫我梳理了組建多元文化足球隊、北極科學探險等獨特亮點，再請前 UCB 招生官打磨文書。最終錄取 UC Berkeley、UCSD 和密歇根大學。',
+    quote: '有兩學期微積分用 P/NP 修課，這是轉學的大紅旗。DFA 建議我改修統計並拿了 A+，同時幫我梳理了組建多元文化足球隊、北極科學探險等獨特亮點，再請前 UCB 審查委員打磨文書。最終錄取 UC Berkeley、UCSD 和密歇根大學。',
   },
 ]
 

@@ -3,7 +3,7 @@
  *
  * 3 modes:
  *  default  → eyebrow + H2 + subtitle below
- *  split    → eyebrow + H2 left  |  subtitle right (desktop)
+ *  split    → eyebrow + H2 left  |  subtitle right (desktop), stacked (mobile)
  *  center   → everything centered (for CTA sections)
  */
 export default function SectionHeading({
@@ -14,9 +14,9 @@ export default function SectionHeading({
   split = false,
   center = false,
 }) {
-  const h2Color   = light ? 'text-white' : 'text-txt-primary'
-  const eyeColor  = light ? 'text-white' : 'text-dfa-blue'
-  const subColor  = light ? 'text-white' : 'text-txt-muted'
+  const h2Color  = light ? 'text-white' : 'text-txt-primary'
+  const eyeColor = light ? 'text-white' : 'text-dfa-blue'
+  const subColor = light ? 'text-white' : 'text-txt-muted'
 
   const eyebrow = label && (
     <p className={`text-eyebrow uppercase mb-3 ${eyeColor}`}>{label}</p>
@@ -27,9 +27,13 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap">
         {eyebrow}
-        <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10">
-          <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words shrink-0 ${h2Color}`}>{title}</h2>
-          <p className={`text-body leading-relaxed ${subColor}`}>{subtitle}</p>
+        <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-10">
+          <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words shrink-0 ${h2Color}`}>
+            {title}
+          </h2>
+          <p className={`text-sm md:text-body leading-relaxed line-clamp-3 md:line-clamp-none ${subColor}`}>
+            {subtitle}
+          </p>
         </div>
       </div>
     )
@@ -40,8 +44,12 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap text-center">
         {eyebrow}
-        <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>{title}</h2>
-        {subtitle && <p className={`text-body max-w-xl mx-auto ${subColor}`}>{subtitle}</p>}
+        <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>
+          {title}
+        </h2>
+        {subtitle && (
+          <p className={`text-sm md:text-body max-w-xl mx-auto ${subColor}`}>{subtitle}</p>
+        )}
       </div>
     )
   }
@@ -50,8 +58,12 @@ export default function SectionHeading({
   return (
     <div className="mb-heading-gap">
       {eyebrow}
-      <h2 className={`text-4xl sm:text-5xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>{title}</h2>
-      {subtitle && <p className={`text-body max-w-xl ${subColor}`}>{subtitle}</p>}
+      <h2 className={`text-2xl sm:text-4xl md:text-h2 leading-tight break-words mb-3 ${h2Color}`}>
+        {title}
+      </h2>
+      {subtitle && (
+        <p className={`text-sm md:text-body max-w-xl ${subColor}`}>{subtitle}</p>
+      )}
     </div>
   )
 }

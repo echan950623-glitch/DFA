@@ -190,14 +190,14 @@ export default function CommunityCollegePage() {
           <ScrollReveal>
             <SectionHeading
               label="Community College Transfer"
-              title="2+2 陪跑項目"
+              title="2+2 陪跑計畫"
               subtitle="從課程規劃到申請輔導，全程一對一導師制"
               split
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <p className="text-body text-gray-700 leading-relaxed max-w-4xl">
-              「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、實時專業諮詢、每周學術跟進與規劃、學術輔導、背景提升方案、專項背景提升項目、每學期定期溝通與規劃、美國社區大學轉學申請。導師均畢業於美國名校，借助過往經驗及本機構的資源配置全程指導學生，讓學生順利就讀名校。
+              「夢想家留學」提供的留學服務包含學生轉學評估規劃方案書、兩年課程規劃方案、即時專業諮詢、每週學術追蹤與規劃、學術輔導、背景提升方案、專項背景提升專案、每學期定期溝通與規劃、美國社區大學轉學申請。顧問均畢業於美國名校，透過豐富的實務經驗與資源配置全程指導學生，讓學生順利就讀名校。
             </p>
           </ScrollReveal>
         </div>

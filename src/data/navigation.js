@@ -22,4 +22,5 @@ export const navItems = [
   { label: '經濟入夢', path: '/tuition' },
   { label: '夢想手續與簽證', path: '/visa' },
   { label: '專業家教', path: '/tutoring' },
+  { label: '名校探索遊學', path: '/study-tour' },
 ]

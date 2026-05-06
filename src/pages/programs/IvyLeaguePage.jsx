@@ -56,7 +56,7 @@ const PAIN_POINTS = [
   {
     num: '02',
     title: '文書不是翻譯而是說故事',
-    desc: '台灣學生常把中文作文直翻英文，失去招生官想看的個性與亮點。我們和你一起重寫，讓故事有血肉。',
+    desc: '台灣學生常把中文作文直翻英文，失去審查委員想看的個性與亮點。我們和你一起重寫，讓故事有血肉。',
   },
   {
     num: '03',
@@ -66,7 +66,7 @@ const PAIN_POINTS = [
   {
     num: '04',
     title: '推薦信要有具體敘述',
-    desc: '我們提供老師背景資料包，協助他們用招生官看得懂的方式為你背書，避免千篇一律的模板。',
+    desc: '我們提供老師背景資料包，協助他們用審查委員看得懂的方式為你背書，避免千篇一律的模板。',
   },
 ]
 
@@ -216,7 +216,7 @@ export default function IvyLeaguePage() {
                   <span className="text-xs font-black px-2 py-1 rounded bg-red-600 text-white tracking-widest">CA</span>
                   <div>
                     <p className="text-base font-black text-red-700">加拿大</p>
-                    <p className="text-sm text-txt-muted">高品質教育 + 高性價比選擇</p>
+                    <p className="text-sm text-txt-muted">高品質教育 + 高CP值選擇</p>
                   </div>
                 </div>
                 <div className="p-6 space-y-5 bg-white flex-1">

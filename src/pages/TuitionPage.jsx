@@ -3,9 +3,10 @@ import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { HiCash, HiAcademicCap, HiUserGroup, HiClipboardCheck, HiCheck } from 'react-icons/hi'
 import CTABanner from '../components/shared/CTABanner'
+import { HISTORICAL_ADMISSIONS } from '../data/admissions'
 
 const advantages = [
-  { icon: HiCash, title: '學費便宜', desc: '社區大學每學分費用遠低於四年制大學，整體就讀預算相當親民，是留學性價比最高的選擇。' },
+  { icon: HiCash, title: '學費便宜', desc: '社區大學每學分費用遠低於四年制大學，整體就讀預算相當親民，是留學CP值最高的選擇。' },
   { icon: HiUserGroup, title: '小班制', desc: '社區大學一般是小班制，師生互動多，老師更能注意學生的個別發展，相較四年制大學更易融入。' },
   { icon: HiClipboardCheck, title: '入學門檻低', desc: '國際學生申請社區學院只需繳交 TOEFL 成績，不需要 SAT 或 ACT 等入學試。部分學校甚至能豁免 TOEFL。' },
   { icon: HiAcademicCap, title: '轉入名校機率高', desc: '大學每年接受一定數量的社區學院學生，社區學院畢業生面臨較低的競爭，轉學錄取率比新生錄取率更高。' },
@@ -104,7 +105,7 @@ const VIP_ROWS = [
     category: '背景提升',
     items: [
       {
-        label: '科研 / 暑期學術計畫',
+        label: '學術研究 / 暑期學術計畫',
         basic: '建議方向',
         advanced: '申請輔導',
         flagship: '精準資源匹配與履歷整合',
@@ -113,7 +114,7 @@ const VIP_ROWS = [
         label: '背景提升規劃',
         basic: '—',
         advanced: '系統性規劃',
-        flagship: '完整履歷打造（科研 / 競賽）',
+        flagship: '完整履歷打造（學術研究 / 競賽）',
       },
     ],
   },
@@ -150,7 +151,7 @@ const VIP_ROWS = [
         flagship: '長期學業規劃與追蹤',
       },
       {
-        label: '科研成果 / 論文指導',
+        label: '學術研究成果 / 論文指導',
         basic: '—',
         advanced: '申請輔導',
         flagship: '研究成果與論文產出規劃',
@@ -290,7 +291,7 @@ export default function TuitionPage() {
                   <div className="mt-2 inline-block text-xs bg-dfa-blue/30 text-sky-300 font-medium px-3 py-1 rounded-full">TOP 30 / UC 前六</div>
                 </div>
                 <p className="text-sm text-white/80 leading-relaxed">
-                  為目標頂尖名校學生打造的高端升學方案，提供長期且系統化的全方位規劃與管理。整合學術研究、實習與國際資源，打造具差異化的申請履歷。結合 2+2 轉學策略，在提升錄取機率的同時，最高可節省百萬以上學費。
+                  為目標頂尖名校學生打造的頂尖升學方案，提供長期且系統化的全方位規劃與管理。整合學術研究、實習與國際資源，打造具差異化的申請履歷。結合 2+2 轉學策略，在提升錄取機率的同時，最高可節省百萬以上學費。
                 </p>
               </div>
             </ScrollReveal>
@@ -371,6 +372,63 @@ export default function TuitionPage() {
               如需了解各方案詳細費用，請
               <a href="https://lin.ee/O1ejJf7" target="_blank" rel="noopener noreferrer" className="text-dfa-blue font-semibold hover:underline mx-1">聯絡我們</a>
               進行免費評估
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── 歷屆錄取榜單 ── */}
+      <section className="section-padding bg-dfa-light">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Historical Admissions"
+              title="歷屆錄取榜單"
+              subtitle="部分學員轉學成功案例（不完全統計）"
+            />
+            <p className="text-center text-gray-500 text-sm mb-10 -mt-2">
+              共 {HISTORICAL_ADMISSIONS.length} 位學員透過 DFA 規劃成功轉入名校
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
+              {/* Table header */}
+              <div className="grid grid-cols-12 px-4 py-3 text-white text-sm font-bold"
+                style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
+                <div className="col-span-2 md:col-span-2">學員姓名</div>
+                <div className="col-span-4 md:col-span-3">社大院校</div>
+                <div className="col-span-4 md:col-span-4">錄取院校</div>
+                <div className="hidden md:block md:col-span-2">錄取專業</div>
+                <div className="col-span-2 md:col-span-1 text-center">GPA</div>
+              </div>
+              {/* Rows */}
+              <div className="max-h-[640px] overflow-y-auto">
+                {HISTORICAL_ADMISSIONS.map((row, i) => (
+                  <div
+                    key={i}
+                    className={`grid grid-cols-12 px-4 py-3 text-sm border-b border-gray-100 last:border-b-0 hover:bg-dfa-light/40 transition-colors ${
+                      i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                    }`}
+                  >
+                    <div className="col-span-2 md:col-span-2 font-bold text-dfa-blue">{row.name}</div>
+                    <div className="col-span-4 md:col-span-3 text-txt-secondary">{row.from}</div>
+                    <div className="col-span-4 md:col-span-4 font-semibold text-dfa-dark">{row.to}</div>
+                    <div className="hidden md:block md:col-span-2 text-txt-secondary">{row.major}</div>
+                    <div className="col-span-2 md:col-span-1 text-center font-bold text-dfa-dark">{row.gpa}</div>
+                    {/* mobile: major shown below */}
+                    <div className="md:hidden col-span-12 mt-1 text-xs text-txt-muted pl-[16.66%]">
+                      <span className="inline-block px-2 py-0.5 rounded bg-dfa-light text-dfa-blue font-medium">{row.major}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <p className="text-center text-gray-500 text-xs mt-4">
+              * 以上為部分學員真實錄取結果，非完整統計。實際申請成果依個人背景與目標而異。
             </p>
           </ScrollReveal>
         </div>

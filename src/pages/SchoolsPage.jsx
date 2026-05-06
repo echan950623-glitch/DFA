@@ -5,7 +5,9 @@ import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { partnerSchools, sampleCourses } from '../data/schools'
+import { ADMISSION_CASES } from '../data/cases'
 import CTABanner from '../components/shared/CTABanner'
+import OfferBoard from '../components/shared/OfferBoard'
 
 /* ── 目標名校資料 ── */
 const SCHOOLS = [
@@ -141,7 +143,7 @@ const WHY_USA = [
   {
     icon: '🔬',
     title: '豐富研究資源',
-    desc: '美國大學研究經費充足，有機會直接參與教授實驗室研究，累積科研經歷，強化申請研究所競爭力。',
+    desc: '美國大學研究經費充足，有機會直接參與教授實驗室研究，累積學術研究經歷，強化申請研究所競爭力。',
   },
   {
     icon: '💡',
@@ -256,17 +258,15 @@ function SchoolDetail({ school }) {
 
 /* ── 單一學校卡片內容（carousel slide 用，可展開） ── */
 function PartnerSchoolSlide({ school, open }) {
+  const abbr = school.nameEn.match(/\(([^)]+)\)/)?.[1] || school.name.charAt(0)
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden h-full">
-      <div className="h-2" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
+      <div className="h-2" style={{ background: 'linear-gradient(to right,#2DD8EE,#1040CC)' }} />
       <div className="p-6 md:p-8">
-        {/* Header */}
         <div className="flex items-start gap-4 mb-5">
-          <div
-            className="w-14 h-14 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0"
-            style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
-          >
-            {school.nameEn.match(/\(([^)]+)\)/)?.[1] || school.name.charAt(0)}
+          <div className="w-14 h-14 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0"
+            style={{ background: 'linear-gradient(135deg,#2DD8EE,#1040CC)' }}>
+            {abbr}
           </div>
           <div className="flex-1">
             <h3 className="text-h3 text-txt-primary">{school.name}</h3>
@@ -303,45 +303,60 @@ function PartnerSchoolSlide({ school, open }) {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="overflow-hidden"
             >
-              <div className="pt-4">
-                {school.sections && school.sections.map((sec) => (
-                  <div key={sec.title} className="mb-5">
-                    <h4 className="text-base font-bold text-dfa-blue mb-2">{sec.title}</h4>
-                    <ul className="space-y-1.5">
-                      {sec.points.map((p, j) => (
-                        <li key={j} className="flex gap-2">
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-dfa-blue/60 shrink-0" />
-                          <span className="text-sm text-txt-secondary leading-relaxed">{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className={`pt-4 ${school.campusPhoto ? 'grid grid-cols-1 lg:grid-cols-3 gap-6' : ''}`}>
+                {/* Text column */}
+                <div className={school.campusPhoto ? 'lg:col-span-2 min-w-0' : ''}>
+                  {school.sections && school.sections.map((sec) => (
+                    <div key={sec.title} className="mb-5">
+                      <h4 className="text-base font-bold text-dfa-blue mb-2">{sec.title}</h4>
+                      <ul className="space-y-1.5">
+                        {sec.points.map((p, j) => (
+                          <li key={j} className="flex gap-2">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-dfa-blue/60 shrink-0" />
+                            <span className="text-sm text-txt-secondary leading-relaxed">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
-                {school.majors && (
-                  <div className="mb-6">
-                    <h4 className="text-base font-bold text-dfa-blue mb-3">🔥 熱門科系</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {school.majors.map((m) => (
-                        <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-3">
-                          <p className="text-sm font-bold text-txt-primary">{m.name}</p>
-                          <p className="text-xs text-txt-muted">{m.en}</p>
-                          {m.transferTo && (
-                            <p className="text-xs text-txt-secondary mt-0.5">{m.transferTo}</p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                  {school.majors && (
+                    <div className="mb-6">
+                      <h4 className="text-base font-bold text-dfa-blue mb-3">🔥 熱門科系</h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {school.majors.map((m) => (
+                          <li key={m.name} className="border-l-2 border-dfa-blue/40 pl-3">
+                            <p className="text-sm font-bold text-txt-primary">{m.name}</p>
+                            <p className="text-xs text-txt-muted">{m.en}</p>
+                            {m.transferTo && (
+                              <p className="text-xs text-txt-secondary mt-0.5">{m.transferTo}</p>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-                {school.englishRequirements && (
-                  <div>
-                    <h4 className="text-base font-bold text-dfa-blue mb-3">📝 入學英文成績要求</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {school.englishRequirements.map((r) => (
-                        <span key={r} className="text-sm font-semibold px-3 py-1.5 rounded-md bg-dfa-light text-dfa-dark">{r}</span>
-                      ))}
+                  {school.englishRequirements && (
+                    <div>
+                      <h4 className="text-base font-bold text-dfa-blue mb-3">📝 入學英文成績要求</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {school.englishRequirements.map((r) => (
+                          <span key={r} className="text-sm font-semibold px-3 py-1.5 rounded-md bg-dfa-light text-dfa-dark">{r}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Photo column — sticky so it stays in view while scrolling */}
+                {school.campusPhoto && (
+                  <div className="lg:col-span-1">
+                    <div className="lg:sticky lg:top-24 space-y-3">
+                      <div className="rounded-xl overflow-hidden shadow-md border border-gray-100">
+                        <img src={school.campusPhoto} alt={`${school.name} 校園`} className="w-full h-auto object-cover" />
+                      </div>
+                      <p className="text-xs text-center text-txt-muted">{school.name} · 校園實景</p>
                     </div>
                   </div>
                 )}
@@ -370,14 +385,16 @@ function PartnerCarousel({ schools }) {
     window.scrollTo({ top: y, behavior: 'smooth' })
   }
 
-  const prev = () => { if (canPrev) { setIdx((i) => i - 1); setOpen(false); scrollToTop() } }
-  const next = () => { if (canNext) { setIdx((i) => i + 1); setOpen(false); scrollToTop() } }
-  const jump = (i) => { if (i !== idx) { setIdx(i); setOpen(false); scrollToTop() } }
+  const prev = () => { if (canPrev) { if (open) setTimeout(scrollToTop, 50); setIdx((i) => i - 1); setOpen(false) } }
+  const next = () => { if (canNext) { if (open) setTimeout(scrollToTop, 50); setIdx((i) => i + 1); setOpen(false) } }
+  const jump = (i) => { if (i !== idx) { if (open) setTimeout(scrollToTop, 50); setIdx(i); setOpen(false) } }
   const toggleOpen = () => {
-    setOpen((v) => {
-      if (v) { requestAnimationFrame(scrollToTop) } // collapsing — scroll back up
-      return !v
-    })
+    const isOpen = open
+    setOpen(!isOpen)
+    if (isOpen) {
+      // collapsing: wait for animation to start, then scroll
+      setTimeout(scrollToTop, 50)
+    }
   }
 
   const school = schools[idx]
@@ -418,7 +435,11 @@ function PartnerCarousel({ schools }) {
         {hasExpandable ? (
           <button
             onClick={toggleOpen}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-dfa-light text-dfa-blue font-semibold text-sm hover:bg-dfa-blue hover:text-white transition-colors duration-200"
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-md font-semibold text-sm transition-all duration-200 ${
+              open
+                ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-dfa-blue text-white hover:bg-dfa-dark shadow-sm'
+            }`}
           >
             {open ? '收合' : '查看更多'}
             <HiChevronDown className={`text-base transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
@@ -444,6 +465,181 @@ function PartnerCarousel({ schools }) {
             key={s.nameEn}
             onClick={() => jump(i)}
             aria-label={`切換到 ${s.name}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === idx ? 'bg-dfa-blue w-8' : 'bg-gray-300 w-2 hover:bg-gray-400'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ── 錄取案例 水平輪播 ── */
+function CaseCarousel({ cases }) {
+  const [idx, setIdx] = useState(0)
+  const [dir, setDir] = useState(1) // 1 = forward, -1 = backward
+  const topRef = useRef(null)
+  const total = cases.length
+
+  const canPrev = idx > 0
+  const canNext = idx < total - 1
+
+  const prev = () => {
+    if (!canPrev) return
+    setDir(-1)
+    setIdx((i) => i - 1)
+  }
+  const next = () => {
+    if (!canNext) return
+    setDir(1)
+    setIdx((i) => i + 1)
+  }
+  const jump = (i) => {
+    if (i === idx) return
+    setDir(i > idx ? 1 : -1)
+    setIdx(i)
+  }
+
+  const c = cases[idx]
+
+  const variants = {
+    enter: (d) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
+    center: { opacity: 1, x: 0 },
+    exit: (d) => ({ opacity: 0, x: d > 0 ? -40 : 40 }),
+  }
+
+  return (
+    <div ref={topRef} className="max-w-5xl mx-auto scroll-mt-24">
+      {/* Slide */}
+      <div className="overflow-hidden">
+        <AnimatePresence mode="wait" initial={false} custom={dir}>
+          <motion.div
+            key={idx}
+            custom={dir}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          >
+            <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden relative h-[580px] flex flex-col">
+              {/* Top gradient bar */}
+              <div className="h-2 shrink-0" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
+
+              {/* GPA badge — top right */}
+              {c.gpa && c.gpa !== '—' && (
+                <div
+                  className="absolute top-4 right-4 text-white text-xs font-bold px-2.5 py-1 rounded-full z-10"
+                  style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}
+                >
+                  GPA {c.gpa}
+                </div>
+              )}
+
+              <div className="p-6 md:p-8 flex-1 flex flex-col min-h-0 overflow-hidden">
+                {/* Header: avatar + label */}
+                <div className="flex items-center gap-4 mb-5 pr-24 shrink-0">
+                  {c.avatar && (
+                    <img
+                      src={c.avatar}
+                      alt={c.label}
+                      className={`w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-white shadow-md shrink-0 ${c.objectPosition || 'object-top'}`}
+                      style={{ boxShadow: '0 0 0 3px #2DD8EE40' }}
+                    />
+                  )}
+                  <p className="text-2xl md:text-3xl font-black text-dfa-dark">{c.label}</p>
+                </div>
+
+                {/* Two-column body: text on left, OFFER on right (when exists) */}
+                <div className={c.offer ? 'grid md:grid-cols-5 gap-6 flex-1 min-h-0' : 'flex-1 flex flex-col min-h-0'}>
+                  <div className={c.offer ? 'md:col-span-3 min-w-0 overflow-y-auto' : 'overflow-y-auto flex-1'}>
+                    {/* From → To (skip from when '—') */}
+                    <div className="flex flex-wrap items-center gap-2 mb-4 sticky top-0 bg-white pb-1">
+                      {c.from && c.from !== '—' && (
+                        <>
+                          <span className="text-sm md:text-base font-semibold text-txt-secondary bg-dfa-light px-3 py-1.5 rounded-lg shrink-0">
+                            {c.from}
+                          </span>
+                          <span className="text-dfa-blue font-black text-lg shrink-0">→</span>
+                        </>
+                      )}
+                      <span className="inline-flex items-baseline gap-2 text-sm md:text-base font-bold text-dfa-blue bg-dfa-light px-3 py-1.5 rounded-lg">
+                        <span>{c.to}</span>
+                        <span className="text-xs font-medium text-txt-muted">{c.toEn}</span>
+                      </span>
+                    </div>
+
+                    {/* Major tag */}
+                    <div className="mb-5">
+                      <span className="inline-block text-sm font-medium px-3 py-1 rounded-md bg-dfa-light text-dfa-blue">
+                        {c.major}
+                      </span>
+                    </div>
+
+                    {/* Story */}
+                    <p className="text-sm md:text-base text-txt-secondary leading-[1.9]">{c.story}</p>
+                  </div>
+
+                  {/* OFFER thumbnail — bigger */}
+                  {c.offer && (
+                    <div className="md:col-span-2 flex flex-col items-center justify-start">
+                      <p className="text-xs font-bold uppercase tracking-widest text-dfa-blue mb-3">Official Offer</p>
+                      <div
+                        className="block rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white w-full max-w-[280px]"
+                      >
+                        <img
+                          src={c.offer}
+                          alt={`${c.label} 錄取通知書`}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Control row */}
+      <div className="flex items-stretch gap-2 md:gap-3 mt-4">
+        <button
+          onClick={prev}
+          disabled={!canPrev}
+          aria-label="上一個案例"
+          className={`shrink-0 w-12 md:w-14 rounded-md border flex items-center justify-center text-2xl transition-colors duration-200 ${
+            canPrev
+              ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue hover:text-white'
+              : 'border-gray-200 text-gray-300 cursor-default'
+          }`}
+        >‹</button>
+
+        {/* Counter */}
+        <div className="flex-1 flex items-center justify-center text-sm text-txt-muted font-medium">
+          {idx + 1} / {total}
+        </div>
+
+        <button
+          onClick={next}
+          disabled={!canNext}
+          aria-label="下一個案例"
+          className={`shrink-0 w-12 md:w-14 rounded-md border flex items-center justify-center text-2xl transition-colors duration-200 ${
+            canNext
+              ? 'border-dfa-blue/40 text-dfa-blue hover:bg-dfa-blue hover:text-white'
+              : 'border-gray-200 text-gray-300 cursor-default'
+          }`}
+        >›</button>
+      </div>
+
+      {/* Dots */}
+      <div className="flex flex-wrap justify-center gap-2 mt-5">
+        {cases.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => jump(i)}
+            aria-label={`切換到案例 ${i + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
               i === idx ? 'bg-dfa-blue w-8' : 'bg-gray-300 w-2 hover:bg-gray-400'
             }`}
@@ -725,6 +921,27 @@ export default function SchoolsPage() {
         </div>
       </section>
 
+      {/* ── 錄取案例 ── */}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Admission Results"
+              title="錄取榜單"
+              subtitle="部分學員成功錄取案例展示"
+              split
+            />
+          </ScrollReveal>
+          <ScrollReveal>
+            <CaseCarousel cases={ADMISSION_CASES} />
+          </ScrollReveal>
+
+        </div>
+      </section>
+
+      {/* ── 錄取 Offer 榜 ── */}
+      <OfferBoard />
+
       {/* ── 課表示例 ── */}
       <section className="section-padding bg-white">
         <div className="container-max">
@@ -760,4 +977,3 @@ export default function SchoolsPage() {
     </>
   )
 }
-TEST_MARKER_12345

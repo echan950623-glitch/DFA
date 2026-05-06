@@ -63,6 +63,7 @@ export const partnerSchools = [
     location: '美國西部 · 加州（洛杉磯西側，聖塔莫尼卡市）',
     type: '公立兩年制社區大學',
     website: 'https://www.smc.edu/',
+    campusPhoto: '/images/schools/smc.jpg',
     intro: '成立於 1929 年，加州公立兩年制社區大學，位於洛杉磯西側聖塔莫尼卡市，連續 35 年為 UC 轉學第一。',
     sections: [
       {
@@ -121,6 +122,7 @@ export const partnerSchools = [
     location: '美國西部 · 加州（舊金山灣區東側，Pleasant Hill）',
     type: '公立兩年制社區大學',
     website: 'https://www.dvc.edu/',
+    campusPhoto: '/images/schools/dvc.jpg',
     intro: '成立於 1949 年，加州最佳社區大學之一，位於舊金山灣區 Pleasant Hill 市，加州社區學院轉學排名第一。',
     sections: [
       {
