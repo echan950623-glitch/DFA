@@ -196,22 +196,22 @@ export default function TeamPage() {
                         <div className="h-1.5 bg-dfa-blue" />
                         {/* Mobile: vertical stack / Desktop: horizontal */}
                         <div className="p-4 md:p-5 h-full flex flex-col">
-                          {/* Mobile layout (< 1024px): horizontal mini-row */}
-                          <div className="flex lg:hidden items-center gap-3 mb-2">
-                            <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
+                          {/* Mobile / Tablet (< lg): centered vertical */}
+                          <div className="flex lg:hidden flex-col items-center text-center gap-2 mb-3">
+                            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-sm">
                               {member.photo
                                 ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
-                                : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-xs font-black">{member.name.charAt(0)}</div>
+                                : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white font-black">{member.name.charAt(0)}</div>
                               }
                             </div>
-                            <div className="min-w-0">
-                              <h3 style={{ fontSize: 'clamp(0.75rem, 0.5rem + 1vw, 0.875rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
-                              <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.8125rem)' }} className="font-semibold text-dfa-blue leading-snug">{member.school}</p>
-                              <p style={{ fontSize: 'clamp(0.65rem, 0.4rem + 0.8vw, 0.75rem)' }} className="text-txt-muted leading-snug">{member.degree}</p>
+                            <div>
+                              <h3 style={{ fontSize: 'clamp(0.8rem, 0.55rem + 1vw, 0.95rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
+                              <p style={{ fontSize: 'clamp(0.7rem, 0.48rem + 0.9vw, 0.85rem)' }} className="font-semibold text-dfa-blue leading-snug">{member.school}</p>
+                              <p style={{ fontSize: 'clamp(0.65rem, 0.44rem + 0.8vw, 0.75rem)' }} className="text-txt-muted leading-snug">{member.degree}</p>
                             </div>
                           </div>
 
-                          {/* Desktop layout (>= 1024px): horizontal row */}
+                          {/* Desktop (>= lg): horizontal row */}
                           <div className="hidden lg:flex items-center gap-4 mb-3">
                             <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-dfa-blue/20 shadow-sm">
                               {member.photo
@@ -227,7 +227,7 @@ export default function TeamPage() {
                           </div>
 
                           {/* Bio */}
-                          <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-4 lg:line-clamp-none">{member.bio}</p>
+                          <p style={{ fontSize: 'clamp(0.7rem, 0.48rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-3 lg:line-clamp-none text-center lg:text-left">{member.bio}</p>
                         </div>
                       </div>
                     ))}
