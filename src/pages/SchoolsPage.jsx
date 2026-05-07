@@ -523,7 +523,7 @@ function CaseCarousel({ cases }) {
             exit="exit"
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
-            <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden relative h-[580px] flex flex-col">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden relative h-auto md:h-[580px] flex flex-col">
               {/* Top gradient bar */}
               <div className="h-2 shrink-0" style={{ background: 'linear-gradient(to right, #2DD8EE, #1040CC)' }} />
 
@@ -537,25 +537,25 @@ function CaseCarousel({ cases }) {
                 </div>
               )}
 
-              <div className="p-6 md:p-8 flex-1 flex flex-col min-h-0 overflow-hidden">
+              <div className="p-4 md:p-8 flex flex-col md:flex-1 md:min-h-0 md:overflow-hidden">
                 {/* Header: avatar + label */}
                 <div className="flex items-center gap-4 mb-5 pr-24 shrink-0">
                   {c.avatar && (
                     <img
                       src={c.avatar}
                       alt={c.label}
-                      className={`w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-white shadow-md shrink-0 ${c.objectPosition || 'object-top'}`}
+                      className={`w-12 h-12 md:w-20 md:h-20 rounded-full object-cover border-2 border-white shadow-md shrink-0 ${c.objectPosition || 'object-top'}`}
                       style={{ boxShadow: '0 0 0 3px #2DD8EE40' }}
                     />
                   )}
-                  <p className="text-2xl md:text-3xl font-black text-dfa-dark">{c.label}</p>
+                  <p className="text-xl md:text-3xl font-black text-dfa-dark">{c.label}</p>
                 </div>
 
                 {/* Two-column body: text on left, OFFER on right (when exists) */}
-                <div className={c.offer ? 'grid md:grid-cols-5 gap-6 flex-1 min-h-0' : 'flex-1 flex flex-col min-h-0'}>
-                  <div className={c.offer ? 'md:col-span-3 min-w-0 overflow-y-auto' : 'overflow-y-auto flex-1'}>
+                <div className={c.offer ? 'flex flex-col md:grid md:grid-cols-5 gap-4 md:gap-6 md:flex-1 md:min-h-0' : 'flex-1 flex flex-col min-h-0'}>
+                  <div className={c.offer ? 'md:col-span-3 min-w-0 md:overflow-y-auto' : 'md:overflow-y-auto flex-1'}>
                     {/* From → To (skip from when '—') */}
-                    <div className="flex flex-wrap items-center gap-2 mb-4 sticky top-0 bg-white pb-1">
+                    <div className="flex flex-wrap items-center gap-2 mb-4 md:sticky md:top-0 bg-white pb-1">
                       {c.from && c.from !== '—' && (
                         <>
                           <span className="text-sm md:text-base font-semibold text-txt-secondary bg-dfa-light px-3 py-1.5 rounded-lg shrink-0">
@@ -581,12 +581,12 @@ function CaseCarousel({ cases }) {
                     <p className="text-sm md:text-base text-txt-secondary leading-[1.9]">{c.story}</p>
                   </div>
 
-                  {/* OFFER thumbnail — bigger */}
+                  {/* OFFER thumbnail */}
                   {c.offer && (
-                    <div className="md:col-span-2 flex flex-col items-center justify-start">
-                      <p className="text-xs font-bold uppercase tracking-widest text-dfa-blue mb-3">Official Offer</p>
+                    <div className="md:col-span-2 flex flex-col items-center justify-start mt-2 md:mt-0">
+                      <p className="text-xs font-bold uppercase tracking-widest text-dfa-blue mb-2 md:mb-3">Official Offer</p>
                       <div
-                        className="block rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white w-full max-w-[280px]"
+                        className="block rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white w-full max-w-[220px] md:max-w-[280px]"
                       >
                         <img
                           src={c.offer}
