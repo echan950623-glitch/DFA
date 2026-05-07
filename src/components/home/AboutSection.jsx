@@ -72,7 +72,7 @@ export default function AboutSection() {
 
             <ScrollReveal>
               <p className="text-eyebrow text-white uppercase mb-4">Our Vision</p>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] text-white leading-tight">
+              <h2 className="text-h1 text-white leading-tight">
                 每一個背景，<br className="hidden sm:inline" />
                 都值得一條通往<br className="hidden lg:inline" />
                 頂尖大學的路。

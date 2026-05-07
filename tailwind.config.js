@@ -22,16 +22,16 @@ export default {
         'bg-tint': '#EEF3FA',
       },
 
-      /* ── Typography Scale ── */
+      /* ── Typography Scale (fluid clamp) ── */
       fontSize: {
-        'display': ['5.5rem',   { lineHeight: '1.05', fontWeight: '900' }],  // 88px
-        'h1':      ['4.25rem',  { lineHeight: '1.1', fontWeight: '900' }],   // 68px
-        'h2':      ['3.5rem',   { lineHeight: '1.12', fontWeight: '900' }],  // 56px
-        'h3':      ['1.875rem', { lineHeight: '1.3', fontWeight: '700' }],   // 30px
-        'body-lg': ['1.25rem',  { lineHeight: '1.75', fontWeight: '400' }],  // 20px
-        'body':    ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }],  // 18px
-        'caption': ['1rem',     { lineHeight: '1.5', fontWeight: '500' }],   // 16px
-        'eyebrow': ['0.875rem', { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }], // 14px
+        'display': ['clamp(2.5rem, 1rem + 5vw, 5.5rem)',              { lineHeight: '1.05', fontWeight: '900' }],
+        'h1':      ['clamp(2.25rem, 1rem + 4vw, 4.25rem)',            { lineHeight: '1.1',  fontWeight: '900' }],
+        'h2':      ['clamp(1.75rem, 0.875rem + 2.5vw, 3.5rem)',       { lineHeight: '1.12', fontWeight: '900' }],
+        'h3':      ['clamp(1.125rem, 0.875rem + 1.25vw, 1.875rem)',   { lineHeight: '1.3',  fontWeight: '700' }],
+        'body-lg': ['clamp(1rem, 0.875rem + 0.625vw, 1.25rem)',       { lineHeight: '1.75', fontWeight: '400' }],
+        'body':    ['clamp(0.9375rem, 0.875rem + 0.3125vw, 1.125rem)',{ lineHeight: '1.75', fontWeight: '400' }],
+        'caption': ['clamp(0.875rem, 0.8125rem + 0.3125vw, 1rem)',    { lineHeight: '1.5',  fontWeight: '500' }],
+        'eyebrow': ['0.875rem', { lineHeight: '1', fontWeight: '600', letterSpacing: '0.15em' }],
       },
 
       /* ── Gradients ── */

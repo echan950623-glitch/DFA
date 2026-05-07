@@ -17,7 +17,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 section-padding pt-28 md:pt-32">
         {/* H1 — left aligned */}
-        <h1 className="text-5xl md:text-h1 xl:text-display text-white leading-[1.1] mb-4">
+        <h1 className="text-display text-white leading-[1.1] mb-4">
           社區大學 2 年<br />
           轉入美國名校
         </h1>
