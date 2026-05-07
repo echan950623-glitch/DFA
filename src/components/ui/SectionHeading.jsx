@@ -35,7 +35,7 @@ export default function SectionHeading({
           <h2 className={`leading-tight font-black ${h2Color}`} style={h2Style}>
             {title}
           </h2>
-          <p className={`text-sm md:text-body leading-relaxed line-clamp-4 xl:line-clamp-none ${subColor}`}>
+          <p className={`text-sm md:text-body leading-relaxed ${subColor}`}>
             {subtitle}
           </p>
         </div>
