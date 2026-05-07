@@ -407,7 +407,6 @@ export default function TuitionPage() {
             </div>
             </div>
             </div>
-            </div>
           </ScrollReveal>
 
           {/* Contact CTA under table */}
