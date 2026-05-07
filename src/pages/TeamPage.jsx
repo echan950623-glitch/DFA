@@ -173,7 +173,7 @@ export default function TeamPage() {
                       <div className="h-1.5 bg-dfa-blue" />
 
                       {/* Mobile (< lg): large centered vertical, no clamp */}
-                      <div className="lg:hidden p-6 flex flex-col items-center text-center gap-4">
+                      <div className="lg:hidden p-8 flex flex-col items-center text-center gap-5">
                         <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-md shrink-0">
                           {member.photo
                             ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
@@ -181,11 +181,11 @@ export default function TeamPage() {
                           }
                         </div>
                         <div>
-                          <h3 style={{ fontSize: 'clamp(0.75rem, 0.5rem + 1vw, 0.875rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
-                          <p style={{ fontSize: 'clamp(0.65rem, 0.4rem + 0.9vw, 0.8125rem)' }} className="font-semibold text-dfa-blue leading-snug mt-0.5">{member.school}</p>
-                          <p style={{ fontSize: 'clamp(0.6rem, 0.35rem + 0.8vw, 0.75rem)' }} className="text-txt-muted mt-0.5">{member.degree}</p>
+                          <h3 className="text-base font-bold text-txt-primary leading-snug">{member.name}</h3>
+                          <p className="text-sm font-semibold text-dfa-blue leading-snug mt-0.5">{member.school}</p>
+                          <p className="text-xs text-txt-muted mt-0.5">{member.degree}</p>
                         </div>
-                        <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-4 lg:line-clamp-none">{member.bio}</p>
+                        <p className="text-sm text-txt-secondary leading-relaxed">{member.bio}</p>
                       </div>
 
                       {/* Desktop (>= lg): horizontal row */}
