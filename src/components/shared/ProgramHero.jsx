@@ -26,9 +26,9 @@ export default function ProgramHero({ title, subtitle, transparent = false, chil
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="text-[2.5rem] md:text-h1 xl:text-display text-white leading-[1.1] mb-4 md:whitespace-nowrap">{title}</h1>
+          <h1 className="text-[clamp(1.875rem,6.5vw,4.25rem)] md:text-h1 xl:text-display text-white leading-[1.1] mb-4 md:whitespace-nowrap">{title}</h1>
           {subtitle && (
-            <p className="text-body md:text-h3 text-white md:whitespace-nowrap">{subtitle}</p>
+            <p className="text-body md:text-h3 text-white">{subtitle}</p>
           )}
           {children && (
             <div className="mt-6">{children}</div>

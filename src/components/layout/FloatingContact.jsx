@@ -10,17 +10,17 @@ const contactButtons = [
 
 export default function FloatingContact() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-0 sm:right-6 z-50 flex flex-col items-end gap-2 sm:gap-3">
       {contactButtons.map((btn) => (
         <a
           key={btn.label}
           href={btn.href}
           target={btn.href.startsWith('mailto') ? undefined : '_blank'}
           rel="noopener noreferrer"
-          className={`w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center ${btn.color} transition-all hover:scale-110 hover:shadow-xl`}
+          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-l-full sm:rounded-full text-white shadow-lg flex items-center justify-center ${btn.color} transition-all hover:scale-110 hover:shadow-xl`}
           title={btn.label}
         >
-          <btn.icon size={20} />
+          <btn.icon size={18} />
         </a>
       ))}
     </div>

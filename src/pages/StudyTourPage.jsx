@@ -443,7 +443,7 @@ export default function StudyTourPage() {
             {HOW.map((h) => (
               <ScrollReveal key={h.title} className="h-full">
                 <div className="h-full bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                  <h3 className="font-black text-gray-900 text-xl mb-3 whitespace-nowrap">{h.title}</h3>
+                  <h3 className="font-black text-gray-900 text-xl mb-3">{h.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{h.desc}</p>
                 </div>
               </ScrollReveal>

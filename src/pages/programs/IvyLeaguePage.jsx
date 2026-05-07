@@ -156,7 +156,7 @@ export default function IvyLeaguePage() {
         <div className="container-max">
           <ScrollReveal>
             <div className="max-w-3xl">
-              <blockquote className="text-h2 text-dfa-dark leading-snug mb-6">
+              <blockquote className="text-[clamp(1.5rem,4vw,3.5rem)] font-black text-dfa-dark leading-snug mb-6">
                 <span className="block md:whitespace-nowrap">那些被淘汰的學生並不是成績能力差，</span>
                 <span className="block md:whitespace-nowrap">而是沒有一份讓你展翅飛翔的申請資料</span>
               </blockquote>
@@ -242,7 +242,7 @@ export default function IvyLeaguePage() {
         <div className="container-max">
           <ScrollReveal>
             <div className="text-center mx-auto">
-              <p className="text-h2 text-dfa-dark leading-snug">
+              <p className="text-[clamp(1.5rem,4vw,3.5rem)] font-black text-dfa-dark leading-snug">
                 <span className="block md:whitespace-nowrap">在 DFA，我們不只幫你申請學校，</span>
                 <span className="block md:whitespace-nowrap">而是幫你選擇最適合的國家與路徑</span>
               </p>
