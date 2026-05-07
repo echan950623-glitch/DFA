@@ -174,10 +174,10 @@ export default function TeamPage() {
 
                       {/* Mobile (< lg): large centered vertical, no clamp */}
                       <div className="lg:hidden p-6 flex flex-col items-center text-center gap-4">
-                        <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-md shrink-0">
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-dfa-blue/20 shadow-md shrink-0">
                           {member.photo
                             ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
-                            : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-2xl font-black">{member.name.charAt(0)}</div>
+                            : <div className="w-full h-full bg-dfa-blue flex items-center justify-center text-white text-base font-black">{member.name.charAt(0)}</div>
                           }
                         </div>
                         <div>
