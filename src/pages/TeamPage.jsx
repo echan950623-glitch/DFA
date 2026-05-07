@@ -114,8 +114,8 @@ export default function TeamPage() {
     const measure = () => {
       if (!trackRef.current) return
       const w = trackRef.current.clientWidth
-      const v = window.innerWidth < 1024 ? 1
-              : window.innerWidth < 1280 ? 2
+      const v = window.innerWidth < 768  ? 1
+              : window.innerWidth < 1024 ? 2
               : 3
       setVisible(v)
       setColWidth((w - GAP * (v - 1)) / v)
@@ -181,11 +181,11 @@ export default function TeamPage() {
                           }
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-txt-primary leading-snug">{member.name}</h3>
-                          <p className="text-base font-semibold text-dfa-blue leading-snug mt-0.5">{member.school}</p>
-                          <p className="text-sm text-txt-muted mt-0.5">{member.degree}</p>
+                          <h3 style={{ fontSize: 'clamp(0.75rem, 0.5rem + 1vw, 0.875rem)' }} className="font-bold text-txt-primary leading-snug">{member.name}</h3>
+                          <p style={{ fontSize: 'clamp(0.65rem, 0.4rem + 0.9vw, 0.8125rem)' }} className="font-semibold text-dfa-blue leading-snug mt-0.5">{member.school}</p>
+                          <p style={{ fontSize: 'clamp(0.6rem, 0.35rem + 0.8vw, 0.75rem)' }} className="text-txt-muted mt-0.5">{member.degree}</p>
                         </div>
-                        <p className="text-sm text-txt-secondary leading-relaxed">{member.bio}</p>
+                        <p style={{ fontSize: 'clamp(0.7rem, 0.45rem + 0.9vw, 0.875rem)' }} className="text-txt-secondary leading-relaxed line-clamp-4 lg:line-clamp-none">{member.bio}</p>
                       </div>
 
                       {/* Desktop (>= lg): horizontal row */}

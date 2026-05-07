@@ -96,6 +96,7 @@ export default function CommunityCollegePage() {
       <section className="relative z-10 section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
+            <p className="text-xs text-gray-400 text-right mb-2 sm:hidden">← 左右滑動查看完整比較 →</p>
             <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
               <table className="w-full min-w-[640px] border-collapse rounded-xl overflow-hidden text-sm md:text-base">
                 <thead>

@@ -32,10 +32,10 @@ export default function SectionHeading({
       <div className="mb-heading-gap">
         {eyebrow}
         <div className="flex flex-col gap-3 xl:grid xl:grid-cols-[2fr_3fr] xl:items-baseline xl:gap-12">
-          <h2 className={`leading-tight font-black ${h2Color}`} style={h2Style}>
+          <h2 className={`leading-tight font-black xl:max-w-[480px] shrink-0 ${h2Color}`} style={h2Style}>
             {title}
           </h2>
-          <p className={`text-sm md:text-body leading-relaxed ${subColor}`}>
+          <p className={`text-sm md:text-body leading-relaxed min-w-0 ${subColor}`}>
             {subtitle}
           </p>
         </div>

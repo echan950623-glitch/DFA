@@ -876,6 +876,7 @@ export default function SchoolsPage() {
           <ScrollReveal>
             <h4 className="text-xl md:text-2xl font-black text-dfa-dark text-center mb-8">社區大學 vs 四年制大學 一覽表</h4>
             <div className="max-w-5xl mx-auto">
+              <p className="text-xs text-gray-400 text-right mb-2 sm:hidden">← 左右滑動查看完整比較 →</p>
               <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
               <table className="w-full min-w-[640px] mx-auto border-collapse rounded-xl overflow-hidden text-sm md:text-base border border-gray-200">
                 <thead>

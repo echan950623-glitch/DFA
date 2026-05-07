@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import ProgramHero from '../components/shared/ProgramHero'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import SectionHeading from '../components/ui/SectionHeading'
@@ -183,6 +184,42 @@ const VIP_ROWS = [
   },
 ]
 
+function VipMobileTable() {
+  const [activeTab, setActiveTab] = useState('advanced')
+  return (
+    <>
+      <div className="flex rounded-xl overflow-hidden border border-gray-200 mb-6">
+        {VIP_PLANS.map(p => (
+          <button
+            key={p.id}
+            onClick={() => setActiveTab(p.id)}
+            className={`flex-1 py-2.5 text-xs font-bold transition-all ${
+              activeTab === p.id ? 'bg-dfa-blue text-white' : 'bg-white text-gray-500'
+            }`}
+          >
+            {p.name}
+          </button>
+        ))}
+      </div>
+      <div className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
+        {VIP_ROWS.map(group => (
+          <div key={group.category}>
+            <div className="bg-gray-50 px-4 py-2 border-b border-gray-100">
+              <span className="text-xs font-bold text-dfa-blue uppercase tracking-widest">{group.category}</span>
+            </div>
+            {group.items.map(row => (
+              <div key={row.label} className="px-4 py-3 border-b border-gray-50 last:border-0">
+                <p className="text-xs text-gray-500 mb-1">{row.label}</p>
+                <p className="text-sm font-semibold text-dfa-dark">{row[activeTab]}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
 function CellContent({ text }) {
   if (text === '—') return <span className="text-gray-300 text-lg">—</span>
   return (
@@ -314,7 +351,13 @@ export default function TuitionPage() {
 
           {/* Plan headers + table (share scroll container for aligned cols) */}
           <ScrollReveal delay={0.1}>
-            <div className="max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 pt-6">
+            {/* Mobile: tab card menu */}
+            <div className="md:hidden max-w-lg mx-auto">
+              <VipMobileTable />
+            </div>
+
+            {/* Desktop: horizontal comparison table */}
+            <div className="hidden md:block max-w-5xl mx-auto overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 pt-6">
             <div className="min-w-[720px]">
             <div className="grid grid-cols-4 gap-3 mb-0">
               <div /> {/* empty for row label col */}
@@ -364,6 +407,7 @@ export default function TuitionPage() {
             </div>
             </div>
             </div>
+            </div>
           </ScrollReveal>
 
           {/* Contact CTA under table */}
@@ -394,7 +438,7 @@ export default function TuitionPage() {
           <ScrollReveal delay={0.1}>
             <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
               {/* Table header */}
-              <div className="grid grid-cols-12 px-4 py-3 text-white text-sm font-bold"
+              <div className="grid grid-cols-12 px-3 py-3 text-white text-xs font-bold"
                 style={{ background: 'linear-gradient(135deg, #2DD8EE, #1040CC)' }}>
                 <div className="col-span-2 md:col-span-2">學員姓名</div>
                 <div className="col-span-4 md:col-span-3">社大院校</div>
@@ -407,15 +451,15 @@ export default function TuitionPage() {
                 {HISTORICAL_ADMISSIONS.map((row, i) => (
                   <div
                     key={i}
-                    className={`grid grid-cols-12 px-4 py-3 text-sm border-b border-gray-100 last:border-b-0 hover:bg-dfa-light/40 transition-colors ${
+                    className={`grid grid-cols-12 px-3 py-2.5 text-xs border-b border-gray-100 last:border-b-0 hover:bg-dfa-light/40 transition-colors ${
                       i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
                     }`}
                   >
-                    <div className="col-span-2 md:col-span-2 font-bold text-dfa-blue">{row.name}</div>
-                    <div className="col-span-4 md:col-span-3 text-txt-secondary">{row.from}</div>
-                    <div className="col-span-4 md:col-span-4 font-semibold text-dfa-dark">{row.to}</div>
+                    <div className="col-span-2 md:col-span-2 font-bold text-dfa-blue text-xs truncate">{row.name}</div>
+                    <div className="col-span-4 md:col-span-3 text-txt-secondary text-xs leading-tight">{row.from}</div>
+                    <div className="col-span-4 md:col-span-4 font-semibold text-dfa-dark text-xs leading-tight">{row.to}</div>
                     <div className="hidden md:block md:col-span-2 text-txt-secondary">{row.major}</div>
-                    <div className="col-span-2 md:col-span-1 text-center font-bold text-dfa-dark">{row.gpa}</div>
+                    <div className="col-span-2 md:col-span-1 text-center font-bold text-dfa-dark text-xs">{row.gpa}</div>
                     {/* mobile: major shown below */}
                     <div className="md:hidden col-span-12 mt-1 text-xs text-txt-muted pl-[16.66%]">
                       <span className="inline-block px-2 py-0.5 rounded bg-dfa-light text-dfa-blue font-medium">{row.major}</span>
