@@ -6,7 +6,7 @@
  *  split    → eyebrow + H2 left | subtitle right (xl grid), stacked below
  *  center   → everything centered (for CTA sections)
  *
- * H2 always uses clamp fluid sizing: clamp(1.5rem, 1rem + 2.5vw, 3.5rem)
+ * H2 uses restrained fluid sizing so Chinese headings stay readable without awkward wraps.
  */
 export default function SectionHeading({
   label,
@@ -20,7 +20,7 @@ export default function SectionHeading({
   const eyeColor = light ? 'text-white' : 'text-dfa-blue'
   const subColor = light ? 'text-white' : 'text-txt-muted'
 
-  const h2Style = { fontSize: 'clamp(1.5rem, 1rem + 2.5vw, 3.5rem)' }
+  const h2Style = { fontSize: 'clamp(1.5rem, 0.95rem + 1.8vw, 2.75rem)' }
 
   const eyebrow = label && (
     <p className={`text-eyebrow uppercase mb-3 ${eyeColor}`}>{label}</p>
@@ -31,8 +31,8 @@ export default function SectionHeading({
     return (
       <div className="mb-heading-gap">
         {eyebrow}
-        <div className="flex flex-col gap-3 xl:grid xl:grid-cols-[2fr_3fr] xl:items-baseline xl:gap-12">
-          <h2 className={`leading-tight font-black xl:max-w-[480px] shrink-0 ${h2Color}`} style={h2Style}>
+        <div className="flex flex-col gap-3 xl:grid xl:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] xl:items-baseline xl:gap-12">
+          <h2 className={`leading-tight font-black xl:max-w-[560px] min-w-0 ${h2Color}`} style={h2Style}>
             {title}
           </h2>
           <p className={`text-sm md:text-body leading-relaxed min-w-0 ${subColor}`}>

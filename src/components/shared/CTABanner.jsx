@@ -28,7 +28,7 @@ export default function CTABanner({
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 container-max text-center px-4 py-16">
           <ScrollReveal>
-            <h2 className="text-4xl sm:text-5xl md:text-h2 font-black mb-4 leading-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-h2 font-black mb-4 leading-tight text-white">
               {heading}
             </h2>
             {subtitle && (
@@ -55,7 +55,7 @@ export default function CTABanner({
     <section className={`${bgClass} section-padding`}>
       <div className="container-max text-center">
         <ScrollReveal>
-          <h2 className={`text-4xl sm:text-5xl md:text-h2 font-black mb-4 leading-tight ${isDark ? 'text-white' : 'text-txt-primary'}`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-h2 font-black mb-4 leading-tight ${isDark ? 'text-white' : 'text-txt-primary'}`}>
             {heading}
           </h2>
           {subtitle && (

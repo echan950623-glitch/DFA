@@ -162,7 +162,7 @@ export default function StoryCarousel({ title = '學員成功案例', label = 'S
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">{label}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-h2 text-white leading-tight">{title}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-h2 text-white leading-tight">{title}</h2>
         </div>
 
         {/* Carousel */}

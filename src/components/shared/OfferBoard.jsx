@@ -76,7 +76,7 @@ export default function OfferBoard() {
             <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">
               OFFER BOARD
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
               部分錄取成果
             </h2>
             <p className="text-white/50 text-base">

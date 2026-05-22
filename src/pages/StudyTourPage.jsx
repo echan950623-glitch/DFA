@@ -155,7 +155,7 @@ export default function StudyTourPage() {
           <div className="container-max section-padding w-full py-16">
             <div className="max-w-[600px]">
               {/* Giant title */}
-              <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-black text-white leading-none tracking-tight mb-5">
+              <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-white leading-none tracking-tight mb-5">
                 名校探索遊學
               </h1>
 
@@ -262,7 +262,7 @@ export default function StudyTourPage() {
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center mb-14">
               <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">WHY DFA STUDY TOUR</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-5">
                 這不是一般的遊學體驗
               </h2>
               <p className="text-lg text-gray-500 leading-relaxed">
@@ -300,7 +300,7 @@ export default function StudyTourPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">CAMPUS EXPLORATION</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">名校探索</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">名校探索</h2>
               <p className="text-gray-500 text-lg">親訪頂尖校園，直擊轉學路徑</p>
             </div>
           </ScrollReveal>
@@ -343,7 +343,7 @@ export default function StudyTourPage() {
           <ScrollReveal>
             <div className="text-center mb-12">
               <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">CAMPUS LIFE</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">校園實景</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">校園實景</h2>
               <p className="text-gray-500 text-lg">名校的樣子，先親眼看見</p>
             </div>
           </ScrollReveal>
@@ -384,7 +384,7 @@ export default function StudyTourPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">WHAT YOU GAIN</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">你將獲得</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">你將獲得</h2>
               <p className="text-white/60 text-lg">這趟遊學，帶你建立真實的升學決策能力</p>
             </div>
           </ScrollReveal>
@@ -409,7 +409,7 @@ export default function StudyTourPage() {
             <ScrollReveal>
               <div className="text-center mb-12">
                 <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">WHO IS THIS FOR</p>
-                <h2 className="text-4xl sm:text-5xl font-black text-gray-900">適合對象</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900">適合對象</h2>
               </div>
             </ScrollReveal>
             <div className="space-y-4">
@@ -436,7 +436,7 @@ export default function StudyTourPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-3">HOW TO JOIN</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">參與方式</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4">參與方式</h2>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -470,7 +470,7 @@ export default function StudyTourPage() {
         <div className="container-max text-center">
           <ScrollReveal>
             <p className="text-xs font-black tracking-[0.25em] text-dfa-blue/70 uppercase mb-4">RESERVE YOUR SPOT</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
               預約升學評估
             </h2>
             <p className="text-white/60 text-lg mb-10 max-w-md mx-auto leading-relaxed">
