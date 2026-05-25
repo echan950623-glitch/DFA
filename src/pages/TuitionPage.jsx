@@ -426,12 +426,9 @@ export default function TuitionPage() {
           <ScrollReveal>
             <SectionHeading
               label="Historical Admissions"
-              title="歷屆錄取榜單"
-              subtitle="部分學員轉學成功案例（不完全統計）"
+              title="錄取榜單"
+              subtitle="部分學員成功案例（不完全統計）"
             />
-            <p className="text-center text-gray-500 text-sm mb-10 -mt-2">
-              共 {HISTORICAL_ADMISSIONS.length} 位學員透過 DFA 規劃成功轉入名校
-            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>

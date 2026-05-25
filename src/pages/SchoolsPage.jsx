@@ -678,7 +678,7 @@ export default function SchoolsPage() {
       />
 
       {/* ── 為何選擇美國大學 ── */}
-      <section className="py-12 bg-white">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading label="Why USA" title="為何選擇美國大學？" subtitle="留學美國的核心優勢" split />
@@ -703,7 +703,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* ── 目標名校 — 左列表 + 右詳情 ── */}
-      <section className="py-12 bg-dfa-light">
+      <section className="section-padding bg-dfa-light">
         <div className="container-max">
           <ScrollReveal>
             <SectionHeading label="Target Schools" title="目標名校" subtitle="點擊學校查看完整介紹" split />
