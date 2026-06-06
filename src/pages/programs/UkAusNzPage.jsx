@@ -38,9 +38,9 @@ const COUNTRIES = [
       { icon: '🚄', title: '旅遊便利', desc: '毗鄰歐洲大陸，假期可暢遊北歐、東歐、中歐不同城市。' },
     ],
     timeline: [
-      { period: '3–5 月', items: ['準備雅思、簡歷', '部分專業準備 GRE / GMAT', '提升學業成績 GPA'] },
-      { period: '6–7 月', items: ['雅思一刷', '暑期實習', '聯繫教授／實習推薦人'] },
-      { period: '8 月', items: ['完善簡歷、撰寫文書', '雅思二刷、確定推薦人名單', '初步確定目標學校'] },
+      { period: '3–5 月', items: ['準備雅思、履歷', '部分專業準備 GRE / GMAT', '提升學業成績 GPA'] },
+      { period: '6–7 月', items: ['雅思一刷', '暑期實習', '聯絡教授／實習推薦人'] },
+      { period: '8 月', items: ['完善履歷、撰寫文書', '雅思二刷、確定推薦人名單', '初步確定目標學校'] },
       { period: '9 月', items: ['完善文書撰寫', '準備其他申請資料', '申請季開始：網申開始'] },
       { period: '10 月', items: ['文書定稿', '寄送材料並提交申請', '確認推薦信全部提交'] },
       { period: '11–12 月', items: ['熱門院校開始發放 OFFER', '部分熱門專業申請截止'] },
@@ -90,9 +90,9 @@ const COUNTRIES = [
       { icon: '🔬', title: '現代化教育設施', desc: '實驗室、圖書館、多媒體教室齊全，研究資源豐富。' },
     ],
     timeline: [
-      { period: '3–5 月', items: ['參加雅思', '部分專業準備 GRE / GMAT', '提升 GPA、準備簡歷'] },
-      { period: '6–7 月', items: ['Summer 實習', '聯繫教授／實習推薦人'] },
-      { period: '8 月', items: ['完善簡歷、撰寫文書', '確定推薦人名單', '網申開放、確認推薦信提交'] },
+      { period: '3–5 月', items: ['參加雅思', '部分專業準備 GRE / GMAT', '提升 GPA、準備履歷'] },
+      { period: '6–7 月', items: ['Summer 實習', '聯絡教授／實習推薦人'] },
+      { period: '8 月', items: ['完善履歷、撰寫文書', '確定推薦人名單', '網申開放、確認推薦信提交'] },
       { period: '9–11 月', items: ['語言成績衝刺', '跟進申請狀態', '多數學校開始發放 Offer'] },
       { period: '12 月', items: ['遞交澳洲簽證申請與材料'] },
       { period: '次年 1–2 月', items: ['拿到簽證', '準備入學研究生課程'] },
@@ -135,7 +135,7 @@ const COUNTRIES = [
     ],
     universities: [
       { name: '新加坡國立大學 NUS', en: 'National University of Singapore', qs: 8, majors: '工商管理・資訊與新媒體・計算生物學・機械電子學・藝術設計' },
-      { name: '南洋理工大學 NTU', en: 'Nanyang Technological University', qs: 26, majors: '宇航工程・生物工程・化學與分子生物工程・土木工程・環境工程・計算機工程' },
+      { name: '南洋理工大學 NTU', en: 'Nanyang Technological University', qs: 26, majors: '宇航工程・生物工程・化學與分子生物工程・土木工程・環境工程・資訊工程' },
     ],
     pathways: [
       { tag: '01', title: '學位要求', target: '學士學位或同等資格', requirement: 'GPA 3.0 以上' },
@@ -149,9 +149,9 @@ const COUNTRIES = [
       { icon: '⭐', title: '亞洲頂尖排名', desc: 'NUS 全球第 8、NTU 全球第 26，亞洲常年排名第一第二。' },
     ],
     timeline: [
-      { period: '3–5 月', items: ['準備雅思', '部分專業準備 GRE / GMAT', '提升 GPA、準備簡歷'] },
-      { period: '6–7 月', items: ['雅思一刷', 'Summer 實習', '聯繫教授／實習推薦人'] },
-      { period: '8 月', items: ['完善簡歷、撰寫文書', '雅思二刷', '初步確定目標學校'] },
+      { period: '3–5 月', items: ['準備雅思', '部分專業準備 GRE / GMAT', '提升 GPA、準備履歷'] },
+      { period: '6–7 月', items: ['雅思一刷', 'Summer 實習', '聯絡教授／實習推薦人'] },
+      { period: '8 月', items: ['完善履歷、撰寫文書', '雅思二刷', '初步確定目標學校'] },
       { period: '9–10 月', items: ['網申開放、填寫申請', '確認推薦信提交'] },
       { period: '11–12 月', items: ['語言成績衝刺、跟進狀態', '部分科系需要面試'] },
       { period: '次年 1–4 月', items: ['多數學校開始發放 Offer', '確定入讀學校、繳留位費'] },

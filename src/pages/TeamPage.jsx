@@ -40,7 +40,7 @@ const RESEARCH_PROGRAMS = [
         title: '化學與材料科學研究',
         subtitle: '多維 NMR 光譜技術在有機化學中的應用',
         areas: '化學・有機化學・分析化學・材料科學・生物化學',
-        professor: 'David Zax',
+        professor: 'Dr. Zax',
         professorTitle: '布朗大學終身教授',
         credentials: [
           '任教於布朗大學化學與生物分子工程領域',
@@ -52,7 +52,7 @@ const RESEARCH_PROGRAMS = [
         title: '環境工程研究',
         subtitle: '環境保護中的化學原理與應用',
         areas: '環境工程・化學・水處理・環境科學',
-        professor: 'Joe Moore',
+        professor: 'Dr. Moore',
         professorTitle: '卡內基梅隆大學教授',
         credentials: [
           '卡內基梅隆大學材料與環境相關領域教授',

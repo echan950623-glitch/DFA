@@ -164,12 +164,12 @@ export default function StudyTourPage() {
                 在申請之前，
               </p>
               <p className="text-2xl sm:text-3xl font-bold text-white leading-snug mb-6">
-                先確認你是否{' '}
+                先確認你是否適合{' '}
                 <span
                   className="relative inline-block text-[#4FC8E8]"
                   style={{ textDecoration: 'underline', textDecorationColor: '#4FC8E8', textUnderlineOffset: '6px' }}
                 >
-                  名校校園
+                  頂尖學府
                 </span>
               </p>
 

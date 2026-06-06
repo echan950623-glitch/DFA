@@ -10,7 +10,7 @@ export const navItems = [
     ],
   },
   {
-    label: '申請落點分析',
+    label: '名校解析',
     path: '/apply-analysis',
     children: [
       { label: 'QS Top 50', path: '/apply-analysis/qs-top50' },

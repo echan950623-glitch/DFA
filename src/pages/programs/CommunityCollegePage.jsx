@@ -9,7 +9,7 @@ import CTABanner from '../../components/shared/CTABanner'
 const TRANSFER_REQS = [
   { num: '60', unit: '可轉學分', desc: '完成 60 學分可轉移課程，直接銜接目標院校大三' },
   { num: 'IGETC', unit: '通識框架', desc: '完成 IGETC 通識課程框架，滿足 UC/CSU 系統轉學要求' },
-  { num: '3.5+', unit: 'GPA 門檻', desc: '達到目標院校所需 GPA，搭配顧問規劃確保穩定維持' },
+  { num: '3.5+', unit: 'GPA 門檻', desc: 'GPA 門檻依目標學校而異，最低約 3.0，若申請頂尖 UC 建議達 3.5 以上' },
 ]
 
 const MYTHS = [
@@ -125,7 +125,7 @@ export default function CommunityCollegePage() {
                     },
                     {
                       label: '校園氛圍',
-                      uni: '大型校園、豐富的研究與社圃資源。',
+                      uni: '大型校園、豐富的研究與社團資源。',
                       cc: <span className="text-dfa-blue font-medium">小班教學、師生比低，顧問關注度高。</span>,
                     },
                   ].map((row, i) => (

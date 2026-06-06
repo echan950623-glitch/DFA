@@ -268,7 +268,7 @@ export default function TuitionPage() {
             <SectionHeading title="TAG 轉學優勢" />
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-gray-600 leading-relaxed">
-                透過 CC（如 Santa Monica College、Diablo Valley College）可申請 TAG（Transfer Admission Guarantee），以較低門檻進入 UC 系統名校。TAG 提供保證錄取，大幅降低申請不確定性。
+                透過 CC（如 Santa Monica College、Diablo Valley College）可申請 TAG（Transfer Admission Guarantee），以較低門檻進入 UC 系統名校，有效提升錄取穩定性。
               </p>
             </div>
           </ScrollReveal>
