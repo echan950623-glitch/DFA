@@ -1,8 +1,0 @@
-{
-  "name": "dfa-website",
-  "compatibility_date": "2026-04-03",
-  "workers_dev": true,
-  "assets": {
-    "directory": "./dist"
-  }
-}
