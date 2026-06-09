@@ -1,5 +1,5 @@
 /**
- * SectionHeading — Crimson-style typography hierarchy
+ * SectionHeading — typography hierarchy
  *
  * 3 modes:
  *  default  → eyebrow + H2 + subtitle below

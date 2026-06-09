@@ -12,9 +12,8 @@ dist
 _docs/
 pptx_unpacked/
 
-# Claude
-.claude/settings.local.json
-.claude/scheduled_tasks.lock
+# Claude (dev tooling — never ship to repo/client)
+.claude/
 
 # Local devlog (private notes)
 DEVLOG.md
