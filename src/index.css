@@ -36,7 +36,7 @@
   animation: dfaEntryFadeIn 0.7s ease 0.1s forwards;
 }
 
-/* 主標題（夢想家留學 + 副標合併一行） */
+/* 主標題（夢想家留學 + 副標，兩行） */
 .dfa-entry-title {
   font-family: 'Noto Sans TC', sans-serif;
   text-align: center;
@@ -47,10 +47,10 @@
   transform: translateY(12px);
   animation: dfaEntryFadeIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: baseline;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .dfa-entry-title-main {
