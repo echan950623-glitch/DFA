@@ -1,6 +1,8 @@
 {
   "name": "dfa-website",
   "compatibility_date": "2026-04-03",
-  // Cloudflare Pages 必需：build 輸出目錄。缺這欄會讓 Git 連結的 Pages build 失敗。
-  "pages_build_output_dir": "./dist"
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist"
+  }
 }
