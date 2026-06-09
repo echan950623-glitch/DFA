@@ -14,3 +14,25 @@ pptx_unpacked/
 
 # Claude
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Local devlog (private notes)
+DEVLOG.md
+
+# Manual build artifacts (not shipped)
+dist-manual/
+.manual-build/
+
+# Tooling caches
+.playwright-mcp/
+.wrangler/
+*.log
+
+# Dev / audit scratch (not part of the website)
+rwd-audit/
+structure.txt
+AGENTS.md
+TASKS_0428.md
+
+# Archived / unused images (88MB, not shipped)
+public/images/unused/

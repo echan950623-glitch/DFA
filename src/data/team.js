@@ -50,7 +50,7 @@ export const teamMembers = [
   },
   {
     name: '簡老師',
-    school: '加州大學伯克利分校',
+    school: '加州大學柏克萊分校',
     degree: 'UC 轉學成功案例',
     photo: '/images/team/簡老師.jpg',
     bio: '簡老師本身即是由社區大學轉學進入 UC 的成功案例，深刻理解轉學路徑中的每一個關鍵環節與挑戰。現為 DFA 升學顧問，專注於 UC 轉學規劃，擅長學業與選課策略（IGETC）設計，並結合申請敘事與文件架構，協助學生建立清晰且具競爭力的升學方案。',
@@ -66,7 +66,7 @@ export const teamMembers = [
     name: '黃老師',
     school: '倫敦大學',
     degree: '設計思維',
-    photo: '/images/team/黃老師.jpg',
+    photo: '/images/team/黃老師.jpeg',
     bio: '具備國際級設計與跨領域整合經驗，並擁有世界 500 強體系背景。現為 DFA 升學顧問，專注於美國頂尖大學申請與 UC 系統轉學規劃，擅長將設計思維轉化為申請策略，協助學生建立清晰且具競爭力的升學路徑。',
   },
   {

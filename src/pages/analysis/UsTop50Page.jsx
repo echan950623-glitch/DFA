@@ -99,7 +99,7 @@ const TIERS = [
 ]
 
 const UNIVERSITIES = [
-  { name: '加州大學伯克利分校', nameEn: 'UC Berkeley', rank: '#1 Public', tag: 'UCB' },
+  { name: '加州大學柏克萊分校', nameEn: 'UC Berkeley', rank: '#1 Public', tag: 'UCB' },
   { name: '加州大學洛杉磯分校', nameEn: 'UC Los Angeles', rank: '#1 Public', tag: 'UCLA' },
   { name: '加州大學聖地牙哥分校', nameEn: 'UC San Diego', rank: 'Top 10 Public', tag: 'UCSD' },
   { name: '密歇根大學安娜堡分校', nameEn: 'University of Michigan', rank: 'Top 25', tag: 'UMICH' },

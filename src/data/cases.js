@@ -1,7 +1,7 @@
 export const ADMISSION_CASES = [
   {
     label: '黃同學',
-    from: '聖塔莫尼卡城市學院',
+    from: '聖塔莫尼卡學院',
     to: '加州大學柏克萊分校',
     toEn: 'UC Berkeley',
     major: '經濟學',
@@ -48,7 +48,7 @@ export const ADMISSION_CASES = [
   },
   {
     label: '案例 D',
-    from: '戴波洛谷學院',
+    from: '戴伯洛谷學院',
     to: '普渡大學',
     toEn: 'Purdue University',
     major: '教育學',
@@ -96,7 +96,7 @@ export const ADMISSION_CASES = [
   },
   {
     label: '案例 I',
-    from: '戴波洛谷學院',
+    from: '戴伯洛谷學院',
     to: '哥倫比亞大學',
     toEn: 'Columbia University',
     major: '資訊管理學',

@@ -20,10 +20,10 @@ const COUNTRIES = [
       { label: '代表名校', value: 'G5 聯盟' },
     ],
     universities: [
-      { name: '劍橋大學', en: 'Cambridge', qs: 2, majors: '數學・工程・化學工程・計算機科學・經濟學・歷史・建築學・醫學・自然科學・地理・法律' },
-      { name: '牛津大學', en: 'Oxford', qs: 3, majors: '經濟與管理・計算機科學・醫學・數學・生物醫學・哲學政治經濟・歷史與政治・物理・法律' },
+      { name: '劍橋大學', en: 'Cambridge', qs: 2, majors: '數學・工程・化學工程・資訊科學・經濟學・歷史・建築學・醫學・自然科學・地理・法律' },
+      { name: '牛津大學', en: 'Oxford', qs: 3, majors: '經濟與管理・資訊科學・醫學・數學・生物醫學・哲學政治經濟・歷史與政治・物理・法律' },
       { name: '帝國理工學院', en: 'Imperial College London', qs: 6, majors: '航空航天工程・分子生物工程・機械工程・材料科學・電子電氣工程・人工智慧・化學工程・生物科技' },
-      { name: '倫敦大學學院 UCL', en: 'University College London', qs: 9, majors: '人類學・建築學・化學工程・土木工程・計算機科學・經濟學・心理學・地理學・法學・教育學・哲學' },
+      { name: '倫敦大學學院 UCL', en: 'University College London', qs: 9, majors: '人類學・建築學・化學工程・土木工程・資訊科學・經濟學・心理學・地理學・法學・教育學・哲學' },
       { name: '倫敦政經學院 LSE', en: 'London School of Economics', qs: 45, majors: '經濟學・法律・管理學・會計與金融・金融・數據科學・政治學' },
     ],
     pathways: [

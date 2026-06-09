@@ -13,7 +13,7 @@ const QS_UNIVERSITIES = [
   { rank: 7, name: '蘇黎世聯邦理工學院', nameEn: 'ETH Zurich', country: '🇨🇭', field: '理工' },
   { rank: 8, name: '新加坡國立大學', nameEn: 'NUS', country: '🇸🇬', field: '綜合' },
   { rank: 9, name: 'UCL', nameEn: 'University College London', country: '🇬🇧', field: '綜合' },
-  { rank: 10, name: '加州大學伯克利分校', nameEn: 'UC Berkeley', country: '🇺🇸', field: '理工 / 人文' },
+  { rank: 10, name: '加州大學柏克萊分校', nameEn: 'UC Berkeley', country: '🇺🇸', field: '理工 / 人文' },
   { rank: 11, name: '芝加哥大學', nameEn: 'University of Chicago', country: '🇺🇸', field: '經濟 / 社科' },
   { rank: 12, name: '賓州大學', nameEn: 'University of Pennsylvania', country: '🇺🇸', field: '商學 / 法律' },
   { rank: 13, name: '康奈爾大學', nameEn: 'Cornell University', country: '🇺🇸', field: '理工 / 農學' },
