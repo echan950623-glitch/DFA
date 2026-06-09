@@ -29,7 +29,8 @@
 .dfa-entry-logo {
   height: clamp(4rem, 10vw, 7rem);
   width: auto;
-  filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.25));
+  /* logo-white.png 本身已是白色，brightness(0) invert(1) 會在手機上先閃黑 frame，移除 */
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,0.25));
   opacity: 0;
   transform: translateY(10px);
   animation: dfaEntryFadeIn 0.7s ease 0.1s forwards;
