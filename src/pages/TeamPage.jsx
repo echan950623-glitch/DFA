@@ -4,6 +4,7 @@ import ProgramHero from '../components/shared/ProgramHero'
 import SectionHeading from '../components/ui/SectionHeading'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import { teamMembers } from '../data/team'
+import OfficeMarquee from '../components/shared/OfficeMarquee'
 
 /* ── 三大服務項目 ── */
 const SERVICES = [
@@ -339,6 +340,25 @@ export default function TeamPage() {
           </div>
 
         </div>
+      </section>
+
+      {/* ── 辦公室環境 ── */}
+      <section className="section-padding bg-dfa-light overflow-hidden">
+        <div className="container-max">
+          <ScrollReveal>
+            <SectionHeading
+              label="Our Space"
+              title="走進 DFA 學習環境"
+              subtitle="專業舒適的空間，陪伴每一位學員築夢前行"
+              split
+            />
+          </ScrollReveal>
+        </div>
+        <ScrollReveal>
+          <div className="mt-10">
+            <OfficeMarquee />
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ── CTA Banner ── */}
