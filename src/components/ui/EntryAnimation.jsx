@@ -38,7 +38,7 @@ export default function EntryAnimation() {
       {/* 主標題 + 副標（兩行） */}
       <div className="dfa-entry-title">
         <span className="dfa-entry-title-main">夢想家留學</span>
-        <span className="dfa-entry-title-sub">留學不只是探索</span>
+        <span className="dfa-entry-title-sub">世界名校，從夢想家啟程</span>
       </div>
 
       {/* 英文 tagline */}
